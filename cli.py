@@ -194,7 +194,7 @@ def join_params_retrieval(table_statement):
     args = parts[1:]
 
     table_name = args[args.index("from") + 1]    
-    if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name))):
+    if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
         print("Table with name '{}' does not exist".format(table_name))
         return None, False
     if args[0] == "all":
