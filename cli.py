@@ -290,6 +290,14 @@ def sql_merge_query_retriever(f_statement):
             print("Invalid operators in provided clause for the table {}".format(table_name))
             return None, False
         search_val = args[args.index("provided") + 3]
+        if search_val.startswith('"'):
+            whole_val = ""
+            for i in range(args.index("provided")+3, len(args)):
+                if args[i].endswith("\""):
+                    whole_val += " " + args[i]
+                    break
+                whole_val += " " + args[i]
+            search_val = whole_val.strip()
         if search_val[0] in ['"', "'"] and search_val[-1] in ['"', "'"]:
             search_val = search_val[1:-1] 
     sort_col = ""
@@ -527,6 +535,14 @@ def sql_process_user_command(command):
                     print("Invalid operators in provided clause for the table {}".format(table_name))
                     return
                 search_val = args[args.index("provided") + 3]
+                if search_val.startswith('"'):
+                    whole_val = ""
+                    for i in range(args.index("provided")+3, len(args)):
+                        if args[i].endswith("\""):
+                            whole_val += " " + args[i]
+                            break
+                        whole_val += " " + args[i]
+                    search_val = whole_val.strip()
                 if search_val[0] in ['"', "'"] and search_val[-1] in ['"', "'"]:
                     search_val = search_val[1:-1]
             else:
@@ -583,6 +599,14 @@ def sql_process_user_command(command):
                     print("Invalid operators in provided clause for the table {}".format(table_name))
                     return
                 search_val = args[args.index("provided") + 3]
+                if search_val.startswith('"'):
+                    whole_val = ""
+                    for i in range(args.index("provided")+3, len(args)):
+                        if args[i].endswith("\""):
+                            whole_val += " " + args[i]
+                            break
+                        whole_val += " " + args[i]
+                    search_val = whole_val.strip()
                 if search_val[0] in ['"', "'"] and search_val[-1] in ['"', "'"]:
                     search_val = search_val[1:-1]
             if os.name == "nt":
@@ -646,6 +670,14 @@ def sql_process_user_command(command):
                     print("Invalid operators in provided clause for the table {}".format(table_name))
                     return
                 search_val = args[args.index("provided") + 3]
+                if search_val.startswith('"'):
+                    whole_val = ""
+                    for i in range(args.index("provided")+3, len(args)):
+                        if args[i].endswith("\""):
+                            whole_val += " " + args[i]
+                            break
+                        whole_val += " " + args[i]
+                    search_val = whole_val.strip()
                 if search_val[0] in ['"', "'"] and search_val[-1] in ['"', "'"]:
                     search_val = search_val[1:-1] 
             sort_col = ""
