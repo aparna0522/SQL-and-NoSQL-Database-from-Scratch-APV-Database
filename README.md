@@ -30,7 +30,8 @@ When running sql commands use following syntax:
   find all from standings provided idx > 300;
   find all from games provided team = "Vikings"; //team is a wrong column name
   find all from games provided home_team = "Vikings"; //"Vikings" team name does not exist
-  <!-- find all from games provided home_team = "Los Angeles Rams"; -->
+  find all from games provided home_team = "Los Angeles Rams"; 
+  Indianapolis
   find all from attendance provided team = "Vikings";
   ```
 
