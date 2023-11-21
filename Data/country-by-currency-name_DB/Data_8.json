@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Norway",
+        "currency_name": "Norwegian Krone",
+        "id": 161
+    },
+    {
+        "country": "Oman",
+        "currency_name": "Omani Rial",
+        "id": 162
+    },
+    {
+        "country": "Pakistan",
+        "currency_name": "Pakistan Rupee",
+        "id": 163
+    },
+    {
+        "country": "Palau",
+        "currency_name": "US Dollar",
+        "id": 164
+    },
+    {
+        "country": "Palestine",
+        "currency_name": null,
+        "id": 165
+    },
+    {
+        "country": "Panama",
+        "currency_name": "Panamanian Balboa",
+        "id": 166
+    },
+    {
+        "country": "Papua New Guinea",
+        "currency_name": "Papua New Guinea Kina",
+        "id": 167
+    },
+    {
+        "country": "Paraguay",
+        "currency_name": "Paraguay Guarani",
+        "id": 168
+    },
+    {
+        "country": "Peru",
+        "currency_name": "Peruvian Nuevo Sol",
+        "id": 169
+    },
+    {
+        "country": "Philippines",
+        "currency_name": "Philippine Peso",
+        "id": 170
+    },
+    {
+        "country": "Pitcairn Islands",
+        "currency_name": "New Zealand Dollar",
+        "id": 171
+    },
+    {
+        "country": "Poland",
+        "currency_name": "Polish Zloty",
+        "id": 172
+    },
+    {
+        "country": "Portugal",
+        "currency_name": "Euro",
+        "id": 173
+    },
+    {
+        "country": "Puerto Rico",
+        "currency_name": "US Dollar",
+        "id": 174
+    },
+    {
+        "country": "Qatar",
+        "currency_name": "Qatari Rial",
+        "id": 175
+    },
+    {
+        "country": "Reunion",
+        "currency_name": "Euro",
+        "id": 176
+    },
+    {
+        "country": "Romania",
+        "currency_name": "Romanian New Leu",
+        "id": 177
+    },
+    {
+        "country": "Russian Federation",
+        "currency_name": "Russian Ruble",
+        "id": 178
+    },
+    {
+        "country": "Rwanda",
+        "currency_name": "Rwanda Franc",
+        "id": 179
+    },
+    {
+        "country": "Saint Helena",
+        "currency_name": "St. Helena Pound",
+        "id": 180
+    }
+]

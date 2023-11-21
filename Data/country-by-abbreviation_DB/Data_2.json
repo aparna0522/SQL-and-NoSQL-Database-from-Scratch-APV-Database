@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Central African Republic",
+        "abbreviation": "CF",
+        "id": 41
+    },
+    {
+        "country": "Chad",
+        "abbreviation": "TD",
+        "id": 42
+    },
+    {
+        "country": "Chile",
+        "abbreviation": "CL",
+        "id": 43
+    },
+    {
+        "country": "China",
+        "abbreviation": "CN",
+        "id": 44
+    },
+    {
+        "country": "Christmas Island",
+        "abbreviation": "CX",
+        "id": 45
+    },
+    {
+        "country": "Cocos (Keeling) Islands",
+        "abbreviation": "CC",
+        "id": 46
+    },
+    {
+        "country": "Colombia",
+        "abbreviation": "CO",
+        "id": 47
+    },
+    {
+        "country": "Comoros",
+        "abbreviation": "KM",
+        "id": 48
+    },
+    {
+        "country": "Congo",
+        "abbreviation": "CG",
+        "id": 49
+    },
+    {
+        "country": "Cook Islands",
+        "abbreviation": "CK",
+        "id": 50
+    },
+    {
+        "country": "Costa Rica",
+        "abbreviation": "CR",
+        "id": 51
+    },
+    {
+        "country": "Croatia",
+        "abbreviation": "HR",
+        "id": 52
+    },
+    {
+        "country": "Cuba",
+        "abbreviation": "CU",
+        "id": 53
+    },
+    {
+        "country": "Cyprus",
+        "abbreviation": "CY",
+        "id": 54
+    },
+    {
+        "country": "Czech Republic",
+        "abbreviation": "CZ",
+        "id": 55
+    },
+    {
+        "country": "Denmark",
+        "abbreviation": "DK",
+        "id": 56
+    },
+    {
+        "country": "Djibouti",
+        "abbreviation": "DJ",
+        "id": 57
+    },
+    {
+        "country": "Dominica",
+        "abbreviation": "DM",
+        "id": 58
+    },
+    {
+        "country": "Dominican Republic",
+        "abbreviation": "DO",
+        "id": 59
+    },
+    {
+        "country": "East Timor",
+        "abbreviation": "TP",
+        "id": 60
+    }
+]

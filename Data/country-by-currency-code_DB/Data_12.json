@@ -1,0 +1,17 @@
+[
+    {
+        "country": "Yemen",
+        "currency_code": "YER",
+        "id": 241
+    },
+    {
+        "country": "Zambia",
+        "currency_code": "ZMW",
+        "id": 242
+    },
+    {
+        "country": "Zimbabwe",
+        "currency_code": "ZWD",
+        "id": 243
+    }
+]

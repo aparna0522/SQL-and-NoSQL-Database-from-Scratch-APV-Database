@@ -564,13 +564,13 @@ def order_by(table_name, projection_cols, search_col, operator, search_val, orde
                 os.system('PageManager.exe "order" "{}" "{}" "ASC" "{}"'.format("temp/"+tempi_folder, order_by_col, temp_page_cnk_size))
             else:
                 os.system('./PageManager.o "order" "{}" "{}" "ASC" "{}"'.format("temp/"+tempi_folder, order_by_col, temp_page_cnk_size))
-            print("\n========== Ascending Order-by Result ==========\n")
+            #print("\n========== Ascending Order-by Result ==========\n")
         elif desc == 1: # Descending sort.
             if os.name == "nt":
                 os.system('PageManager.exe "order" "{}" "{}" "DESC" "{}"'.format("temp/"+tempi_folder, order_by_col, temp_page_cnk_size))
             else:
                 os.system('./PageManager.o "order" "{}" "{}" "DESC" "{}"'.format("temp/"+tempi_folder, order_by_col, temp_page_cnk_size))
-            print("\n========== Descending Order-by Result ==========\n")
+            #print("\n========== Descending Order-by Result ==========\n")
 
     with open(os.path.join(tempi_path, "meta.txt"), "r") as mfr:
         mlines = mfr.readlines()
@@ -638,14 +638,14 @@ def join_a_b(a_params, b_params, sort_after_join_col, sort_after_join=0, desc=0,
             else:
                 os.system('./PageManager.o "order" "{}" "{}" "ASC" "{}"'.format("temp/"+o_tempi_folder, sort_after_join_col, temp_page_cnk_size))
 
-            print("\n========== Post-Join Ascending Order-by Result ==========\n")
+            #print("\n========== Post-Join Ascending Order-by Result ==========\n")
         elif desc == 1: # Descending sort.
             if os.name == "nt":
                 os.system('PageManager.exe "order" "{}" "{}" "DESC" "{}"'.format("temp/"+o_tempi_folder, sort_after_join_col, temp_page_cnk_size))
             else:
                 os.system('./PageManager.o "order" "{}" "{}" "DESC" "{}"'.format("temp/"+o_tempi_folder, sort_after_join_col, temp_page_cnk_size))
 
-            print("\n========== Post-Join Descending Order-by Result ==========\n")
+            #print("\n========== Post-Join Descending Order-by Result ==========\n")
     else:
         print("\n========== Join Result ==========\n")
 
@@ -689,16 +689,17 @@ def group_by(table_name, projection_cols, search_col, operator, search_val, sort
             else:
                 os.system('./PageManager.o "order" "{}" "{}" "ASC" "{}"'.format("temp/"+tempi_folder, sort_after_group_col, temp_page_cnk_size))
 
-            print("\n========== Post-Group Ascending Order-by Result ==========\n")
+            #print("\n========== Post-Group Ascending Order-by Result ==========\n")
         elif desc == 1: # Descending sort.
             if os.name == "nt":
                 os.system('PageManager.exe "order" "{}" "{}" "DESC" "{}"'.format("temp/"+tempi_folder, sort_after_group_col, temp_page_cnk_size))
             else:
                 os.system('./PageManager.o "order" "{}" "{}" "DESC" "{}"'.format("temp/"+tempi_folder, sort_after_group_col, temp_page_cnk_size))
 
-            print("\n========== Post-Group Descending Order-by Result ==========\n")
+            #print("\n========== Post-Group Descending Order-by Result ==========\n")
     else:
-        print("\n========== Group-by Result ==========\n")
+        #print("\n========== Group-by Result ==========\n")
+        pass
 
     for page_file_num in sorted([int(pf.split(".")[0].split("_")[-1]) for pf in os.listdir(tempi_path) if os.path.isfile(os.path.join(tempi_path, pf)) and pf.split(".")[0] != "meta"]):
         with open(os.path.join(tempi_path, "pages_{}.txt".format(page_file_num))) as pfr:

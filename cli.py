@@ -672,12 +672,14 @@ def sql_process_user_command(command):
                 search_val = args[args.index("provided") + 3]
                 if search_val.startswith('"'):
                     whole_val = ""
-                    for i in range(args.index("provided")+3, len(args)):
-                        if args[i].endswith("\""):
-                            whole_val += " " + args[i]
-                            break
+
+                for i in range(args.index("provided")+3, len(args)):
+                    if args[i].endswith("\""):
                         whole_val += " " + args[i]
-                    search_val = whole_val.strip()
+                        break
+                    whole_val += " " + args[i]
+                search_val = whole_val.strip()
+
                 if search_val[0] in ['"', "'"] and search_val[-1] in ['"', "'"]:
                     search_val = search_val[1:-1] 
             sort_col = ""
@@ -853,7 +855,7 @@ def nosql_process_user_command(command):
         try:
             start_time = time.time()
             table_name = args[args.index("table") + 1]
-            if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name))):
+            if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
                 print("Table with name '{}' does not exist".format(table_name))
                 return
             values = json.loads(re.findall(r'\{.*?\}', command)[0])
@@ -877,7 +879,7 @@ def nosql_process_user_command(command):
         try:
             start_time = time.time()
             table_name = args[args.index("table") + 1]
-            if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name))):
+            if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
                 print("Table with name '{}' does not exist".format(table_name))
                 return
             set_col = args[args.index("values") + 1]
@@ -915,7 +917,7 @@ def nosql_process_user_command(command):
         try:
             start_time = time.time()
             table_name = args[args.index("table") + 1]
-            if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name))):
+            if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
                 print("Table with name '{}' does not exist".format(table_name))
                 return
             search_col = args[args.index("provided") + 1]
@@ -954,7 +956,7 @@ def nosql_process_user_command(command):
         try:
             start_time = time.time()
             table_name = args[args.index("from") + 1]      
-            if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name))):
+            if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
                 print("Table with name '{}' does not exist".format(table_name))
                 return 
             if args[0] == "all":
@@ -1006,7 +1008,7 @@ def nosql_process_user_command(command):
         try:
             start_time = time.time()
             table_name = args[args.index("from") + 1]
-            if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name))):
+            if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
                 print("Table with name '{}' does not exist".format(table_name))
                 return
             projection_list = json.loads(re.findall(r'\[.*?\]', command)[0])

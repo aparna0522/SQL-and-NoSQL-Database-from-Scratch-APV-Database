@@ -1,0 +1,122 @@
+[
+    {
+        "country": "Belgium",
+        "continent": "Europe",
+        "id": 21,
+        "population": 11433256
+    },
+    {
+        "country": "Belize",
+        "continent": "North America",
+        "id": 22,
+        "population": 383071
+    },
+    {
+        "country": "Benin",
+        "continent": "Africa",
+        "id": 23,
+        "population": 11485048
+    },
+    {
+        "country": "Bermuda",
+        "continent": "North America",
+        "id": 24,
+        "population": 63973
+    },
+    {
+        "country": "Bhutan",
+        "continent": "Asia",
+        "id": 25,
+        "population": 754394
+    },
+    {
+        "country": "Bolivia",
+        "continent": "South America",
+        "id": 26,
+        "population": 11353142
+    },
+    {
+        "country": "Bosnia and Herzegovina",
+        "continent": "Europe",
+        "id": 27,
+        "population": 3323929
+    },
+    {
+        "country": "Botswana",
+        "continent": "Africa",
+        "id": 28,
+        "population": 2254126
+    },
+    {
+        "country": "Bouvet Island",
+        "continent": "Antarctica",
+        "id": 29,
+        "population": 0
+    },
+    {
+        "country": "Brazil",
+        "continent": "South America",
+        "id": 30,
+        "population": 209469333
+    },
+    {
+        "country": "British Indian Ocean Territory",
+        "continent": "Africa",
+        "id": 31,
+        "population": 0
+    },
+    {
+        "country": "Brunei",
+        "continent": "Asia",
+        "id": 32,
+        "population": 428962
+    },
+    {
+        "country": "Bulgaria",
+        "continent": "Europe",
+        "id": 33,
+        "population": 7025037
+    },
+    {
+        "country": "Burkina Faso",
+        "continent": "Africa",
+        "id": 34,
+        "population": 19751535
+    },
+    {
+        "country": "Burundi",
+        "continent": "Africa",
+        "id": 35,
+        "population": 11175378
+    },
+    {
+        "country": "Cambodia",
+        "continent": "Asia",
+        "id": 36,
+        "population": 16249798
+    },
+    {
+        "country": "Cameroon",
+        "continent": "Africa",
+        "id": 37,
+        "population": 25216237
+    },
+    {
+        "country": "Canada",
+        "continent": "North America",
+        "id": 38,
+        "population": 37057765
+    },
+    {
+        "country": "Cape Verde",
+        "continent": "Africa",
+        "id": 39,
+        "population": 543767
+    },
+    {
+        "country": "Cayman Islands",
+        "continent": "North America",
+        "id": 40,
+        "population": 64174
+    }
+]

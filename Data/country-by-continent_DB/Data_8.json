@@ -1,0 +1,122 @@
+[
+    {
+        "country": "Northern Mariana Islands",
+        "continent": "Oceania",
+        "id": 161,
+        "population": 56882
+    },
+    {
+        "country": "Norway",
+        "continent": "Europe",
+        "id": 162,
+        "population": 5311916
+    },
+    {
+        "country": "Oman",
+        "continent": "Asia",
+        "id": 163,
+        "population": 4829483
+    },
+    {
+        "country": "Pakistan",
+        "continent": "Asia",
+        "id": 164,
+        "population": 212215030
+    },
+    {
+        "country": "Palau",
+        "continent": "Oceania",
+        "id": 165,
+        "population": 17907
+    },
+    {
+        "country": "Palestine",
+        "continent": "Asia",
+        "id": 166,
+        "population": 4569087
+    },
+    {
+        "country": "Panama",
+        "continent": "North America",
+        "id": 167,
+        "population": 4176873
+    },
+    {
+        "country": "Papua New Guinea",
+        "continent": "Oceania",
+        "id": 168,
+        "population": 8606316
+    },
+    {
+        "country": "Paraguay",
+        "continent": "South America",
+        "id": 169,
+        "population": 6956071
+    },
+    {
+        "country": "Peru",
+        "continent": "South America",
+        "id": 170,
+        "population": 31989256
+    },
+    {
+        "country": "Philippines",
+        "continent": "Asia",
+        "id": 171,
+        "population": 106651922
+    },
+    {
+        "country": "Pitcairn",
+        "continent": "Oceania",
+        "id": 172,
+        "population": 67
+    },
+    {
+        "country": "Poland",
+        "continent": "Europe",
+        "id": 173,
+        "population": 37974750
+    },
+    {
+        "country": "Portugal",
+        "continent": "Europe",
+        "id": 174,
+        "population": 10283822
+    },
+    {
+        "country": "Puerto Rico",
+        "continent": "North America",
+        "id": 175,
+        "population": 3195153
+    },
+    {
+        "country": "Qatar",
+        "continent": "Asia",
+        "id": 176,
+        "population": 2781677
+    },
+    {
+        "country": "Reunion",
+        "continent": "Africa",
+        "id": 177,
+        "population": 859959
+    },
+    {
+        "country": "Romania",
+        "continent": "Europe",
+        "id": 178,
+        "population": 19466145
+    },
+    {
+        "country": "Russian Federation",
+        "continent": "Europe",
+        "id": 179,
+        "population": 144478050
+    },
+    {
+        "country": "Rwanda",
+        "continent": "Africa",
+        "id": 180,
+        "population": 12301939
+    }
+]

@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Central African Republic",
+        "currency_code": "XAF",
+        "id": 41
+    },
+    {
+        "country": "Chad",
+        "currency_code": "XAF",
+        "id": 42
+    },
+    {
+        "country": "Chile",
+        "currency_code": "CLP",
+        "id": 43
+    },
+    {
+        "country": "China",
+        "currency_code": "CNY",
+        "id": 44
+    },
+    {
+        "country": "Christmas Island",
+        "currency_code": "AUD",
+        "id": 45
+    },
+    {
+        "country": "Cocos (Keeling) Islands",
+        "currency_code": "AUD",
+        "id": 46
+    },
+    {
+        "country": "Colombia",
+        "currency_code": "COP",
+        "id": 47
+    },
+    {
+        "country": "Comoros",
+        "currency_code": "KMF",
+        "id": 48
+    },
+    {
+        "country": "Congo",
+        "currency_code": "XAF",
+        "id": 49
+    },
+    {
+        "country": "Cook Islands",
+        "currency_code": "NZD",
+        "id": 50
+    },
+    {
+        "country": "Costa Rica",
+        "currency_code": "CRC",
+        "id": 51
+    },
+    {
+        "country": "Croatia",
+        "currency_code": "EUR",
+        "id": 52
+    },
+    {
+        "country": "Cuba",
+        "currency_code": "CUP",
+        "id": 53
+    },
+    {
+        "country": "Cyprus",
+        "currency_code": "EUR",
+        "id": 54
+    },
+    {
+        "country": "Czech Republic",
+        "currency_code": "CZK",
+        "id": 55
+    },
+    {
+        "country": "Denmark",
+        "currency_code": "DKK",
+        "id": 56
+    },
+    {
+        "country": "Djibouti",
+        "currency_code": "DJF",
+        "id": 57
+    },
+    {
+        "country": "Dominica",
+        "currency_code": "XCD",
+        "id": 58
+    },
+    {
+        "country": "Dominican Republic",
+        "currency_code": "DOP",
+        "id": 59
+    },
+    {
+        "country": "East Timor",
+        "currency_code": "USD",
+        "id": 60
+    }
+]

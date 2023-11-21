@@ -1,0 +1,26 @@
+[
+    {
+        "country": "Western Sahara",
+        "continent": "Africa",
+        "id": 241,
+        "population": 652271
+    },
+    {
+        "country": "Yemen",
+        "continent": "Asia",
+        "id": 242,
+        "population": 28498687
+    },
+    {
+        "country": "Zambia",
+        "continent": "Africa",
+        "id": 243,
+        "population": 17351822
+    },
+    {
+        "country": "Zimbabwe",
+        "continent": "Africa",
+        "id": 244,
+        "population": 14439018
+    }
+]

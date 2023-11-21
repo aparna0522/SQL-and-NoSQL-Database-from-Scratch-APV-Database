@@ -1,0 +1,122 @@
+[
+    {
+        "country": "Afghanistan",
+        "continent": "Asia",
+        "id": 1,
+        "population": 37172386
+    },
+    {
+        "country": "Albania",
+        "continent": "Europe",
+        "id": 2,
+        "population": 2866376
+    },
+    {
+        "country": "Algeria",
+        "continent": "Africa",
+        "id": 3,
+        "population": 42228429
+    },
+    {
+        "country": "American Samoa",
+        "continent": "Oceania",
+        "id": 4,
+        "population": 55465
+    },
+    {
+        "country": "Andorra",
+        "continent": "Europe",
+        "id": 5,
+        "population": 77006
+    },
+    {
+        "country": "Angola",
+        "continent": "Africa",
+        "id": 6,
+        "population": 30809762
+    },
+    {
+        "country": "Anguilla",
+        "continent": "North America",
+        "id": 7,
+        "population": 15094
+    },
+    {
+        "country": "Antarctica",
+        "continent": "Antarctica",
+        "id": 8,
+        "population": 1106
+    },
+    {
+        "country": "Antigua and Barbuda",
+        "continent": "North America",
+        "id": 9,
+        "population": 96286
+    },
+    {
+        "country": "Argentina",
+        "continent": "South America",
+        "id": 10,
+        "population": 44494502
+    },
+    {
+        "country": "Armenia",
+        "continent": "Asia",
+        "id": 11,
+        "population": 2951776
+    },
+    {
+        "country": "Aruba",
+        "continent": "North America",
+        "id": 12,
+        "population": 105845
+    },
+    {
+        "country": "Australia",
+        "continent": "Oceania",
+        "id": 13,
+        "population": 24982688
+    },
+    {
+        "country": "Austria",
+        "continent": "Europe",
+        "id": 14,
+        "population": 8840521
+    },
+    {
+        "country": "Azerbaijan",
+        "continent": "Asia",
+        "id": 15,
+        "population": 9939800
+    },
+    {
+        "country": "Bahamas",
+        "continent": "North America",
+        "id": 16,
+        "population": 385640
+    },
+    {
+        "country": "Bahrain",
+        "continent": "Asia",
+        "id": 17,
+        "population": 1569439
+    },
+    {
+        "country": "Bangladesh",
+        "continent": "Asia",
+        "id": 18,
+        "population": 161356039
+    },
+    {
+        "country": "Barbados",
+        "continent": "North America",
+        "id": 19,
+        "population": 286641
+    },
+    {
+        "country": "Belarus",
+        "continent": "Europe",
+        "id": 20,
+        "population": 9483499
+    }
+]

@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Turkey",
+        "currency_name": "Turkish Lira",
+        "id": 221
+    },
+    {
+        "country": "Turkmenistan",
+        "currency_name": "Manat",
+        "id": 222
+    },
+    {
+        "country": "Turks and Caicos Islands",
+        "currency_name": "US Dollar",
+        "id": 223
+    },
+    {
+        "country": "Tuvalu",
+        "currency_name": "Australian Dollar",
+        "id": 224
+    },
+    {
+        "country": "Uganda",
+        "currency_name": "Uganda Shilling",
+        "id": 225
+    },
+    {
+        "country": "Ukraine",
+        "currency_name": "Ukraine Hryvnia",
+        "id": 226
+    },
+    {
+        "country": "United Arab Emirates",
+        "currency_name": "Arab Emirates Dirham",
+        "id": 227
+    },
+    {
+        "country": "United Kingdom",
+        "currency_name": "Pound Sterling",
+        "id": 228
+    },
+    {
+        "country": "United States",
+        "currency_name": "US Dollar",
+        "id": 229
+    },
+    {
+        "country": "United States Minor Outlying Islands",
+        "currency_name": "US Dollar",
+        "id": 230
+    },
+    {
+        "country": "Uruguay",
+        "currency_name": "Uruguayan Peso",
+        "id": 231
+    },
+    {
+        "country": "Uzbekistan",
+        "currency_name": "Uzbekistan Sum",
+        "id": 232
+    },
+    {
+        "country": "Vanuatu",
+        "currency_name": "Vanuatu Vatu",
+        "id": 233
+    },
+    {
+        "country": "Venezuela",
+        "currency_name": "Venezuelan Bolivar",
+        "id": 234
+    },
+    {
+        "country": "Vietnam",
+        "currency_name": "Vietnamese Dong",
+        "id": 235
+    },
+    {
+        "country": "Virgin Islands, British",
+        "currency_name": "Pound Sterling",
+        "id": 236
+    },
+    {
+        "country": "Virgin Islands, U.S.",
+        "currency_name": "US Dollar",
+        "id": 237
+    },
+    {
+        "country": "Wales",
+        "currency_name": "Pound Sterlin",
+        "id": 238
+    },
+    {
+        "country": "Wallis and Futuna",
+        "currency_name": "CFP Franc",
+        "id": 239
+    },
+    {
+        "country": "Western Sahara",
+        "currency_name": "Moroccan Dirham",
+        "id": 240
+    }
+]

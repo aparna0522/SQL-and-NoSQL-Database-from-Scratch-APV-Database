@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Tonga",
+        "abbreviation": "TO",
+        "id": 221
+    },
+    {
+        "country": "Trinidad and Tobago",
+        "abbreviation": "TT",
+        "id": 222
+    },
+    {
+        "country": "Tunisia",
+        "abbreviation": "TN",
+        "id": 223
+    },
+    {
+        "country": "Turkey",
+        "abbreviation": "TR",
+        "id": 224
+    },
+    {
+        "country": "Turkmenistan",
+        "abbreviation": "TM",
+        "id": 225
+    },
+    {
+        "country": "Turks and Caicos Islands",
+        "abbreviation": "TC",
+        "id": 226
+    },
+    {
+        "country": "Tuvalu",
+        "abbreviation": "TV",
+        "id": 227
+    },
+    {
+        "country": "Uganda",
+        "abbreviation": "UG",
+        "id": 228
+    },
+    {
+        "country": "Ukraine",
+        "abbreviation": "UA",
+        "id": 229
+    },
+    {
+        "country": "United Arab Emirates",
+        "abbreviation": "AE",
+        "id": 230
+    },
+    {
+        "country": "United Kingdom of Great Britain and Northern Ireland",
+        "abbreviation": "GB",
+        "id": 231
+    },
+    {
+        "country": "United States",
+        "abbreviation": "US",
+        "id": 232
+    },
+    {
+        "country": "United States Minor Outlying Islands",
+        "abbreviation": "UM",
+        "id": 233
+    },
+    {
+        "country": "Uruguay",
+        "abbreviation": "UY",
+        "id": 234
+    },
+    {
+        "country": "Uzbekistan",
+        "abbreviation": "UZ",
+        "id": 235
+    },
+    {
+        "country": "Vanuatu",
+        "abbreviation": "VU",
+        "id": 236
+    },
+    {
+        "country": "Venezuela",
+        "abbreviation": "VE",
+        "id": 237
+    },
+    {
+        "country": "Vietnam",
+        "abbreviation": "VN",
+        "id": 238
+    },
+    {
+        "country": "Virgin Islands, British",
+        "abbreviation": "VG",
+        "id": 239
+    },
+    {
+        "country": "Virgin Islands, U.S.",
+        "abbreviation": "VI",
+        "id": 240
+    }
+]

@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Ghana",
+        "currency_name": "Ghanaian Cedi",
+        "id": 81
+    },
+    {
+        "country": "Gibraltar",
+        "currency_name": "Gibraltar Pound",
+        "id": 82
+    },
+    {
+        "country": "Greece",
+        "currency_name": "Euro",
+        "id": 83
+    },
+    {
+        "country": "Greenland",
+        "currency_name": "Danish Krone",
+        "id": 84
+    },
+    {
+        "country": "Grenada",
+        "currency_name": "East Carribean Dollar",
+        "id": 85
+    },
+    {
+        "country": "Guadeloupe",
+        "currency_name": "Euro",
+        "id": 86
+    },
+    {
+        "country": "Guam",
+        "currency_name": "US Dollar",
+        "id": 87
+    },
+    {
+        "country": "Guatemala",
+        "currency_name": "Guatemalan Quetzal",
+        "id": 88
+    },
+    {
+        "country": "Guinea",
+        "currency_name": "Guinea Franc",
+        "id": 89
+    },
+    {
+        "country": "Guinea-Bissau",
+        "currency_name": "West African CFA franc",
+        "id": 90
+    },
+    {
+        "country": "Guyana",
+        "currency_name": "Guyana Dollar",
+        "id": 91
+    },
+    {
+        "country": "Haiti",
+        "currency_name": "Haitian Gourde",
+        "id": 92
+    },
+    {
+        "country": "Heard Island and McDonald Islands",
+        "currency_name": "Australian Dollar",
+        "id": 93
+    },
+    {
+        "country": "Holy See (Vatican City State)",
+        "currency_name": "Euro",
+        "id": 94
+    },
+    {
+        "country": "Honduras",
+        "currency_name": "Honduran Lempira",
+        "id": 95
+    },
+    {
+        "country": "Hong Kong",
+        "currency_name": "Hong Kong Dollar",
+        "id": 96
+    },
+    {
+        "country": "Hungary",
+        "currency_name": "Hungarian Forint",
+        "id": 97
+    },
+    {
+        "country": "Iceland",
+        "currency_name": "Iceland Krona",
+        "id": 98
+    },
+    {
+        "country": "India",
+        "currency_name": "Indian Rupee",
+        "id": 99
+    },
+    {
+        "country": "Indonesia",
+        "currency_name": "Indonesian Rupiah",
+        "id": 100
+    }
+]

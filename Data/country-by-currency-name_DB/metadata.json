@@ -1,0 +1,10 @@
+{
+    "available": [
+        "12"
+    ],
+    "columns": [
+        "country",
+        "currency_name",
+        "id"
+    ]
+}

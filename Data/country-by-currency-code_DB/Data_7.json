@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Mongolia",
+        "currency_code": "MNT",
+        "id": 141
+    },
+    {
+        "country": "Montserrat",
+        "currency_code": "XCD",
+        "id": 142
+    },
+    {
+        "country": "Morocco",
+        "currency_code": "MAD",
+        "id": 143
+    },
+    {
+        "country": "Mozambique",
+        "currency_code": "MZN",
+        "id": 144
+    },
+    {
+        "country": "Myanmar",
+        "currency_code": "MMR",
+        "id": 145
+    },
+    {
+        "country": "Namibia",
+        "currency_code": "NAD",
+        "id": 146
+    },
+    {
+        "country": "Nauru",
+        "currency_code": "AUD",
+        "id": 147
+    },
+    {
+        "country": "Nepal",
+        "currency_code": "NPR",
+        "id": 148
+    },
+    {
+        "country": "Netherlands",
+        "currency_code": "EUR",
+        "id": 149
+    },
+    {
+        "country": "Netherlands Antilles",
+        "currency_code": "ANG",
+        "id": 150
+    },
+    {
+        "country": "New Caledonia",
+        "currency_code": "XPF",
+        "id": 151
+    },
+    {
+        "country": "New Zealand",
+        "currency_code": "NZD",
+        "id": 152
+    },
+    {
+        "country": "Nicaragua",
+        "currency_code": "NIO",
+        "id": 153
+    },
+    {
+        "country": "Niger",
+        "currency_code": "XOF",
+        "id": 154
+    },
+    {
+        "country": "Nigeria",
+        "currency_code": "NGN",
+        "id": 155
+    },
+    {
+        "country": "Niue",
+        "currency_code": "NZD",
+        "id": 156
+    },
+    {
+        "country": "Norfolk Island",
+        "currency_code": "AUD",
+        "id": 157
+    },
+    {
+        "country": "North Korea",
+        "currency_code": "KPW",
+        "id": 158
+    },
+    {
+        "country": "Northern Ireland",
+        "currency_code": "GBP",
+        "id": 159
+    },
+    {
+        "country": "Northern Mariana Islands",
+        "currency_code": "USD",
+        "id": 160
+    }
+]

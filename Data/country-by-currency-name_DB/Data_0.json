@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Afghanistan",
+        "currency_name": "Afghanistan Afghani",
+        "id": 1
+    },
+    {
+        "country": "Albania",
+        "currency_name": "Albanian Lek",
+        "id": 2
+    },
+    {
+        "country": "Algeria",
+        "currency_name": "Algerian Dinar",
+        "id": 3
+    },
+    {
+        "country": "American Samoa",
+        "currency_name": "US Dollar",
+        "id": 4
+    },
+    {
+        "country": "Andorra",
+        "currency_name": "Euro",
+        "id": 5
+    },
+    {
+        "country": "Angola",
+        "currency_name": "Angolan Kwanza",
+        "id": 6
+    },
+    {
+        "country": "Anguilla",
+        "currency_name": "East Caribbean Dollar",
+        "id": 7
+    },
+    {
+        "country": "Antarctica",
+        "currency_name": "East Caribbean Dollar",
+        "id": 8
+    },
+    {
+        "country": "Antigua and Barbuda",
+        "currency_name": "East Caribbean Dollar",
+        "id": 9
+    },
+    {
+        "country": "Argentina",
+        "currency_name": "Argentine Peso",
+        "id": 10
+    },
+    {
+        "country": "Armenia",
+        "currency_name": "Armenian Dram",
+        "id": 11
+    },
+    {
+        "country": "Aruba",
+        "currency_name": "Aruban Guilder",
+        "id": 12
+    },
+    {
+        "country": "Australia",
+        "currency_name": "Australian Dollar",
+        "id": 13
+    },
+    {
+        "country": "Austria",
+        "currency_name": "Euro",
+        "id": 14
+    },
+    {
+        "country": "Azerbaijan",
+        "currency_name": "Azerbaijan New Manat",
+        "id": 15
+    },
+    {
+        "country": "Bahamas",
+        "currency_name": "Bahamian Dollar",
+        "id": 16
+    },
+    {
+        "country": "Bahrain",
+        "currency_name": "Bahraini Dinar",
+        "id": 17
+    },
+    {
+        "country": "Bangladesh",
+        "currency_name": "Bangladeshi Taka",
+        "id": 18
+    },
+    {
+        "country": "Barbados",
+        "currency_name": "Barbados Dollar",
+        "id": 19
+    },
+    {
+        "country": "Belarus",
+        "currency_name": "Belarussian Ruble",
+        "id": 20
+    }
+]

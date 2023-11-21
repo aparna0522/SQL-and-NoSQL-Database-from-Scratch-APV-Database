@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Liberia",
+        "abbreviation": "LR",
+        "id": 121
+    },
+    {
+        "country": "Libyan Arab Jamahiriya",
+        "abbreviation": "LY",
+        "id": 122
+    },
+    {
+        "country": "Liechtenstein",
+        "abbreviation": "LI",
+        "id": 123
+    },
+    {
+        "country": "Lithuania",
+        "abbreviation": "LT",
+        "id": 124
+    },
+    {
+        "country": "Luxembourg",
+        "abbreviation": "LU",
+        "id": 125
+    },
+    {
+        "country": "Macao",
+        "abbreviation": "MO",
+        "id": 126
+    },
+    {
+        "country": "North Macedonia",
+        "abbreviation": "MK",
+        "id": 127
+    },
+    {
+        "country": "Madagascar",
+        "abbreviation": "MG",
+        "id": 128
+    },
+    {
+        "country": "Malawi",
+        "abbreviation": "MW",
+        "id": 129
+    },
+    {
+        "country": "Malaysia",
+        "abbreviation": "MY",
+        "id": 130
+    },
+    {
+        "country": "Maldives",
+        "abbreviation": "MV",
+        "id": 131
+    },
+    {
+        "country": "Mali",
+        "abbreviation": "ML",
+        "id": 132
+    },
+    {
+        "country": "Malta",
+        "abbreviation": "MT",
+        "id": 133
+    },
+    {
+        "country": "Marshall Islands",
+        "abbreviation": "MH",
+        "id": 134
+    },
+    {
+        "country": "Martinique",
+        "abbreviation": "MQ",
+        "id": 135
+    },
+    {
+        "country": "Mauritania",
+        "abbreviation": "MR",
+        "id": 136
+    },
+    {
+        "country": "Mauritius",
+        "abbreviation": "MU",
+        "id": 137
+    },
+    {
+        "country": "Mayotte",
+        "abbreviation": "YT",
+        "id": 138
+    },
+    {
+        "country": "Mexico",
+        "abbreviation": "MX",
+        "id": 139
+    },
+    {
+        "country": "Micronesia, Federated States of",
+        "abbreviation": "FM",
+        "id": 140
+    }
+]

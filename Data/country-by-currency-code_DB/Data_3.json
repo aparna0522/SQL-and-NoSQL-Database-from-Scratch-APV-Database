@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Ecuador",
+        "currency_code": "ECS",
+        "id": 61
+    },
+    {
+        "country": "Egypt",
+        "currency_code": "EGP",
+        "id": 62
+    },
+    {
+        "country": "El Salvador",
+        "currency_code": "SVC",
+        "id": 63
+    },
+    {
+        "country": "England",
+        "currency_code": "GBP",
+        "id": 64
+    },
+    {
+        "country": "Equatorial Guinea",
+        "currency_code": "XAF",
+        "id": 65
+    },
+    {
+        "country": "Eritrea",
+        "currency_code": "ERN",
+        "id": 66
+    },
+    {
+        "country": "Estonia",
+        "currency_code": "EUR",
+        "id": 67
+    },
+    {
+        "country": "Ethiopia",
+        "currency_code": "ETB",
+        "id": 68
+    },
+    {
+        "country": "Falkland Islands",
+        "currency_code": "FKP",
+        "id": 69
+    },
+    {
+        "country": "Faroe Islands",
+        "currency_code": "DKK",
+        "id": 70
+    },
+    {
+        "country": "Fiji Islands",
+        "currency_code": "FJD",
+        "id": 71
+    },
+    {
+        "country": "Finland",
+        "currency_code": "EUR",
+        "id": 72
+    },
+    {
+        "country": "France",
+        "currency_code": "EUR",
+        "id": 73
+    },
+    {
+        "country": "French Guiana",
+        "currency_code": "EUR",
+        "id": 74
+    },
+    {
+        "country": "French Polynesia",
+        "currency_code": "XPF",
+        "id": 75
+    },
+    {
+        "country": "French Southern territories",
+        "currency_code": "EUR",
+        "id": 76
+    },
+    {
+        "country": "Gabon",
+        "currency_code": "XAF",
+        "id": 77
+    },
+    {
+        "country": "Gambia",
+        "currency_code": "GMD",
+        "id": 78
+    },
+    {
+        "country": "Georgia",
+        "currency_code": "GEL",
+        "id": 79
+    },
+    {
+        "country": "Germany",
+        "currency_code": "EUR",
+        "id": 80
+    }
+]

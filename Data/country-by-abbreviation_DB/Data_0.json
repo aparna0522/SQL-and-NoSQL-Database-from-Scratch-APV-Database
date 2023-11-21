@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Afghanistan",
+        "abbreviation": "AF",
+        "id": 1
+    },
+    {
+        "country": "Albania",
+        "abbreviation": "AL",
+        "id": 2
+    },
+    {
+        "country": "Algeria",
+        "abbreviation": "DZ",
+        "id": 3
+    },
+    {
+        "country": "American Samoa",
+        "abbreviation": "AS",
+        "id": 4
+    },
+    {
+        "country": "Andorra",
+        "abbreviation": "AD",
+        "id": 5
+    },
+    {
+        "country": "Angola",
+        "abbreviation": "AO",
+        "id": 6
+    },
+    {
+        "country": "Anguilla",
+        "abbreviation": "AI",
+        "id": 7
+    },
+    {
+        "country": "Antarctica",
+        "abbreviation": "AQ",
+        "id": 8
+    },
+    {
+        "country": "Antigua and Barbuda",
+        "abbreviation": "AG",
+        "id": 9
+    },
+    {
+        "country": "Argentina",
+        "abbreviation": "AR",
+        "id": 10
+    },
+    {
+        "country": "Armenia",
+        "abbreviation": "AM",
+        "id": 11
+    },
+    {
+        "country": "Aruba",
+        "abbreviation": "AW",
+        "id": 12
+    },
+    {
+        "country": "Australia",
+        "abbreviation": "AU",
+        "id": 13
+    },
+    {
+        "country": "Austria",
+        "abbreviation": "AT",
+        "id": 14
+    },
+    {
+        "country": "Azerbaijan",
+        "abbreviation": "AZ",
+        "id": 15
+    },
+    {
+        "country": "Bahamas",
+        "abbreviation": "BS",
+        "id": 16
+    },
+    {
+        "country": "Bahrain",
+        "abbreviation": "BH",
+        "id": 17
+    },
+    {
+        "country": "Bangladesh",
+        "abbreviation": "BD",
+        "id": 18
+    },
+    {
+        "country": "Barbados",
+        "abbreviation": "BB",
+        "id": 19
+    },
+    {
+        "country": "Belarus",
+        "abbreviation": "BY",
+        "id": 20
+    }
+]

@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Russian Federation",
+        "abbreviation": "RU",
+        "id": 181
+    },
+    {
+        "country": "Rwanda",
+        "abbreviation": "RW",
+        "id": 182
+    },
+    {
+        "country": "Saint Helena",
+        "abbreviation": "SH",
+        "id": 183
+    },
+    {
+        "country": "Saint Kitts and Nevis",
+        "abbreviation": "KN",
+        "id": 184
+    },
+    {
+        "country": "Saint Lucia",
+        "abbreviation": "LC",
+        "id": 185
+    },
+    {
+        "country": "Saint Pierre and Miquelon",
+        "abbreviation": "PM",
+        "id": 186
+    },
+    {
+        "country": "Saint Vincent and the Grenadines",
+        "abbreviation": "VC",
+        "id": 187
+    },
+    {
+        "country": "Samoa",
+        "abbreviation": "WS",
+        "id": 188
+    },
+    {
+        "country": "San Marino",
+        "abbreviation": "SM",
+        "id": 189
+    },
+    {
+        "country": "Sao Tome and Principe",
+        "abbreviation": "ST",
+        "id": 190
+    },
+    {
+        "country": "Saudi Arabia",
+        "abbreviation": "SA",
+        "id": 191
+    },
+    {
+        "country": "Senegal",
+        "abbreviation": "SN",
+        "id": 192
+    },
+    {
+        "country": "Serbia",
+        "abbreviation": "RS",
+        "id": 193
+    },
+    {
+        "country": "Seychelles",
+        "abbreviation": "SC",
+        "id": 194
+    },
+    {
+        "country": "Sierra Leone",
+        "abbreviation": "SL",
+        "id": 195
+    },
+    {
+        "country": "Singapore",
+        "abbreviation": "SG",
+        "id": 196
+    },
+    {
+        "country": "Slovakia",
+        "abbreviation": "SK",
+        "id": 197
+    },
+    {
+        "country": "Slovenia",
+        "abbreviation": "SI",
+        "id": 198
+    },
+    {
+        "country": "Solomon Islands",
+        "abbreviation": "SB",
+        "id": 199
+    },
+    {
+        "country": "Somalia",
+        "abbreviation": "SO",
+        "id": 200
+    }
+]

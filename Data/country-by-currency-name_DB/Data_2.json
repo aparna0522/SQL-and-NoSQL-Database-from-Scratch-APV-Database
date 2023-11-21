@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Central African Republic",
+        "currency_name": "CFA Franc BEAC",
+        "id": 41
+    },
+    {
+        "country": "Chad",
+        "currency_name": "Central African",
+        "id": 42
+    },
+    {
+        "country": "Chile",
+        "currency_name": "Chilean Peso",
+        "id": 43
+    },
+    {
+        "country": "China",
+        "currency_name": "Yuan Renminbi",
+        "id": 44
+    },
+    {
+        "country": "Christmas Island",
+        "currency_name": "Australian Dollar",
+        "id": 45
+    },
+    {
+        "country": "Cocos (Keeling) Islands",
+        "currency_name": " Australian Dollar",
+        "id": 46
+    },
+    {
+        "country": "Colombia",
+        "currency_name": "Colombian Peso",
+        "id": 47
+    },
+    {
+        "country": "Comoros",
+        "currency_name": "Comoros Franc",
+        "id": 48
+    },
+    {
+        "country": "Congo",
+        "currency_name": "CFA Franc BEAC",
+        "id": 49
+    },
+    {
+        "country": "Cook Islands",
+        "currency_name": "New Zealand Dollar",
+        "id": 50
+    },
+    {
+        "country": "Costa Rica",
+        "currency_name": "Costa Rican Colon",
+        "id": 51
+    },
+    {
+        "country": "Croatia",
+        "currency_name": "Croatian Kuna",
+        "id": 52
+    },
+    {
+        "country": "Cuba",
+        "currency_name": "Cuban Peso",
+        "id": 53
+    },
+    {
+        "country": "Cyprus",
+        "currency_name": "Euro",
+        "id": 54
+    },
+    {
+        "country": "Czech Republic",
+        "currency_name": "Czech Koruna",
+        "id": 55
+    },
+    {
+        "country": "Denmark",
+        "currency_name": "Danish Krone",
+        "id": 56
+    },
+    {
+        "country": "Djibouti",
+        "currency_name": "Djibouti Franc",
+        "id": 57
+    },
+    {
+        "country": "Dominica",
+        "currency_name": "East Caribbean Dollar",
+        "id": 58
+    },
+    {
+        "country": "Dominican Republic",
+        "currency_name": "Dominican Peso",
+        "id": 59
+    },
+    {
+        "country": "East Timor",
+        "currency_name": "US Dollar",
+        "id": 60
+    }
+]

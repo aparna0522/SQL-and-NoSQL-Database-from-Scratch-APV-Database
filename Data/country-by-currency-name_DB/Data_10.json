@@ -1,0 +1,102 @@
+[
+    {
+        "country": "South Korea",
+        "currency_name": "Korean Won",
+        "id": 201
+    },
+    {
+        "country": "South Sudan",
+        "currency_name": "South Sudan Pound",
+        "id": 202
+    },
+    {
+        "country": "Spain",
+        "currency_name": "Euro",
+        "id": 203
+    },
+    {
+        "country": "Sri Lanka",
+        "currency_name": "Sri Lankan Rupee",
+        "id": 204
+    },
+    {
+        "country": "Sudan",
+        "currency_name": "Sudanese Pound",
+        "id": 205
+    },
+    {
+        "country": "Suriname",
+        "currency_name": "Surinam Dollar",
+        "id": 206
+    },
+    {
+        "country": "Svalbard and Jan Mayen",
+        "currency_name": "Norwegian Krone",
+        "id": 207
+    },
+    {
+        "country": "Swaziland",
+        "currency_name": "Swaziland Lilangeni",
+        "id": 208
+    },
+    {
+        "country": "Sweden",
+        "currency_name": "Swedish Krona",
+        "id": 209
+    },
+    {
+        "country": "Switzerland",
+        "currency_name": "Swiss Franc",
+        "id": 210
+    },
+    {
+        "country": "Syria",
+        "currency_name": "Syrian Pound",
+        "id": 211
+    },
+    {
+        "country": "Tajikistan",
+        "currency_name": "Tajik Somoni",
+        "id": 212
+    },
+    {
+        "country": "Tanzania",
+        "currency_name": "Tanzanian Shilling",
+        "id": 213
+    },
+    {
+        "country": "Thailand",
+        "currency_name": "Thai Baht",
+        "id": 214
+    },
+    {
+        "country": "The Democratic Republic of Congo",
+        "currency_name": "Franc Congolais",
+        "id": 215
+    },
+    {
+        "country": "Togo",
+        "currency_name": "CFA Franc BCEAO",
+        "id": 216
+    },
+    {
+        "country": "Tokelau",
+        "currency_name": "New Zealand Dollar",
+        "id": 217
+    },
+    {
+        "country": "Tonga",
+        "currency_name": "Tongan Pa'anga",
+        "id": 218
+    },
+    {
+        "country": "Trinidad and Tobago",
+        "currency_name": "Trinidad and Tobago Dollar",
+        "id": 219
+    },
+    {
+        "country": "Tunisia",
+        "currency_name": "Tunisian Dollar",
+        "id": 220
+    }
+]

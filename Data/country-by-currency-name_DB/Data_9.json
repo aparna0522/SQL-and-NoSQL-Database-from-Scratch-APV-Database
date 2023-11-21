@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Saint Kitts and Nevis",
+        "currency_name": "East Caribbean Dollar",
+        "id": 181
+    },
+    {
+        "country": "Saint Lucia",
+        "currency_name": "East Caribbean Dollar",
+        "id": 182
+    },
+    {
+        "country": "Saint Pierre and Miquelon",
+        "currency_name": " Euro",
+        "id": 183
+    },
+    {
+        "country": "Saint Vincent and the Grenadines",
+        "currency_name": "East Caribbean Dollar",
+        "id": 184
+    },
+    {
+        "country": "Samoa",
+        "currency_name": "Samoan Tala",
+        "id": 185
+    },
+    {
+        "country": "San Marino",
+        "currency_name": "Euro",
+        "id": 186
+    },
+    {
+        "country": "Sao Tome and Principe",
+        "currency_name": " Dobra",
+        "id": 187
+    },
+    {
+        "country": "Saudi Arabia",
+        "currency_name": "Saudi Riyal",
+        "id": 188
+    },
+    {
+        "country": "Scotland",
+        "currency_name": "Pound Sterling",
+        "id": 189
+    },
+    {
+        "country": "Senegal",
+        "currency_name": "CFA Franc BCEAO",
+        "id": 190
+    },
+    {
+        "country": "Serbia",
+        "currency_name": "Serbian dinar",
+        "id": 191
+    },
+    {
+        "country": "Seychelles",
+        "currency_name": "Seychelles Rupee",
+        "id": 192
+    },
+    {
+        "country": "Sierra Leone",
+        "currency_name": "Sierra Leone Leone",
+        "id": 193
+    },
+    {
+        "country": "Singapore",
+        "currency_name": "Singapore Dollar",
+        "id": 194
+    },
+    {
+        "country": "Slovakia",
+        "currency_name": "Euro",
+        "id": 195
+    },
+    {
+        "country": "Slovenia",
+        "currency_name": "Euro",
+        "id": 196
+    },
+    {
+        "country": "Solomon Islands",
+        "currency_name": "Solomon Islands Dollar",
+        "id": 197
+    },
+    {
+        "country": "Somalia",
+        "currency_name": "Somali Shilling",
+        "id": 198
+    },
+    {
+        "country": "South Africa",
+        "currency_name": "South African Rand",
+        "id": 199
+    },
+    {
+        "country": "South Georgia and the South Sandwich Islands",
+        "currency_name": "Pound Sterling",
+        "id": 200
+    }
+]

@@ -1,0 +1,122 @@
+[
+    {
+        "country": "Ecuador",
+        "continent": "South America",
+        "id": 61,
+        "population": 17084357
+    },
+    {
+        "country": "Egypt",
+        "continent": "Africa",
+        "id": 62,
+        "population": 98423595
+    },
+    {
+        "country": "El Salvador",
+        "continent": "North America",
+        "id": 63,
+        "population": 6420744
+    },
+    {
+        "country": "England",
+        "continent": "Europe",
+        "id": 64,
+        "population": 55619400
+    },
+    {
+        "country": "Equatorial Guinea",
+        "continent": "Africa",
+        "id": 65,
+        "population": 1308974
+    },
+    {
+        "country": "Eritrea",
+        "continent": "Africa",
+        "id": 66,
+        "population": 6213972
+    },
+    {
+        "country": "Estonia",
+        "continent": "Europe",
+        "id": 67,
+        "population": 1321977
+    },
+    {
+        "country": "Ethiopia",
+        "continent": "Africa",
+        "id": 68,
+        "population": 109224559
+    },
+    {
+        "country": "Falkland Islands",
+        "continent": "South America",
+        "id": 69,
+        "population": 2840
+    },
+    {
+        "country": "Faroe Islands",
+        "continent": "Europe",
+        "id": 70,
+        "population": 48497
+    },
+    {
+        "country": "Fiji Islands",
+        "continent": "Oceania",
+        "id": 71,
+        "population": 883483
+    },
+    {
+        "country": "Finland",
+        "continent": "Europe",
+        "id": 72,
+        "population": 5515525
+    },
+    {
+        "country": "France",
+        "continent": "Europe",
+        "id": 73,
+        "population": 66977107
+    },
+    {
+        "country": "French Guiana",
+        "continent": "South America",
+        "id": 74,
+        "population": 290691
+    },
+    {
+        "country": "French Polynesia",
+        "continent": "Oceania",
+        "id": 75,
+        "population": 277679
+    },
+    {
+        "country": "French Southern territories",
+        "continent": "Antarctica",
+        "id": 76,
+        "population": 0
+    },
+    {
+        "country": "Gabon",
+        "continent": "Africa",
+        "id": 77,
+        "population": 2119275
+    },
+    {
+        "country": "Gambia",
+        "continent": "Africa",
+        "id": 78,
+        "population": 2280102
+    },
+    {
+        "country": "Georgia",
+        "continent": "Asia",
+        "id": 79,
+        "population": 3726549
+    },
+    {
+        "country": "Germany",
+        "continent": "Europe",
+        "id": 80,
+        "population": 82905782
+    }
+]

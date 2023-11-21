@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Iran",
+        "currency_code": "IRR",
+        "id": 101
+    },
+    {
+        "country": "Iraq",
+        "currency_code": "IQD",
+        "id": 102
+    },
+    {
+        "country": "Ireland",
+        "currency_code": "EUR",
+        "id": 103
+    },
+    {
+        "country": "Israel",
+        "currency_code": "ILS",
+        "id": 104
+    },
+    {
+        "country": "Italy",
+        "currency_code": "EUR",
+        "id": 105
+    },
+    {
+        "country": "Ivory Coast",
+        "currency_code": "XOF",
+        "id": 106
+    },
+    {
+        "country": "Jamaica",
+        "currency_code": "JMD",
+        "id": 107
+    },
+    {
+        "country": "Japan",
+        "currency_code": "JPY",
+        "id": 108
+    },
+    {
+        "country": "Jordan",
+        "currency_code": "JOD",
+        "id": 109
+    },
+    {
+        "country": "Kazakhstan",
+        "currency_code": "KZT",
+        "id": 110
+    },
+    {
+        "country": "Kenya",
+        "currency_code": "KES",
+        "id": 111
+    },
+    {
+        "country": "Kiribati",
+        "currency_code": "AUD",
+        "id": 112
+    },
+    {
+        "country": "Kuwait",
+        "currency_code": "KWD",
+        "id": 113
+    },
+    {
+        "country": "Kyrgyzstan",
+        "currency_code": "KGS",
+        "id": 114
+    },
+    {
+        "country": "Laos",
+        "currency_code": "LAK",
+        "id": 115
+    },
+    {
+        "country": "Latvia",
+        "currency_code": "EUR",
+        "id": 116
+    },
+    {
+        "country": "Lebanon",
+        "currency_code": "LBP",
+        "id": 117
+    },
+    {
+        "country": "Lesotho",
+        "currency_code": "LSL",
+        "id": 118
+    },
+    {
+        "country": "Liberia",
+        "currency_code": "LRD",
+        "id": 119
+    },
+    {
+        "country": "Libyan Arab Jamahiriya",
+        "currency_code": "LYD",
+        "id": 120
+    }
+]

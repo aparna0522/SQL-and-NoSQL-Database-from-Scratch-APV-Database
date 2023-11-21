@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Afghanistan",
+        "currency_code": "AFN",
+        "id": 1
+    },
+    {
+        "country": "Albania",
+        "currency_code": "ALL",
+        "id": 2
+    },
+    {
+        "country": "Algeria",
+        "currency_code": "DZD",
+        "id": 3
+    },
+    {
+        "country": "American Samoa",
+        "currency_code": "USD",
+        "id": 4
+    },
+    {
+        "country": "Andorra",
+        "currency_code": "EUR",
+        "id": 5
+    },
+    {
+        "country": "Angola",
+        "currency_code": "AOA",
+        "id": 6
+    },
+    {
+        "country": "Anguilla",
+        "currency_code": "XCD",
+        "id": 7
+    },
+    {
+        "country": "Antarctica",
+        "currency_code": "XCD",
+        "id": 8
+    },
+    {
+        "country": "Antigua and Barbuda",
+        "currency_code": "XCD",
+        "id": 9
+    },
+    {
+        "country": "Argentina",
+        "currency_code": "ARS",
+        "id": 10
+    },
+    {
+        "country": "Armenia",
+        "currency_code": "AMD",
+        "id": 11
+    },
+    {
+        "country": "Aruba",
+        "currency_code": "AWG",
+        "id": 12
+    },
+    {
+        "country": "Australia",
+        "currency_code": "AUD",
+        "id": 13
+    },
+    {
+        "country": "Austria",
+        "currency_code": "EUR",
+        "id": 14
+    },
+    {
+        "country": "Azerbaijan",
+        "currency_code": "AZN",
+        "id": 15
+    },
+    {
+        "country": "Bahamas",
+        "currency_code": "BSD",
+        "id": 16
+    },
+    {
+        "country": "Bahrain",
+        "currency_code": "BHD",
+        "id": 17
+    },
+    {
+        "country": "Bangladesh",
+        "currency_code": "BDT",
+        "id": 18
+    },
+    {
+        "country": "Barbados",
+        "currency_code": "BBD",
+        "id": 19
+    },
+    {
+        "country": "Belarus",
+        "currency_code": "BYR",
+        "id": 20
+    }
+]

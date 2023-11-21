@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Mongolia",
+        "currency_name": "Mongolian Tugrik",
+        "id": 141
+    },
+    {
+        "country": "Montserrat",
+        "currency_name": "East Caribbean Dollar",
+        "id": 142
+    },
+    {
+        "country": "Morocco",
+        "currency_name": "Moroccan Dirham",
+        "id": 143
+    },
+    {
+        "country": "Mozambique",
+        "currency_name": "Mozambique Metical",
+        "id": 144
+    },
+    {
+        "country": "Myanmar",
+        "currency_name": "Myanmar Kyat",
+        "id": 145
+    },
+    {
+        "country": "Namibia",
+        "currency_name": "Namibian Dollar",
+        "id": 146
+    },
+    {
+        "country": "Nauru",
+        "currency_name": "Australian Dollar",
+        "id": 147
+    },
+    {
+        "country": "Nepal",
+        "currency_name": "Nepalese Rupee",
+        "id": 148
+    },
+    {
+        "country": "Netherlands",
+        "currency_name": "Euro",
+        "id": 149
+    },
+    {
+        "country": "Netherlands Antilles",
+        "currency_name": "Netherlands Antillean Guilder",
+        "id": 150
+    },
+    {
+        "country": "New Caledonia",
+        "currency_name": "CFP Franc",
+        "id": 151
+    },
+    {
+        "country": "New Zealand",
+        "currency_name": "New Zealand Dollar",
+        "id": 152
+    },
+    {
+        "country": "Nicaragua",
+        "currency_name": "Nicaraguan Cordoba Oro",
+        "id": 153
+    },
+    {
+        "country": "Niger",
+        "currency_name": "CFA Franc BCEAO",
+        "id": 154
+    },
+    {
+        "country": "Nigeria",
+        "currency_name": "Nigerian Naira",
+        "id": 155
+    },
+    {
+        "country": "Niue",
+        "currency_name": "New Zealand Dollar",
+        "id": 156
+    },
+    {
+        "country": "Norfolk Island",
+        "currency_name": "Australian Dollar",
+        "id": 157
+    },
+    {
+        "country": "North Korea",
+        "currency_name": "North Korean Won",
+        "id": 158
+    },
+    {
+        "country": "Northern Ireland",
+        "currency_name": "Pound Sterling",
+        "id": 159
+    },
+    {
+        "country": "Northern Mariana Islands",
+        "currency_name": "US Dollar",
+        "id": 160
+    }
+]

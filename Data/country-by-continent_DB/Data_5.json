@@ -1,0 +1,122 @@
+[
+    {
+        "country": "Iran",
+        "continent": "Asia",
+        "id": 101,
+        "population": 81800269
+    },
+    {
+        "country": "Iraq",
+        "continent": "Asia",
+        "id": 102,
+        "population": 38433600
+    },
+    {
+        "country": "Ireland",
+        "continent": "Europe",
+        "id": 103,
+        "population": 4867309
+    },
+    {
+        "country": "Israel",
+        "continent": "Asia",
+        "id": 104,
+        "population": 8882800
+    },
+    {
+        "country": "Italy",
+        "continent": "Europe",
+        "id": 105,
+        "population": 60421760
+    },
+    {
+        "country": "Ivory Coast",
+        "continent": "Africa",
+        "id": 106,
+        "population": 25069229
+    },
+    {
+        "country": "Jamaica",
+        "continent": "North America",
+        "id": 107,
+        "population": 2934855
+    },
+    {
+        "country": "Japan",
+        "continent": "Asia",
+        "id": 108,
+        "population": 126529100
+    },
+    {
+        "country": "Jordan",
+        "continent": "Asia",
+        "id": 109,
+        "population": 9956011
+    },
+    {
+        "country": "Kazakhstan",
+        "continent": "Asia",
+        "id": 110,
+        "population": 18272430
+    },
+    {
+        "country": "Kenya",
+        "continent": "Africa",
+        "id": 111,
+        "population": 51393010
+    },
+    {
+        "country": "Kiribati",
+        "continent": "Oceania",
+        "id": 112,
+        "population": 115847
+    },
+    {
+        "country": "Kuwait",
+        "continent": "Asia",
+        "id": 113,
+        "population": 4137309
+    },
+    {
+        "country": "Kyrgyzstan",
+        "continent": "Asia",
+        "id": 114,
+        "population": 6322800
+    },
+    {
+        "country": "Laos",
+        "continent": "Asia",
+        "id": 115,
+        "population": 7061507
+    },
+    {
+        "country": "Latvia",
+        "continent": "Europe",
+        "id": 116,
+        "population": 1927174
+    },
+    {
+        "country": "Lebanon",
+        "continent": "Asia",
+        "id": 117,
+        "population": 6848925
+    },
+    {
+        "country": "Lesotho",
+        "continent": "Africa",
+        "id": 118,
+        "population": 2108132
+    },
+    {
+        "country": "Liberia",
+        "continent": "Africa",
+        "id": 119,
+        "population": 4818977
+    },
+    {
+        "country": "Libyan Arab Jamahiriya",
+        "continent": "Africa",
+        "id": 120,
+        "population": 6678567
+    }
+]

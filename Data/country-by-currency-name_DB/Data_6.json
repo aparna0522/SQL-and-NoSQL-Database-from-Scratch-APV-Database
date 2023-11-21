@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Liechtenstein",
+        "currency_name": "Swiss Franc",
+        "id": 121
+    },
+    {
+        "country": "Lithuania",
+        "currency_name": "Lithuanian Litas",
+        "id": 122
+    },
+    {
+        "country": "Luxembourg",
+        "currency_name": "Euro",
+        "id": 123
+    },
+    {
+        "country": "Macau",
+        "currency_name": "Macanese Pataca",
+        "id": 124
+    },
+    {
+        "country": "North Macedonia",
+        "currency_name": "Denar",
+        "id": 125
+    },
+    {
+        "country": "Madagascar",
+        "currency_name": "Malagasy Franc",
+        "id": 126
+    },
+    {
+        "country": "Malawi",
+        "currency_name": "Malawi Kwacha",
+        "id": 127
+    },
+    {
+        "country": "Malaysia",
+        "currency_name": "Malaysian Ringgit",
+        "id": 128
+    },
+    {
+        "country": "Maldives",
+        "currency_name": "Maldive Rufiyaa",
+        "id": 129
+    },
+    {
+        "country": "Mali",
+        "currency_name": "CFA Franc BCEAO",
+        "id": 130
+    },
+    {
+        "country": "Malta",
+        "currency_name": "Euro",
+        "id": 131
+    },
+    {
+        "country": "Marshall Islands",
+        "currency_name": "US Dollar",
+        "id": 132
+    },
+    {
+        "country": "Martinique",
+        "currency_name": "Euro",
+        "id": 133
+    },
+    {
+        "country": "Mauritania",
+        "currency_name": "Mauritanian Ouguiya",
+        "id": 134
+    },
+    {
+        "country": "Mauritius",
+        "currency_name": "Mauritius Rupee",
+        "id": 135
+    },
+    {
+        "country": "Mayotte",
+        "currency_name": "Euro",
+        "id": 136
+    },
+    {
+        "country": "Mexico",
+        "currency_name": "Mexican Nuevo Peso",
+        "id": 137
+    },
+    {
+        "country": "Micronesia, Federated States of",
+        "currency_name": "US Dollar",
+        "id": 138
+    },
+    {
+        "country": "Moldova",
+        "currency_name": "Moldovan Leu",
+        "id": 139
+    },
+    {
+        "country": "Monaco",
+        "currency_name": "Euro",
+        "id": 140
+    }
+]

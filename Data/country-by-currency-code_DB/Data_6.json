@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Liechtenstein",
+        "currency_code": "CHF",
+        "id": 121
+    },
+    {
+        "country": "Lithuania",
+        "currency_code": "EUR",
+        "id": 122
+    },
+    {
+        "country": "Luxembourg",
+        "currency_code": "EUR",
+        "id": 123
+    },
+    {
+        "country": "Macau",
+        "currency_code": "MOP",
+        "id": 124
+    },
+    {
+        "country": "North Macedonia",
+        "currency_code": "MKD",
+        "id": 125
+    },
+    {
+        "country": "Madagascar",
+        "currency_code": "MGF",
+        "id": 126
+    },
+    {
+        "country": "Malawi",
+        "currency_code": "MWK",
+        "id": 127
+    },
+    {
+        "country": "Malaysia",
+        "currency_code": "MYR",
+        "id": 128
+    },
+    {
+        "country": "Maldives",
+        "currency_code": "MVR",
+        "id": 129
+    },
+    {
+        "country": "Mali",
+        "currency_code": "XOF",
+        "id": 130
+    },
+    {
+        "country": "Malta",
+        "currency_code": "EUR",
+        "id": 131
+    },
+    {
+        "country": "Marshall Islands",
+        "currency_code": "USD",
+        "id": 132
+    },
+    {
+        "country": "Martinique",
+        "currency_code": "EUR",
+        "id": 133
+    },
+    {
+        "country": "Mauritania",
+        "currency_code": "MRO",
+        "id": 134
+    },
+    {
+        "country": "Mauritius",
+        "currency_code": "MUR",
+        "id": 135
+    },
+    {
+        "country": "Mayotte",
+        "currency_code": "EUR",
+        "id": 136
+    },
+    {
+        "country": "Mexico",
+        "currency_code": "MXN",
+        "id": 137
+    },
+    {
+        "country": "Micronesia, Federated States of",
+        "currency_code": "USD",
+        "id": 138
+    },
+    {
+        "country": "Moldova",
+        "currency_code": "MDL",
+        "id": 139
+    },
+    {
+        "country": "Monaco",
+        "currency_code": "EUR",
+        "id": 140
+    }
+]

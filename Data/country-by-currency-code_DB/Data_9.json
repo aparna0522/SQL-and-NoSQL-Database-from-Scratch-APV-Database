@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Saint Kitts and Nevis",
+        "currency_code": "XCD",
+        "id": 181
+    },
+    {
+        "country": "Saint Lucia",
+        "currency_code": "XCD",
+        "id": 182
+    },
+    {
+        "country": "Saint Pierre and Miquelon",
+        "currency_code": "EUR",
+        "id": 183
+    },
+    {
+        "country": "Saint Vincent and the Grenadines",
+        "currency_code": "XCD",
+        "id": 184
+    },
+    {
+        "country": "Samoa",
+        "currency_code": "WST",
+        "id": 185
+    },
+    {
+        "country": "San Marino",
+        "currency_code": "EUR",
+        "id": 186
+    },
+    {
+        "country": "Sao Tome and Principe",
+        "currency_code": "STD",
+        "id": 187
+    },
+    {
+        "country": "Saudi Arabia",
+        "currency_code": "SAR",
+        "id": 188
+    },
+    {
+        "country": "Scotland",
+        "currency_code": "GBP",
+        "id": 189
+    },
+    {
+        "country": "Senegal",
+        "currency_code": "XOF",
+        "id": 190
+    },
+    {
+        "country": "Serbia",
+        "currency_code": "RSD",
+        "id": 191
+    },
+    {
+        "country": "Seychelles",
+        "currency_code": "SCR",
+        "id": 192
+    },
+    {
+        "country": "Sierra Leone",
+        "currency_code": "SLL",
+        "id": 193
+    },
+    {
+        "country": "Singapore",
+        "currency_code": "SGD",
+        "id": 194
+    },
+    {
+        "country": "Slovakia",
+        "currency_code": "EUR",
+        "id": 195
+    },
+    {
+        "country": "Slovenia",
+        "currency_code": "EUR",
+        "id": 196
+    },
+    {
+        "country": "Solomon Islands",
+        "currency_code": "SBD",
+        "id": 197
+    },
+    {
+        "country": "Somalia",
+        "currency_code": "SOS",
+        "id": 198
+    },
+    {
+        "country": "South Africa",
+        "currency_code": "ZAR",
+        "id": 199
+    },
+    {
+        "country": "South Georgia and the South Sandwich Islands",
+        "currency_code": "GBP",
+        "id": 200
+    }
+]

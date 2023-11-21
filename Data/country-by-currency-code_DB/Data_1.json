@@ -1,0 +1,102 @@
+[
+    {
+        "country": "Belgium",
+        "currency_code": "EUR",
+        "id": 21
+    },
+    {
+        "country": "Belize",
+        "currency_code": "BZD",
+        "id": 22
+    },
+    {
+        "country": "Benin",
+        "currency_code": "XOF",
+        "id": 23
+    },
+    {
+        "country": "Bermuda",
+        "currency_code": "BMD",
+        "id": 24
+    },
+    {
+        "country": "Bhutan",
+        "currency_code": "BTN",
+        "id": 25
+    },
+    {
+        "country": "Bolivia",
+        "currency_code": "BOB",
+        "id": 26
+    },
+    {
+        "country": "Bosnia and Herzegovina",
+        "currency_code": "BAM",
+        "id": 27
+    },
+    {
+        "country": "Botswana",
+        "currency_code": "BWP",
+        "id": 28
+    },
+    {
+        "country": "Bouvet Island",
+        "currency_code": "NOK",
+        "id": 29
+    },
+    {
+        "country": "Brazil",
+        "currency_code": "BRL",
+        "id": 30
+    },
+    {
+        "country": "British Indian Ocean Territory",
+        "currency_code": "USD",
+        "id": 31
+    },
+    {
+        "country": "Brunei",
+        "currency_code": "BND",
+        "id": 32
+    },
+    {
+        "country": "Bulgaria",
+        "currency_code": "BGN",
+        "id": 33
+    },
+    {
+        "country": "Burkina Faso",
+        "currency_code": "XOF",
+        "id": 34
+    },
+    {
+        "country": "Burundi",
+        "currency_code": "BIF",
+        "id": 35
+    },
+    {
+        "country": "Cambodia",
+        "currency_code": "KHR",
+        "id": 36
+    },
+    {
+        "country": "Cameroon",
+        "currency_code": "XAF",
+        "id": 37
+    },
+    {
+        "country": "Canada",
+        "currency_code": "CAD",
+        "id": 38
+    },
+    {
+        "country": "Cape Verde",
+        "currency_code": "CVE",
+        "id": 39
+    },
+    {
+        "country": "Cayman Islands",
+        "currency_code": "KYD",
+        "id": 40
+    }
+]
