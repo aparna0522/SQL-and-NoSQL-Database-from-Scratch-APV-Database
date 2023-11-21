@@ -672,13 +672,12 @@ def sql_process_user_command(command):
                 search_val = args[args.index("provided") + 3]
                 if search_val.startswith('"'):
                     whole_val = ""
-
-                for i in range(args.index("provided")+3, len(args)):
-                    if args[i].endswith("\""):
+                    for i in range(args.index("provided")+3, len(args)):
+                        if args[i].endswith("\""):
+                            whole_val += " " + args[i]
+                            break
                         whole_val += " " + args[i]
-                        break
-                    whole_val += " " + args[i]
-                search_val = whole_val.strip()
+                    search_val = whole_val.strip()
 
                 if search_val[0] in ['"', "'"] and search_val[-1] in ['"', "'"]:
                     search_val = search_val[1:-1] 
