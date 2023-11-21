@@ -274,7 +274,7 @@ def sql_merge_query_retriever(f_statement):
             agg_present_list.append(agg_col)
             agg_present_list.append(agg_opp)
             projection_cols.append(agg_col)
-        for i in range(0, len(agg_present_list), 2):
+        for i in range(1, len(agg_present_list), 2):
             if agg_present_list[i] not in ["SUM", "CNT", "AVG", "MAX", "MIN"]:
                 print('Invalid aggregation operation, supported aggregation operations are: "SUM", "CNT", "AVG", "MAX", "MIN"')
                 return None, False
@@ -630,7 +630,7 @@ def sql_process_user_command(command):
                     agg_present_list.append(agg_col)
                     agg_present_list.append(agg_opp)
                     projection_cols.append(agg_col)
-                for i in range(0, len(agg_present_list), 2):
+                for i in range(1, len(agg_present_list), 2):
                     if agg_present_list[i] not in ["SUM", "CNT", "AVG", "MAX", "MIN"]:
                         print('Invalid aggregation operation, supported aggregation operations are: "SUM", "CNT", "AVG", "MAX", "MIN"')
                         return
@@ -698,7 +698,7 @@ def sql_process_user_command(command):
             b_as = command.split("as")[2].split()[0].strip()
             col_x = command.split("on")[-1].split()[0]
             on_op = command.split("on")[-1].split()[1]
-            if operator not in ["=","<",">","<=",">="]:
+            if on_op not in ["=","<",">","<=",">="]:
                 print("Invalid on operators in the on clause")
                 return
             col_y = command.split("on")[-1].split()[2]
