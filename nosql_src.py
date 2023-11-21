@@ -647,7 +647,8 @@ def join_a_b(a_params, b_params, sort_after_join_col, sort_after_join=0, desc=0,
 
             #print("\n========== Post-Join Descending Order-by Result ==========\n")
     else:
-        print("\n========== Join Result ==========\n")
+        #print("\n========== Join Result ==========\n")
+        pass
 
     for page_file_num in sorted([int(pf.split(".")[0].split("_")[-1]) for pf in os.listdir(o_tempi_path) if os.path.isfile(os.path.join(o_tempi_path, pf)) and pf.split(".")[0] != "meta"]):
         with open(os.path.join(o_tempi_path, "pages_{}.txt".format(page_file_num))) as pfr:
