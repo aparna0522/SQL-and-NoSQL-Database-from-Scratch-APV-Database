@@ -33,3 +33,21 @@ When running sql commands use following syntax:
   find all from standings provided idx > 300;
   ```
 
+define table standings_1 with [["idx", "integer", "PrimaryKey"], ["team", "string"], ["team_name", "string"], ["year", "integer"], ["wins", "integer"], ["loss", "integer"], ["points_for", "integer"], ["points_against", "integer"], ["points_differential", "integer"], ["margin_of_victory", "float"], ["strength_of_schedule", "float"], ["simple_rating", "float"], ["offensive_ranking", "float"], ["defensive_ranking", "float"], ["play_offs", "string"], ["sb_winner", "string"]];
+
+load data in standings_1 with "../standings.csv";
+
+fill table standings with values [5000, "India", "CSK", 2022, 56, 12, 31, 52, 12, 6.3, 5.2, 5.9, 5.1, 7.3, 8.1, "MII"];
+find ["team", "wins", "loss"] from standings provided team = "India";
+
+edit table standings with values team_name = 'RCB', year = 2023, wins = 0 provided idx = 5000;
+
+remove from table standings provided idx = 5000
+
+find all from standings;
+find ["team", "team_name", "wins", "year"] from standings;
+find ["team", "team_name", "wins", "year"] from standings provided wins = 10;
+find ["CNT(team_name)", "SUM(wins)", "SUM(loss)"] from standings provided wins > 10 cluster on team sorting SUM(wins) DESC;
+   
+merge (find ["team", "team_name"] from standings) as t with (find ["team", "wins", "loss"] from standings) as s on s.team = t.team;
+merge (find ["team", "team_name"] from standings) as t with (find ["team", "wins", "loss"] from standings) as s on s.team = t.team sorting t.team DESC;
