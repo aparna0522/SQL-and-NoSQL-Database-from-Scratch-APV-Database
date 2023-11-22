@@ -1,6 +1,7 @@
 print()
 
 import time
+import tracemalloc
 import re
 import os
 import json
@@ -345,6 +346,7 @@ def sql_process_user_command(command):
             return
         try:
             start_time = time.time()
+            tracemalloc.start()
             table_name = args[2]
             if(not os.path.exists(os.path.join(os.getcwd(), 'databases')) or not os.path.exists(os.path.join(os.getcwd(), 'databases', table_name))):
                 print("Table with name '{}' does not exist".format(table_name))
@@ -366,6 +368,9 @@ def sql_process_user_command(command):
                 os.system('./RelationalDB.o "load_data" "{}" "{}" "{}" "{}"'.format(table_name, file_name, pk_flag, hd_flag))
             end_time = time.time()
             delta_time_seconds = end_time - start_time
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")
@@ -384,6 +389,7 @@ def sql_process_user_command(command):
             return
         try:
             start_time = time.time()
+            tracemalloc.start()
             #example: list tables
             if args[0] == "tables":
                 if(os.path.exists(os.path.join(os.getcwd(), "databases"))):
@@ -416,6 +422,9 @@ def sql_process_user_command(command):
                 print_table(["column names", "column type", "primary key"], data)
             end_time = time.time()
             delta_time_seconds = end_time - start_time
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")
@@ -431,6 +440,7 @@ def sql_process_user_command(command):
             return
         try:
             start_time = time.time()
+            tracemalloc.start()
             table_name = args[1]
             if(os.path.exists(os.path.join(os.getcwd(), "databases")) and os.path.exists(os.path.join(os.getcwd(), "databases", table_name))):
                     print("Table with name '{}' already exists".format(table_name))
@@ -466,6 +476,9 @@ def sql_process_user_command(command):
             end_time = time.time()
             delta_time_seconds = end_time - start_time
             print("'{}' table created successfully".format(table_name))
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")
@@ -481,6 +494,7 @@ def sql_process_user_command(command):
             return
         try:
             start_time = time.time()
+            tracemalloc.start()
             table_name = args[1]
             if(not os.path.exists(os.path.join(os.getcwd(), "databases")) or not os.path.exists(os.path.join(os.getcwd(), "databases", table_name))):
                     print("Table with name '{}' does not exist".format(table_name))
@@ -494,6 +508,9 @@ def sql_process_user_command(command):
             end_time = time.time()
             delta_time_seconds = end_time - start_time
             print("Filled {} with the entry successfully".format(table_name))
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")
@@ -510,6 +527,7 @@ def sql_process_user_command(command):
             return
         try:
             start_time = time.time()
+            tracemalloc.start()
             table_name = args[1]
             if(not os.path.exists(os.path.join(os.getcwd(), "databases")) or not os.path.exists(os.path.join(os.getcwd(), "databases", table_name))):
                     print("Table with name '{}' does not exist".format(table_name))
@@ -569,6 +587,9 @@ def sql_process_user_command(command):
                 os.system('./RelationalDB.o "edit_table" "{}" "{}" "{}" "{}" "{}" "{}"'.format(table_name, len(upd_raw_list), attributes, search_col, operator, search_val))
             end_time = time.time()
             delta_time_seconds = end_time - start_time
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")
@@ -585,6 +606,7 @@ def sql_process_user_command(command):
             return
         try:
             start_time = time.time()
+            tracemalloc.start()
             table_name = args[args.index("table") + 1]
             if(not os.path.exists(os.path.join(os.getcwd(), "databases")) or not os.path.exists(os.path.join(os.getcwd(), "databases", table_name))):
                     print("Table with name '{}' does not exist".format(table_name))
@@ -615,6 +637,9 @@ def sql_process_user_command(command):
                 os.system('./RelationalDB.o "remove_element" "{}" "{}" "{}" "{}"'.format(table_name, search_col, operator, search_val))
             end_time = time.time()
             delta_time_seconds = end_time - start_time
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")
@@ -629,6 +654,7 @@ def sql_process_user_command(command):
             return
         try:
             start_time = time.time()
+            tracemalloc.start()
             table_name = args[args.index("from") + 1]
             if(not os.path.exists(os.path.join(os.getcwd(), "databases")) or not os.path.exists(os.path.join(os.getcwd(), "databases", table_name))):
                     print("Table with name '{}' does not exist".format(table_name))
@@ -706,6 +732,9 @@ def sql_process_user_command(command):
                     os.system('./RelationalDB.o "find_element" "{}" "{}" "{}" "{}" "{}" "{}" "{}" "{}" "{}"'.format(table_name, col_num, agg_os_entry, search_col, operator, search_val, sort_col, sort_type, grby_col))
             end_time = time.time()
             delta_time_seconds = end_time - start_time
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")
@@ -720,6 +749,7 @@ def sql_process_user_command(command):
             return
         # Example: 
         try:
+            tracemalloc.start()
             start_time = time.time()
             a_statement = re.findall(r'\(.*?\)', command)[0][1:-1]
             b_statement = re.findall(r'\(.*?\)', command)[1][1:-1]
@@ -753,6 +783,9 @@ def sql_process_user_command(command):
                 os.system('./RelationalDB.o "merge_tables" {} "{}" {} "{}" "{}" "{}" "{}" "{}" "{}"'.format(a_format_entry, a_as, b_format_entry, b_as, column_first, on_op, column_second, final_sortCol, final_sort_order))
             end_time = time.time()
             delta_time_seconds = end_time - start_time
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")
@@ -780,10 +813,14 @@ def nosql_process_user_command(command):
             return
         try:
             start_time = time.time()
+            tracemalloc.start()
             table_name = args[1].split(".")[0]
             nosql.create_db_structure(table_name)
             end_time = time.time()
             delta_time_seconds = end_time - start_time
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")
@@ -803,11 +840,15 @@ def nosql_process_user_command(command):
             return
         try:
             start_time = time.time()
+            tracemalloc.start()
             if args[0] == "tables":
                 if(not os.path.exists(os.path.join(os.getcwd(), 'Data'))):
                     print()
                     end_time = time.time()
                     delta_time_seconds = end_time - start_time
+                    _, peak = tracemalloc.get_traced_memory()
+                    tracemalloc.stop()
+                    print(f"Total RAM Usage: {peak} B")
                     print(f"[{delta_time_seconds:.3f} seconds]")
                     return
                 tables = os.listdir(os.path.join(os.getcwd(), "Data"))
@@ -816,6 +857,9 @@ def nosql_process_user_command(command):
                 print(tables_str)
             end_time = time.time()
             delta_time_seconds = end_time - start_time
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")
@@ -831,6 +875,7 @@ def nosql_process_user_command(command):
             return
         try:
             start_time = time.time()
+            tracemalloc.start()
             table_name = args[1].split(".")[0]
             if(os.path.exists(os.path.join(os.getcwd(), 'Data')) and os.path.exists(os.path.join(os.getcwd(), 'Data', table_name))):
                 print("Table with name '{}' already exists".format(table_name))
@@ -838,6 +883,9 @@ def nosql_process_user_command(command):
             nosql.create_new_table_db(table_name)
             end_time = time.time()
             delta_time_seconds = end_time - start_time
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")
@@ -853,6 +901,7 @@ def nosql_process_user_command(command):
             return
         try:
             start_time = time.time()
+            tracemalloc.start()
             table_name = args[args.index("table") + 1]
             if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
                 print("Table with name '{}' does not exist".format(table_name))
@@ -861,6 +910,9 @@ def nosql_process_user_command(command):
             nosql.insert_into_db(table_name, values)
             end_time = time.time()
             delta_time_seconds = end_time - start_time
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")
@@ -877,6 +929,7 @@ def nosql_process_user_command(command):
             return
         try:
             start_time = time.time()
+            tracemalloc.start()
             table_name = args[args.index("table") + 1]
             if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
                 print("Table with name '{}' does not exist".format(table_name))
@@ -899,6 +952,9 @@ def nosql_process_user_command(command):
             nosql.update_db_values(table_name, set_col, set_val, search_col, operator, search_val)
             end_time = time.time()
             delta_time_seconds = end_time - start_time
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")
@@ -915,6 +971,7 @@ def nosql_process_user_command(command):
             return
         try:
             start_time = time.time()
+            tracemalloc.start()
             table_name = args[args.index("table") + 1]
             if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
                 print("Table with name '{}' does not exist".format(table_name))
@@ -934,6 +991,9 @@ def nosql_process_user_command(command):
             nosql.delete_db_values(table_name, search_col, operator, search_val)
             end_time = time.time()
             delta_time_seconds = end_time - start_time
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")
@@ -954,6 +1014,7 @@ def nosql_process_user_command(command):
             return
         try:
             start_time = time.time()
+            tracemalloc.start()
             table_name = args[args.index("from") + 1]      
             if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
                 print("Table with name '{}' does not exist".format(table_name))
@@ -991,6 +1052,9 @@ def nosql_process_user_command(command):
             nosql.order_by(table_name, projection_cols, search_col, operator, search_val, order_by_col, where=where, sort=sort, desc=desc)
             end_time = time.time()
             delta_time_seconds = end_time - start_time
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")
@@ -1006,6 +1070,7 @@ def nosql_process_user_command(command):
             return
         try:
             start_time = time.time()
+            tracemalloc.start()
             table_name = args[args.index("from") + 1]
             if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
                 print("Table with name '{}' does not exist".format(table_name))
@@ -1050,6 +1115,9 @@ def nosql_process_user_command(command):
             nosql.group_by(table_name, projection_cols, search_col, operator, search_val, sort_after_group_col, grby_col, agg_present_list, where=where, sort_after_group=sort_after_group, desc=desc)
             end_time = time.time()
             delta_time_seconds = end_time - start_time
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")
@@ -1066,6 +1134,7 @@ def nosql_process_user_command(command):
             return
         try:
             start_time = time.time()
+            tracemalloc.start()
             a_statement = re.findall(r'\(.*?\)', command)[0][1:-1]
             b_statement = re.findall(r'\(.*?\)', command)[1][1:-1]
             a_params, res_a = join_params_retrieval(a_statement)
@@ -1087,6 +1156,9 @@ def nosql_process_user_command(command):
             nosql.join_a_b(a_params, b_params, sort_after_join_col, sort_after_join=sort_after_join, desc=desc)
             end_time = time.time()
             delta_time_seconds = end_time - start_time
+            _, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()
+            print(f"Total RAM Usage: {peak} B")
             print(f"[{delta_time_seconds:.3f} seconds]")
         except:
             print("Invalid usage of this query, the proper usage is -")

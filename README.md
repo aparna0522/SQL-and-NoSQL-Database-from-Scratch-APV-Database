@@ -14,6 +14,9 @@ When running sql commands use following syntax:
   ```
   define table games with [["idx", "integer","primaryKey"], ["year","integer"], ["week","string"], ["home_team","string"],["away_team","string"], ["winner","string"], ["tie","string"], ["day","string"], ["date","string"], ["time", "string"], ["pts_win","integer"],["pts_loss","integer"], ["yds_win","integer"], ["turnover_loss","integer"], ["home_team_name","string"],["home_team_city","string"], ["away_team_name","string"], ["away_team_city","string"]];
   ```
+  ```
+  define table students with [["sid", "integer", "primaryKey"],["name", "string"], ["address", "string"]];
+  ```
 #### Insert Bulk CSV
   ```
   load data in standings with "/Users/admin/Desktop/standings.csv" generate primaryKeyValues provided headers;
@@ -28,10 +31,5 @@ When running sql commands use following syntax:
   ```
   ```
   find all from standings provided idx > 300;
-  find all from games provided team = "Vikings"; //team is a wrong column name
-  find all from games provided home_team = "Vikings"; //"Vikings" team name does not exist
-  find all from games provided home_team = "Los Angeles Rams"; 
-  Indianapolis
-  find all from attendance provided team = "Vikings";
   ```
 
