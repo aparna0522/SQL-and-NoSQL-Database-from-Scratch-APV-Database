@@ -1,6 +1,6 @@
 /*
 Compile this .cpp file to be used as a dependency for no-sql queries
-provides an API interface for python to execute temp folder processings: ordering, joining and group_aggregations
+Provides an API interface for python to execute temp folder processings: ordering, joining and grouping_aggregation.
 */
 
 #include "../pages.h"

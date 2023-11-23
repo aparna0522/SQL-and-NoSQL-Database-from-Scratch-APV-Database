@@ -1,3 +1,5 @@
-{"chunk_size": 20,
-"hash_file_size": 50,
-"temp_page_cnk_size": 20}
+{
+    "chunk_size": 20,
+    "hash_file_size": 50,
+    "temp_page_cnk_size": 20
+}

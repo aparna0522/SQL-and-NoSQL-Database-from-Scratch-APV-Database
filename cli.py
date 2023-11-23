@@ -1,5 +1,3 @@
-print()
-
 import time
 import tracemalloc
 import re
@@ -26,16 +24,20 @@ print(header)
 nosql_workspace = os.getcwd()
 sql_workspace = os.path.join(os.getcwd(), "sql_workspace")
 
+
+# Brief usage and explanation of commands (for help command) in Relational SQL.
 sql_actions = {
     "load": ["load data in <table_name> with <path> generate PrimaryKeyValues provided headers", 
              "\t- <table_name> is the table name you want to load data in", 
              "\t- <path> is the absolute path to the csv file you wish to load",
              "\t- 'generate PrimaryKeyValues' add this if you wish to append row number at start of each entry",
              "\t- 'provided headers' enter this if the .csv file contains headers as the first row"],
+    
     "list": ["list tables / list table <table_name>",
              "\t- list tables: list all tables present in the database",
              "\t- list table <table_name>: will list all columns of the table, and give thier types and if it is primary key"
             ],
+    
     "define": ["define table <table_name> with [[<column_name>, <column_type>, <primary_key>], ...]",
              "\t- <table_name> is the table name you want create",
              "\t- <column_name> is the name of a column in table",
@@ -43,10 +45,12 @@ sql_actions = {
              "\t- <primary_key> mention 'PrimaryKey' if <column_name> is a primary key",
              "\t- repeat [<column_name>, <column_type>, <primary_key>] to define more tables"
              ],
+    
     "fill": ["fill table <table_name> with values [<val_1>, <val_2>, ...]",
              "\t- <table_name> is the table name you want create",
              "\t- <val_x> are the values to be inserted in table, if string wrap value with ''\n\t these values are needed to be in same order as defined while creating table"
             ],
+    
     "edit": ["edit table <table_name> with values <set_column_name> = <set_attribute_value>, ... provided <search_col> <operator> <search_val>",
              "\t- <table_name> is the table name you want edit the entries of",
              "\t- <set_column_name> column name of which the entries you want edit",
@@ -55,12 +59,14 @@ sql_actions = {
              "\t- <operator> condition on the search_col",
              "\t- <search_value> value the search column needs to compare with\n\n\t you can update many columns at once using ',' sepearator.\n\t provided section is optional"
             ],
+    
     "remove": ["remove from table <table_name> provided <search_col> <operator> <search_val>",
              "\t- <table_name> is the table name you want remove the entries of",
              "\t- <search_col> remove the entries in table if some conditions are true for this column",
              "\t- <operator> condition on the search_col",
              "\t- <search_value> value the search column needs to compare with\n\n\t provided section is optional"
             ],
+    
     "find": ["find all from <table_name> provided <search_col> <operator> <search_val> sorting <sort_col> <sort_order>",
              "find [<projected_col>, <projected_col>, ...] from <table_name> provided <search_col> <operator> <search_val> sorting <sort_col> <sort_order>",
              "find [<aggregation_type>(<col_name>), ...] from <table_name> provided <search_col> <operator> <search_val> sorting <sort_col> <sort_order> cluster on <cluster_col>",
@@ -74,6 +80,7 @@ sql_actions = {
              "\t- <aggregation_type> can be CNT, SUM, AVG, MIN, or MAX",
              "\t- <cluster_col> column name you want to cluster your results with\n\t provided, sorting, cluster on clauses are optional"
             ],
+    
     "merge" : ["merge (<find_clause>) as <identifier> with (<find_clause>) as <identifier> on <identifier>.<col_name> <operator> <identifier>.<col_name> sorting <sort_col> <sort_order>",
                "\t- <find_clause> see find for detailed explaination\n\t find [<projected_col>, <projected_col>, ...] from <table_name> provided <search_col> <operator> <search_val> sorting <sort_col> <sort_order>",
                "\t- <identifier> name give to output returned from <find_clause>",
@@ -83,17 +90,22 @@ sql_actions = {
                ]
 }
 
+# Brief usage and explanation of commands (for help command) in NoSQL.
 no_sql_actions = {
     "load": ["load data <json_file>",
              "\t- <json_file> absolute path to json file, will generate table with file name and load all data"],
+    
     "list": ["list tables",
              "\t- will list all tables present in the database"],
+    
     "define": ["define table <table_name>",
              "\t- creates a table with the name <table_name> with empty entries"],
+    
     "fill": ["fill table <table_name> with values {<dictionary>}",
              "\t- <table_name> is the table you want to insert the entry in",
              "\t- <dictionary> is the value in json format (kay, value) to be inserted in the table"
              ],
+    
     "edit": ["edit table <table_name> with values <set_key> = <set_val> provided <serach_key> = <search_val>",
              "\t- <table_name> is the table you want to update the entries of",
              "\t- <set_key> name of the key in table you want to update",
@@ -101,11 +113,13 @@ no_sql_actions = {
              "\t- <serach_key> edit the entries in table if some conditions are true for this key",
              "\t- <search_val> value the search key needs to be equal with"
              ],
+    
     "remove": ["remove from table <table_name> provided <serach_key> = <search_val>",
              "\t- <table_name> is the table you want to remove the entries from",
              "\t- <serach_key> remove the entries in table if some conditions are true for this key",
              "\t- <search_val> value the search key needs to be equal with"
              ],
+    
     "find": ["find all from <table_name> provided <serach_key> <operator> <search_val> sorting <sorting_key> <sorting_order>",
              "find [projected_keys] from <table_name> provided <serach_key> <operator> <search_val> sorting <sorting_key> <sorting_order>"
              "find [<aggregation_type>(key)] from <table_name> provided <serach_key> <operator> <search_val> sorting <sorting_key> <sorting_order> cluster on <cluster_key>"
@@ -119,6 +133,7 @@ no_sql_actions = {
              "\t- <aggregation_type> can be CNT, SUM, AVG, MIN, or MAX",
              "\t- <cluster_key> key name you want to cluster your results with\n\t provided, sorting, cluster on clauses are optional"
              ],
+    
     "merge": ["merge (<find_clause>) with (<find_clause>) on <keyA> = <keyB> sorting <sorting_key> <sorting_order>",
               "\t- <find_clause> see find for detailed explaination\n\t find [projected_keys] from <table_name> provided <serach_key> <operator> <search_val> sorting <sorting_key> <sorting_order>",
               "\t- <keyA> = <keyB> key A from first table and key B from second table you wish to perform merge on",
@@ -128,6 +143,7 @@ no_sql_actions = {
 }
 
 def main():   
+    # Determine which function to call: SQL or NoSQL for execution in CLI.
     while True:
         using_db = input("Enter the Database type you wish to work on ('SQL' or 'NoSQL'):")
         if using_db.lower() == "sql":
@@ -146,6 +162,7 @@ def main():
             print("\nInvalid input. Please enter either 'SQL' or 'NoSQL'")
             continue
 
+    # Input Parsing
     while True:
         user_input = ""
         line = ""
@@ -182,6 +199,7 @@ def main():
         elif intro == "APV-SQL>":
             sql_process_user_command(user_input)
 
+# Convert to integer if applicable
 def try_int_conversion(cval):
     try:
         cval = int(cval)
@@ -194,18 +212,24 @@ def join_params_retrieval(table_statement):
     parts = table_statement.split()
     args = parts[1:]
 
-    table_name = args[args.index("from") + 1]    
+    table_name = args[args.index("from") + 1] 
+    # Error Handling   
     if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
         print("Table with name '{}' does not exist".format(table_name))
         return None, False
+    
+    # Find what to project, if "all" analogus to "*"
     if args[0] == "all":
         projection_cols = "all"
     else:
         projection_cols = json.loads(re.findall(r'\[.*?\]', table_statement)[0])
+    
     where = 0
     search_col = None
     operator = None
     search_val = None
+
+    # Where Clause for the select (Find) statement
     if "provided" in args:
         where = 1
         search_col = args[args.index("provided") + 1]
@@ -219,6 +243,8 @@ def join_params_retrieval(table_statement):
         else:
             print('operator in provided clause is invalid. Valid operators are "=" or "in"')
             return None, False
+    
+    # Perform sorting if applicable
     sort = 0
     order_by_col = None
     desc = 0
@@ -250,10 +276,14 @@ def sql_merge_query_retriever(f_statement):
     args = parts[1:]
 
     table_name = args[args.index("from") + 1]
+
+    # Error Handling
     if(not os.path.exists(os.path.join(os.getcwd(), "databases")) or not os.path.exists(os.path.join(os.getcwd(), "databases", table_name))):
         print("Table with name '{}' does not exist".format(table_name))
         return None, False
             
+    # Group by clause if applicable: Allows Group By to happen only for selected projection columns.
+    # Select * from tablename group by name; -> Invalid query (Cannot group by on *, need specific projection columns)
     grby_col = ""
     if "cluster" not in args:
         if args[0] == "all":
@@ -269,27 +299,36 @@ def sql_merge_query_retriever(f_statement):
         agg_list = projection_list
         projection_cols = [grby_col]
         agg_present_list = []
+        
         for i, af in enumerate(agg_list):
             agg_col = re.findall(r'\(.*?\)', af)[0][1:-1]
             agg_opp = af[:3]
             agg_present_list.append(agg_col)
             agg_present_list.append(agg_opp)
             projection_cols.append(agg_col)
+        
+        # Error Handling
         for i in range(1, len(agg_present_list), 2):
             if agg_present_list[i] not in ["SUM", "CNT", "AVG", "MAX", "MIN"]:
                 print('Invalid aggregation operation, supported aggregation operations are: "SUM", "CNT", "AVG", "MAX", "MIN"')
                 return None, False
         agg_os_entry = '" "'.join(agg_present_list)
         col_num = len(agg_present_list)
+    
     search_col = ""
     operator = ""
     search_val = ""
+    
     if "provided" in args:
         search_col = args[args.index("provided") + 1]
         operator = args[args.index("provided") + 2]
+        
+        # Error Handling
         if operator not in ["=","<",">","<=",">="]:
             print("Invalid operators in provided clause for the table {}".format(table_name))
             return None, False
+
+        # String Matching containing Spaces
         search_val = args[args.index("provided") + 3]
         if search_val.startswith('"'):
             whole_val = ""
@@ -301,6 +340,8 @@ def sql_merge_query_retriever(f_statement):
             search_val = whole_val.strip()
         if search_val[0] in ['"', "'"] and search_val[-1] in ['"', "'"]:
             search_val = search_val[1:-1] 
+
+    # Sorting if applicable
     sort_col = ""
     sort_type = ""
     if "sorting" in args:
@@ -309,12 +350,14 @@ def sql_merge_query_retriever(f_statement):
             sort_type = "ASC"
         elif args[args.index("sorting") + 2] == "DESC":
             sort_type = "DESC"
+    
     if col_num == 0:
         f_format_entry = '"{}" "{}" "{}" "{}" "{}" "{}" "{}" "{}"'.format(table_name, col_num, search_col, operator, search_val, sort_col, sort_type, grby_col)
     else:
         f_format_entry = '"{}" "{}" "{}" "{}" "{}" "{}" "{}" "{}" "{}"'.format(table_name, col_num, agg_os_entry, search_col, operator, search_val, sort_col, sort_type, grby_col)
     return f_format_entry, True
 
+# Pretty Print on the CLI
 def print_table(headers, data):
     max_col_width = [
         len(max(item, key=len))
@@ -338,6 +381,7 @@ def sql_process_user_command(command):
     action = parts[0].lower()
     args = parts[1:]
 
+    # Bulk CSV Data Load into the database, repeated insertion calls
     if action == "load":
         # Example: load data in <table_Name> with <path> generate PrimaryKey provided headers
         if( len(args) > 0 and args[0] == "--help"):
@@ -378,10 +422,12 @@ def sql_process_user_command(command):
             print(commands_help+"\n")
             return
 
+    # Help command to list in breif about the syntax for the query language
     elif action == "--help":
         commands = "\n\n- ".join(vals[0] for vals in sql_actions.values())
         print("\n- "+commands+"\n")
     
+    # List all the databases in the database system
     elif action == "list":
         if(len(args) > 0 and args[0] == "--help"):
             commands_help = "\n".join(vals for vals in sql_actions[action])
@@ -390,7 +436,7 @@ def sql_process_user_command(command):
         try:
             start_time = time.time()
             tracemalloc.start()
-            #example: list tables
+            # Example: list tables
             if args[0] == "tables":
                 if(os.path.exists(os.path.join(os.getcwd(), "databases"))):
                     tables = os.listdir(os.path.join(os.getcwd(), "databases"))
@@ -400,6 +446,7 @@ def sql_process_user_command(command):
                     print()
             elif args[0] == "table":
                 table_name = args[1]
+                # Error Handling
                 if(not os.path.exists(os.path.join(os.getcwd(), "databases")) or not os.path.exists(os.path.join(os.getcwd(), "databases", table_name))):
                     print("Table with name '{}' does not exist".format(table_name))
                     return
@@ -420,6 +467,7 @@ def sql_process_user_command(command):
                         ele.append("False")
 
                 print_table(["column names", "column type", "primary key"], data)
+            
             end_time = time.time()
             delta_time_seconds = end_time - start_time
             _, peak = tracemalloc.get_traced_memory()
@@ -432,6 +480,7 @@ def sql_process_user_command(command):
             print(commands_help+"\n")
             return
 
+    # Creates table Schema and folder structure for storage in memory
     elif action == "define":
         # Example: define table <tableName> with [["planet_sr_no", "integer", "PrimaryKey"], ["moons", "integer"], ["suns", "integer"], ["layers", "integer"]]
         if(len(args) > 0 and args[0] == "--help"):
@@ -485,7 +534,8 @@ def sql_process_user_command(command):
             commands_help = "\n".join(vals for vals in sql_actions[action])
             print(commands_help+"\n")
             return
-            
+
+    # Inserts entries into the database      
     elif action == "fill":
         # Example: fill table <table_name> with values [1, 'earth', '24hrs', '365days', 1]
         if(len(args) > 0 and args[0] == "--help"):
@@ -518,6 +568,7 @@ def sql_process_user_command(command):
             print(commands_help+"\n")
             return
 
+    # Update entries in the database
     elif action == "edit":
         # Example: edit table <table_name> with values <set_column_name>=<set_attribute_value>, <set_column_name>=<set_attribute_value>, ... provided <search_col> <operator> <search_value>
         # Example: edit table <table_Name> with values name = 'mars', duration = '48hrs', moon = 0 provided name = 'earth'
@@ -597,6 +648,7 @@ def sql_process_user_command(command):
             print(commands_help+"\n")
             return
 
+    # Delete entries in the database
     elif action == "remove":
         # Example: remove from table <table_name> provided <search_col> <operator> <search_value>
         # Example: remove from table <table_Name> provided name >= 'earth'
@@ -647,6 +699,7 @@ def sql_process_user_command(command):
             print(commands_help+"\n")
             return
 
+    # Search for entries in the database
     elif action == "find":
         if(len(args) > 0 and args[0] == "--help"):
             commands_help = "\n".join(vals for vals in sql_actions[action])
@@ -742,6 +795,7 @@ def sql_process_user_command(command):
             print(commands_help+"\n")
             return
 
+    # Join two tables in the database
     elif action == "merge":
         if(len(args) > 0 and args[0] == "--help"):
             commands_help = "\n".join(vals for vals in sql_actions[action])
@@ -828,10 +882,12 @@ def nosql_process_user_command(command):
             print(commands_help+"\n")
             return
 
+    # Help command to list in breif about the syntax for the query language
     elif action == "--help":
         commands = "\n\n- ".join(vals[0] for vals in no_sql_actions.values())
         print("\n\n- " + commands + "\n")
 
+    # List all the databases in the database system
     elif action == "list":
         #example: list tables
         if(len(args) > 0 and args[0] == "--help"):
@@ -867,6 +923,7 @@ def nosql_process_user_command(command):
             print(commands_help+"\n")
             return
 
+    # Creates table Schema and folder structure for storage in memory
     elif action == "define":
         # Example: define table solar_system
         if(len(args) > 0 and args[0] == "--help"):
@@ -893,6 +950,7 @@ def nosql_process_user_command(command):
             print(commands_help+"\n")
             return
         
+    # Inserts entries into the database      
     elif action == "fill":
         # Example: fill table solar_system with values {"star": "sun", "galaxy": "milky way", "planets": 9}
         if(len(args) > 0 and args[0] == "--help"):
@@ -920,6 +978,7 @@ def nosql_process_user_command(command):
             print(commands_help+"\n")
             return
 
+    # Update entries in the database
     elif action == "edit":
         # Example: edit table solar_system with values planets = 8 provided star = sun
         # Example: edit table solar_system with values planets = 12 provided star in ["name", "sun"]
@@ -962,6 +1021,7 @@ def nosql_process_user_command(command):
             print(commands_help+"\n")
             return
 
+    # Delete entries in the database
     elif action == "remove":
         # Example: remove from table solar_system provided star = name
         # Example: remove from table solar_system provided planets in [9, 12]
@@ -1001,6 +1061,7 @@ def nosql_process_user_command(command):
             print(commands_help+"\n")
             return
         
+    # Modularity - Allow multiple operations in the same query
     elif action == "find" and "cluster" not in args:
         # Example: find all from solar_system
         # Example: find all from solar_system provided star = sun
@@ -1125,6 +1186,7 @@ def nosql_process_user_command(command):
             print(commands_help+"\n")
             return
 
+    # Join two tables
     elif action == "merge":
         # Example: merge (find all from country-by-currency-code) with (find all from country-by-currency-name) on country = country
         # Example: merge (find ["country", "currency_code"] from country-by-currency-code) with (find ["country", "currency_name"] from country-by-currency-name) on country = country sorting s.currency_code asc

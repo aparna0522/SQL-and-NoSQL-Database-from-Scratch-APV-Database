@@ -3,11 +3,9 @@
 
 import json         # To deal with JSON NoSQL Data.
 import os           # To deal with file creation and folder related operations.
-import sys          # To deal with system arguments.
 import shutil       # To remove the temp created folders.
 import warnings     # To remove any warnings.
 warnings.filterwarnings('ignore')
-
 
 # Load configuration parameters.
 with open("config.json") as cfr:
@@ -20,7 +18,7 @@ temp_page_cnk_size = config_data["temp_page_cnk_size"]
 # Function to open the json file.
 def open_load_json(file_name):
     json_file = os.path.join(os.getcwd(), "{}.json".format(file_name))
-    directory = os.path.join(os.getcwd(), "Data", (file_name + "_DB"))
+    directory = os.path.join(os.getcwd(), "Data", (file_name.split("/")[-1].split("\\")[-1] + "_DB"))
     # Load the JSON file.
     if isinstance(json_file, str):
         with open(json_file, encoding='utf-8') as f:
@@ -52,7 +50,7 @@ def create_db_structure(file_name, chunk_size=chunk_size, hash_file_size=hash_fi
     # Metadata check.
     check_metadata(directory, chunk_size)
     dynamic_hash_table(hash_file_size, directory)
-    print("\nDatabase table structure '{0}_DB' successfully created for '{0}.json'.\n".format(file_name))
+    print("\nDatabase table structure successfully created for '{}.json'.\n".format(file_name.split("/")[-1].split("\\")[-1]))
 ################################################################################
 # Function for Metadata file.
 def check_metadata(directory, chunk_size):
@@ -714,116 +712,118 @@ def group_by(table_name, projection_cols, search_col, operator, search_val, sort
     if del_temp == "yes":
         shutil.rmtree(tempi_path)
         tempi_path = None
-
 ################################################################################
 
+# To run the NoSQL Database independently without the CLI, uncomment the following lines and run 
+# python3 nosql_src.py (Ensure that your directory contains config.json before executing)
+
 # Create DB structure.
-file_name = "country-by-continent"
-#create_db_structure(file_name)
+# file_name = "country-by-continent"
+# create_db_structure(file_name)
 
 # Create NEW Table / DB.
-table_name = "students"
+# table_name = "students"
 #create_new_table_db(table_name, chunk_size)
 
 # Insert values.
-table_name = "country-by-continent"
-values = {"country": "Verdansk", "continent": "Asia", "id": 245}
-#insert_into_db(table_name, values, chunk_size, hash_file_size)
+# table_name = "country-by-continent"
+# values = {"country": "Verdansk", "continent": "Asia", "id": 245}
+# insert_into_db(table_name, values, chunk_size, hash_file_size)
 
 # Search algorithm.
-table_name = "country-by-abbreviation"
-where = 1
-search_col = "country"
-operator = "in"
-search_val = ["India", "China"]
-del_temp = "no"
-#tempi_path, data_file_nums = search_in_db(table_name, search_col, operator, search_val, hash_file_size, where=where, del_temp=del_temp)
+# table_name = "country-by-abbreviation"
+# where = 1
+# search_col = "country"
+# operator = "in"
+# search_val = ["India", "China"]
+# del_temp = "no"
+# tempi_path, data_file_nums = search_in_db(table_name, search_col, operator, search_val, hash_file_size, where=where, del_temp=del_temp)
 
 # Update value.
-table_name = "students"
-set_col = "name"
-set_val = "Teresa"
-search_col = "name"
-operator = "="
-search_val = "Pbtribk"
-#update_db_values(table_name, set_col, set_val, search_col, operator, search_val, hash_file_size)
+# table_name = "students"
+# set_col = "name"
+# set_val = "Teresa"
+# search_col = "name"
+# operator = "="
+# search_val = "Pbtribk"
+# update_db_values(table_name, set_col, set_val, search_col, operator, search_val, hash_file_size)
 
 # Delete value.
-table_name = "students"
-search_col = "sid"
-operator = "="
-search_val = 3
-#delete_db_values(table_name, search_col, operator, search_val, hash_file_size)
+# table_name = "students"
+# search_col = "sid"
+# operator = "="
+# search_val = 3
+# delete_db_values(table_name, search_col, operator, search_val, hash_file_size)
 
 # Projection operation.
-table_name = "students"
-projection_cols = ["id", "name"] # Or a list of columns meant to be projected.
-where = 0
-search_col = "continent"
-operator = "in"
-search_val = ["Asia", "Africa"]
-del_temp = "no"
-#tempi_path = projection_from_db(table_name, projection_cols, search_col, operator, search_val, hash_file_size, where=where, del_temp=del_temp)
+# table_name = "students"
+# projection_cols = ["id", "name"] # Or a list of columns meant to be projected.
+# where = 0
+# search_col = "continent"
+# operator = "in"
+# search_val = ["Asia", "Africa"]
+# del_temp = "no"
+# tempi_path = projection_from_db(table_name, projection_cols, search_col, operator, search_val, hash_file_size, where=where, del_temp=del_temp)
 
 # Ordering operation.
-table_name = "students"
-projection_cols = "all" # Or a list of columns meant to be projected.
-where = 0
-search_col = "continent"
-operator = "in"
-search_val = ["Asia", "Africa"]
-sort = 1
-order_by_col = "name"
-desc = 0
-del_temp = "no"
-#tempi_path = order_by(table_name, projection_cols, search_col, operator, search_val, order_by_col, where=where, sort=sort, desc=desc, hash_file_size=hash_file_size, del_temp=del_temp)
+# table_name = "students"
+# projection_cols = "all" # Or a list of columns meant to be projected.
+# where = 0
+# search_col = "continent"
+# operator = "in"
+# search_val = ["Asia", "Africa"]
+# sort = 1
+# order_by_col = "name"
+# desc = 0
+# del_temp = "no"
+# tempi_path = order_by(table_name, projection_cols, search_col, operator, search_val, order_by_col, where=where, sort=sort, desc=desc, hash_file_size=hash_file_size, del_temp=del_temp)
 
 # Join operation.
-a_params = {
-            "table_name": "students",
-            "projection_cols": ["id", "name"],
-            "where": 0,
-            "search_col": "currency_code",
-            "operator": "IN",
-            "search_val": ["USD", "EUR"],
-            "sort": 0,
-            "order_by_col": "country",
-            "desc": 0,
-            "join_col": "name"}
-b_params = {
-            "table_name": "students",
-            "projection_cols": ["name", "address"],
-            "where": 0,
-            "search_col": "currency_name",
-            "operator": "=",
-            "search_val": "US Dollar",
-            "sort": 0,
-            "order_by_col": "country",
-            "desc": 0,
-            "join_col": "name"}
+# a_params = {
+#             "table_name": "students",
+#             "projection_cols": ["id", "name"],
+#             "where": 0,
+#             "search_col": "currency_code",
+#             "operator": "IN",
+#             "search_val": ["USD", "EUR"],
+#             "sort": 0,
+#             "order_by_col": "country",
+#             "desc": 0,
+#             "join_col": "name"}
+# b_params = {
+#             "table_name": "students",
+#             "projection_cols": ["name", "address"],
+#             "where": 0,
+#             "search_col": "currency_name",
+#             "operator": "=",
+#             "search_val": "US Dollar",
+#             "sort": 0,
+#             "order_by_col": "country",
+#             "desc": 0,
+#             "join_col": "name"}
 
-del_temp = "no"
-sort_after_join = 0
-sort_after_join_col = "s.currency_code"
-desc = 0
-#join_a_b(a_params, b_params, sort_after_join_col, sort_after_join=sort_after_join, desc=desc, del_temp=del_temp)
+# del_temp = "no"
+# sort_after_join = 0
+# sort_after_join_col = "s.currency_code"
+# desc = 0
+# join_a_b(a_params, b_params, sort_after_join_col, sort_after_join=sort_after_join, desc=desc, del_temp=del_temp)
 
 # Group & Aggregate operation.
-table_name = "students"
-projection_cols = ["address", "name"] # Or a list of columns meant to be projected.
-where = 0
-search_col = "continent"
-operator = "in"
-search_val = ["Asia", "Africa"]
-sort_after_group = 0
-sort_after_group_col = "continent"
-desc = 1
+# table_name = "students"
+# projection_cols = ["address", "name"] # Or a list of columns meant to be projected.
+# where = 0
+# search_col = "continent"
+# operator = "in"
+# search_val = ["Asia", "Africa"]
+# sort_after_group = 0
+# sort_after_group_col = "continent"
+# desc = 1
 
-grby_col = "address"
-agg_col = "name"
-agg_opp = "CNT"
-agg_present_list = ["name", "CNT"]
+# grby_col = "address"
+# agg_col = "name"
+# agg_opp = "CNT"
+# agg_present_list = ["name", "CNT"]
 
-del_temp = "no"
-#group_by(table_name, projection_cols, search_col, operator, search_val, sort_after_group_col, grby_col, agg_present_list, where=where, sort_after_group=sort_after_group, desc=desc, hash_file_size=hash_file_size, del_temp=del_temp)
-#os.system('PageManager.exe "grp_agg" "<temp folder path, expected items sorted by the group by column>" "<group by attribute>" "<aggregate attribute name>" "<aggregate operation>" "<page_chunk_size>"')
+# del_temp = "no"
+# group_by(table_name, projection_cols, search_col, operator, search_val, sort_after_group_col, grby_col, agg_present_list, where=where, sort_after_group=sort_after_group, desc=desc, hash_file_size=hash_file_size, del_temp=del_temp)
+# os.system('PageManager.exe "grp_agg" "<temp folder path, expected items sorted by the group by column>" "<group by attribute>" "<aggregate attribute name>" "<aggregate operation>" "<page_chunk_size>"')
