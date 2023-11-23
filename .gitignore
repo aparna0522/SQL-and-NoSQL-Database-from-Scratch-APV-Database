@@ -1,5 +1,17 @@
+# Visual Studio / IDE Directories
+__pycache__
+sql_src/.vs
+sql_src/*.sln
+sql_src/*.vcxproj
+sql_src/*.vcxproj.filters
+sql_src/*.vcxproj.user
+sql_src/bin
+sql_src/bin-int
+sql_src/databases
+sql_src/temp
+
+# Working dirctories
 sql_workspace/databases
 sql_workspace/temp
 Data/
 temp/
-__pycache__

@@ -106,7 +106,7 @@ bool join_page(string table1FolderName, string table2FolderName,
 
   // This is the column Number Of the on Clause Attrib on which we are joining.
   int onClauseAttrib1 = attrib_index_map1[onClause[0]].first;
-  int onClauseAttrib2 = attrib_index_map2[onClause[0]].first;
+  int onClauseAttrib2 = attrib_index_map2[onClause[2]].first;
 
   vector<vector<string> > output;
   vector<vector<string> > table1PageData;
