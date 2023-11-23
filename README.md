@@ -1,6 +1,10 @@
 # APV-Database
 Implemented a Relational Database System (using files and folder structure) and NoSQL database (using dynamic hashing and linear probing) from scratch, along with a CLI and a natural language for a user to interact and retrieve answers to their queries.
 
+## How to run this project?
+MacOS (Linux): ```rlwrap python3 cli.py``` \
+Windows: ```cli.py```
+
 ## Folder/File Descriptions
 - cli.py: 
     Python file to run the SQL and NoSQL Commands of our query language and get the output. 
@@ -43,7 +47,7 @@ Implemented a Relational Database System (using files and folder structure) and 
     - country-by-currency-name.json
     - country-by-currency-code.json
 
-## SQL Commands - 
+## SQL Commands
 Please make sure to have the resources folder downloaded before running the following commands: 
 
 #### Define Table Operation
