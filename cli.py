@@ -214,7 +214,7 @@ def join_params_retrieval(table_statement):
 
     table_name = args[args.index("from") + 1] 
     # Error Handling   
-    if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
+    if(not os.path.exists(os.path.join(os.getcwd(), "nosql_workspace", 'Data')) or not os.path.exists(os.path.join(os.getcwd(), "nosql_workspace", 'Data', table_name+"_DB"))):
         print("Table with name '{}' does not exist".format(table_name))
         return None, False
     
@@ -898,7 +898,7 @@ def nosql_process_user_command(command):
             start_time = time.time()
             tracemalloc.start()
             if args[0] == "tables":
-                if(not os.path.exists(os.path.join(os.getcwd(), 'Data'))):
+                if(not os.path.exists(os.path.join(os.getcwd(), "nosql_workspace", 'Data'))):
                     print()
                     end_time = time.time()
                     delta_time_seconds = end_time - start_time
@@ -1094,6 +1094,18 @@ def nosql_process_user_command(command):
                 operator = args[args.index("provided") + 2]
                 if operator == "=":
                     search_val = args[args.index("provided") + 3]
+                    if search_val.startswith('"'):
+                        whole_val = ""
+                        for i in range(args.index("provided")+3, len(args)):
+                            if args[i].endswith("\""):
+                                whole_val += " " + args[i]
+                                break
+                            whole_val += " " + args[i]
+                        search_val = whole_val.strip()
+
+                    if search_val[0] in ['"', "'"] and search_val[-1] in ['"', "'"]:
+                        search_val = search_val[1:-1] 
+                    ##############################################
                     search_val = try_int_conversion(search_val)
                 elif operator.lower() == "in":
                     search_val = json.loads(re.findall(r'\[.*?\]', command)[-1])
@@ -1157,7 +1169,19 @@ def nosql_process_user_command(command):
                 operator = args[args.index("provided") + 2]
                 if operator == "=":
                     search_val = args[args.index("provided") + 3]
+                    if search_val.startswith('"'):
+                        whole_val = ""
+                        for i in range(args.index("provided")+3, len(args)):
+                            if args[i].endswith("\""):
+                                whole_val += " " + args[i]
+                                break
+                            whole_val += " " + args[i]
+                        search_val = whole_val.strip()
+
+                    if search_val[0] in ['"', "'"] and search_val[-1] in ['"', "'"]:
+                        search_val = search_val[1:-1]
                     search_val = try_int_conversion(search_val)
+
                 elif operator.lower() == "in":
                     search_val = json.loads(re.findall(r'\[.*?\]', command)[-1])
                     search_val = [try_int_conversion(i) for i in search_val]
