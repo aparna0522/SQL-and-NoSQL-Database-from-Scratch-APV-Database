@@ -18,7 +18,7 @@ temp_page_cnk_size = config_data["temp_page_cnk_size"]
 # Function to open the json file.
 def open_load_json(file_name):
     json_file = os.path.join(os.getcwd(), "{}.json".format(file_name))
-    directory = os.path.join(os.getcwd(), "Data", (file_name.split("/")[-1].split("\\")[-1] + "_DB"))
+    directory = os.path.join(os.getcwd(), "nosql_workspace", "Data", (file_name.split("/")[-1].split("\\")[-1] + "_DB"))
     # Load the JSON file.
     if isinstance(json_file, str):
         with open(json_file, encoding='utf-8') as f:
@@ -231,7 +231,7 @@ def dynamic_hash_table(hash_file_size, directory):
 ################################################################################
 # Function to create new DB / table.
 def create_new_table_db(table_name, chunk_size=chunk_size):
-    directory = os.path.join(os.getcwd(), "Data", (table_name + "_DB"))
+    directory = os.path.join(os.getcwd(), "nosql_workspace", "Data", (table_name + "_DB"))
     # Create the directory.
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -240,7 +240,7 @@ def create_new_table_db(table_name, chunk_size=chunk_size):
 ################################################################################
 # Function to insert the values into DB.
 def insert_into_db(table_name, values, chunk_size=chunk_size, hash_file_size=hash_file_size):
-    directory = os.path.join(os.getcwd(), "Data", (table_name + "_DB"))
+    directory = os.path.join(os.getcwd(), "nosql_workspace", "Data", (table_name + "_DB"))
     metadata_path = os.path.join(directory, "metadata.json")
     with open(metadata_path, "r") as md:
         mdata = json.load(md)
@@ -308,7 +308,7 @@ def retrieve_file_data(directory, data_file_num, search_col, search_val):
 # Function to make pages files for search results.
 def pages_for_search(i_ea, ea, new_temp, del_temp, cnk_size=temp_page_cnk_size):
     #print(ea)
-    temp_path = os.path.join(os.getcwd(), "temp")
+    temp_path = os.path.join(os.getcwd(), "nosql_workspace", "temp")
     if not os.path.exists(temp_path):
         os.makedirs(temp_path)
     tlist = sorted([int(dir.split("_")[-1]) for dir in os.listdir(temp_path) if os.path.isdir(os.path.join(temp_path, dir)) and dir.split("_")[0] == "temp"])
@@ -354,7 +354,7 @@ def include_brackets_to_pages(tempi_path):
 ################################################################################
 # Function to search in DB.
 def search_in_db(table_name, search_col, operator, search_val, hash_file_size, where=0, del_temp="yes"):
-    directory = os.path.join(os.getcwd(), "Data", (table_name + "_DB"))
+    directory = os.path.join(os.getcwd(), "nosql_workspace", "Data", (table_name + "_DB"))
 
     if where == 0:  # No Where condition, search whole table (default).
         new_temp = 1    # Create new temp.
@@ -440,7 +440,7 @@ def search_in_db(table_name, search_col, operator, search_val, hash_file_size, w
 def update_db_values(table_name, set_col, set_val, search_col, operator, search_val, hash_file_size=hash_file_size):
     tempi_path, data_file_nums = search_in_db(table_name, search_col, operator, search_val, hash_file_size, where=1)
 
-    directory = os.path.join(os.getcwd(), "Data", (table_name + "_DB"))
+    directory = os.path.join(os.getcwd(), "nosql_workspace", "Data", (table_name + "_DB"))
     col_hash_path = os.path.join(directory, "Hash_tables", search_col)
     hashmeta_path = os.path.join(col_hash_path, "hashmeta.json")
 
@@ -472,7 +472,7 @@ def update_db_values(table_name, set_col, set_val, search_col, operator, search_
 # Function to delete from DB.
 def delete_db_values(table_name, search_col, operator, search_val, hash_file_size=hash_file_size):
     tempi_path, data_file_nums = search_in_db(table_name, search_col, operator, search_val, hash_file_size, where=1)
-    directory = os.path.join(os.getcwd(), "Data", (table_name + "_DB"))
+    directory = os.path.join(os.getcwd(), "nosql_workspace", "Data", (table_name + "_DB"))
     col_hash_path = os.path.join(directory, "Hash_tables", search_col)
     hashmeta_path = os.path.join(col_hash_path, "hashmeta.json")
 
@@ -559,15 +559,15 @@ def order_by(table_name, projection_cols, search_col, operator, search_val, orde
         tempi_folder = os.path.split(tempi_path)[-1]
         if desc == 0:   # Ascending sort (default).
             if os.name == "nt":
-                os.system('PageManager.exe "order" "{}" "{}" "ASC" "{}"'.format("temp/"+tempi_folder, order_by_col, temp_page_cnk_size))
+                os.system('PageManager.exe "order" "{}" "{}" "ASC" "{}"'.format("nosql_workspace/temp/"+tempi_folder, order_by_col, temp_page_cnk_size))
             else:
-                os.system('./PageManager.o "order" "{}" "{}" "ASC" "{}"'.format("temp/"+tempi_folder, order_by_col, temp_page_cnk_size))
+                os.system('./PageManager.o "order" "{}" "{}" "ASC" "{}"'.format("nosql_workspace/temp/"+tempi_folder, order_by_col, temp_page_cnk_size))
             #print("\n========== Ascending Order-by Result ==========\n")
         elif desc == 1: # Descending sort.
             if os.name == "nt":
-                os.system('PageManager.exe "order" "{}" "{}" "DESC" "{}"'.format("temp/"+tempi_folder, order_by_col, temp_page_cnk_size))
+                os.system('PageManager.exe "order" "{}" "{}" "DESC" "{}"'.format("nosql_workspace/temp/"+tempi_folder, order_by_col, temp_page_cnk_size))
             else:
-                os.system('./PageManager.o "order" "{}" "{}" "DESC" "{}"'.format("temp/"+tempi_folder, order_by_col, temp_page_cnk_size))
+                os.system('./PageManager.o "order" "{}" "{}" "DESC" "{}"'.format("nosql_workspace/temp/"+tempi_folder, order_by_col, temp_page_cnk_size))
             #print("\n========== Descending Order-by Result ==========\n")
 
     with open(os.path.join(tempi_path, "meta.txt"), "r") as mfr:
@@ -615,9 +615,9 @@ def join_a_b(a_params, b_params, sort_after_join_col, sort_after_join=0, desc=0,
     b_join_col = b_params["join_col"]
 
     if os.name == "nt":
-        os.system('PageManager.exe "join" "{}" "{}" "{}" "=" "{}" "{}" "{}"'.format("temp/"+a_tempi_folder, "temp/"+b_tempi_folder, a_join_col, b_join_col, "temp/"+o_tempi_folder, temp_page_cnk_size))
+        os.system('PageManager.exe "join" "{}" "{}" "{}" "=" "{}" "{}" "{}"'.format("nosql_workspace/temp/"+a_tempi_folder, "nosql_workspace/temp/"+b_tempi_folder, a_join_col, b_join_col, "nosql_workspace/temp/"+o_tempi_folder, temp_page_cnk_size))
     else:
-        os.system('./PageManager.o "join" "{}" "{}" "{}" "=" "{}" "{}" "{}"'.format("temp/"+a_tempi_folder, "temp/"+b_tempi_folder, a_join_col, b_join_col, "temp/"+o_tempi_folder, temp_page_cnk_size))
+        os.system('./PageManager.o "join" "{}" "{}" "{}" "=" "{}" "{}" "{}"'.format("nosql_workspace/temp/"+a_tempi_folder, "nosql_workspace/temp/"+b_tempi_folder, a_join_col, b_join_col, "nosql_workspace/temp/"+o_tempi_folder, temp_page_cnk_size))
 
 
     # Removing previous temp folders.
@@ -632,16 +632,16 @@ def join_a_b(a_params, b_params, sort_after_join_col, sort_after_join=0, desc=0,
     if sort_after_join != 0:    # Sort the join output.
         if desc == 0:   # Ascending sort (default).
             if os.name == "nt":
-                os.system('PageManager.exe "order" "{}" "{}" "ASC" "{}"'.format("temp/"+o_tempi_folder, sort_after_join_col, temp_page_cnk_size))
+                os.system('PageManager.exe "order" "{}" "{}" "ASC" "{}"'.format("nosql_workspace/temp/"+o_tempi_folder, sort_after_join_col, temp_page_cnk_size))
             else:
-                os.system('./PageManager.o "order" "{}" "{}" "ASC" "{}"'.format("temp/"+o_tempi_folder, sort_after_join_col, temp_page_cnk_size))
+                os.system('./PageManager.o "order" "{}" "{}" "ASC" "{}"'.format("nosql_workspace/temp/"+o_tempi_folder, sort_after_join_col, temp_page_cnk_size))
 
             #print("\n========== Post-Join Ascending Order-by Result ==========\n")
         elif desc == 1: # Descending sort.
             if os.name == "nt":
-                os.system('PageManager.exe "order" "{}" "{}" "DESC" "{}"'.format("temp/"+o_tempi_folder, sort_after_join_col, temp_page_cnk_size))
+                os.system('PageManager.exe "order" "{}" "{}" "DESC" "{}"'.format("nosql_workspace/temp/"+o_tempi_folder, sort_after_join_col, temp_page_cnk_size))
             else:
-                os.system('./PageManager.o "order" "{}" "{}" "DESC" "{}"'.format("temp/"+o_tempi_folder, sort_after_join_col, temp_page_cnk_size))
+                os.system('./PageManager.o "order" "{}" "{}" "DESC" "{}"'.format("nosql_workspace/temp/"+o_tempi_folder, sort_after_join_col, temp_page_cnk_size))
 
             #print("\n========== Post-Join Descending Order-by Result ==========\n")
     else:
@@ -668,11 +668,11 @@ def group_by(table_name, projection_cols, search_col, operator, search_val, sort
     tempi_path = order_by(table_name, projection_cols, search_col, operator, search_val, sort_after_group_col, where=where, sort=0, desc=desc, del_temp="no", oprint=0)
     tempi_folder = os.path.split(tempi_path)[-1]
     if os.name == "nt":
-        os.system('PageManager.exe "order" "{}" "{}" "ASC" "{}"'.format("temp/"+tempi_folder, grby_col, temp_page_cnk_size))
-        os.system('PageManager.exe "grp_agg" "{}" "{}" "{}" "{}"'.format("temp/"+tempi_folder, grby_col, '" "'.join(agg_present_list), temp_page_cnk_size))
+        os.system('PageManager.exe "order" "{}" "{}" "ASC" "{}"'.format("nosql_workspace/temp/"+tempi_folder, grby_col, temp_page_cnk_size))
+        os.system('PageManager.exe "grp_agg" "{}" "{}" "{}" "{}"'.format("nosql_workspace/temp/"+tempi_folder, grby_col, '" "'.join(agg_present_list), temp_page_cnk_size))
     else:
-        os.system('./PageManager.o "order" "{}" "{}" "ASC" "{}"'.format("temp/"+tempi_folder, grby_col, temp_page_cnk_size))
-        os.system('./PageManager.o "grp_agg" "{}" "{}" "{}" "{}"'.format("temp/"+tempi_folder, grby_col, '" "'.join(agg_present_list), temp_page_cnk_size))
+        os.system('./PageManager.o "order" "{}" "{}" "ASC" "{}"'.format("nosql_workspace/temp/"+tempi_folder, grby_col, temp_page_cnk_size))
+        os.system('./PageManager.o "grp_agg" "{}" "{}" "{}" "{}"'.format("nosql_workspace/temp/"+tempi_folder, grby_col, '" "'.join(agg_present_list), temp_page_cnk_size))
 
 
     with open(os.path.join(tempi_path, "meta.txt"), "r") as mfr:
@@ -684,16 +684,16 @@ def group_by(table_name, projection_cols, search_col, operator, search_val, sort
         tempi_folder = os.path.split(tempi_path)[-1]
         if desc == 0:   # Ascending sort (default).
             if os.name == "nt":
-                os.system('PageManager.exe "order" "{}" "{}" "ASC" "{}"'.format("temp/"+tempi_folder, sort_after_group_col, temp_page_cnk_size))
+                os.system('PageManager.exe "order" "{}" "{}" "ASC" "{}"'.format("nosql_workspace/temp/"+tempi_folder, sort_after_group_col, temp_page_cnk_size))
             else:
-                os.system('./PageManager.o "order" "{}" "{}" "ASC" "{}"'.format("temp/"+tempi_folder, sort_after_group_col, temp_page_cnk_size))
+                os.system('./PageManager.o "order" "{}" "{}" "ASC" "{}"'.format("nosql_workspace/temp/"+tempi_folder, sort_after_group_col, temp_page_cnk_size))
 
             #print("\n========== Post-Group Ascending Order-by Result ==========\n")
         elif desc == 1: # Descending sort.
             if os.name == "nt":
-                os.system('PageManager.exe "order" "{}" "{}" "DESC" "{}"'.format("temp/"+tempi_folder, sort_after_group_col, temp_page_cnk_size))
+                os.system('PageManager.exe "order" "{}" "{}" "DESC" "{}"'.format("nosql_workspace/temp/"+tempi_folder, sort_after_group_col, temp_page_cnk_size))
             else:
-                os.system('./PageManager.o "order" "{}" "{}" "DESC" "{}"'.format("temp/"+tempi_folder, sort_after_group_col, temp_page_cnk_size))
+                os.system('./PageManager.o "order" "{}" "{}" "DESC" "{}"'.format("nosql_workspace/temp/"+tempi_folder, sort_after_group_col, temp_page_cnk_size))
 
             #print("\n========== Post-Group Descending Order-by Result ==========\n")
     else:

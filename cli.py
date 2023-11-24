@@ -907,7 +907,7 @@ def nosql_process_user_command(command):
                     print(f"Total RAM Usage: {peak} B")
                     print(f"[{delta_time_seconds:.3f} seconds]")
                     return
-                tables = os.listdir(os.path.join(os.getcwd(), "Data"))
+                tables = os.listdir(os.path.join(os.getcwd(), "nosql_workspace", "Data"))
                 tables = [t[0:-3] for t in tables]
                 tables_str = '\t'.join(tables)
                 print(tables_str)
@@ -934,7 +934,7 @@ def nosql_process_user_command(command):
             start_time = time.time()
             tracemalloc.start()
             table_name = args[1].split(".")[0]
-            if(os.path.exists(os.path.join(os.getcwd(), 'Data')) and os.path.exists(os.path.join(os.getcwd(), 'Data', table_name))):
+            if(os.path.exists(os.path.join(os.getcwd(), "nosql_workspace", 'Data')) and os.path.exists(os.path.join(os.getcwd(), "nosql_workspace", 'Data', table_name))):
                 print("Table with name '{}' already exists".format(table_name))
                 return
             nosql.create_new_table_db(table_name)
@@ -961,7 +961,7 @@ def nosql_process_user_command(command):
             start_time = time.time()
             tracemalloc.start()
             table_name = args[args.index("table") + 1]
-            if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
+            if(not os.path.exists(os.path.join(os.getcwd(), "nosql_workspace", 'Data')) or not os.path.exists(os.path.join(os.getcwd(), "nosql_workspace", "Data", table_name+"_DB"))):
                 print("Table with name '{}' does not exist".format(table_name))
                 return
             values = json.loads(re.findall(r'\{.*?\}', command)[0])
@@ -990,7 +990,7 @@ def nosql_process_user_command(command):
             start_time = time.time()
             tracemalloc.start()
             table_name = args[args.index("table") + 1]
-            if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
+            if(not os.path.exists(os.path.join(os.getcwd(), "nosql_workspace", 'Data')) or not os.path.exists(os.path.join(os.getcwd(), "nosql_workspace", 'Data', table_name+"_DB"))):
                 print("Table with name '{}' does not exist".format(table_name))
                 return
             set_col = args[args.index("values") + 1]
@@ -1033,7 +1033,7 @@ def nosql_process_user_command(command):
             start_time = time.time()
             tracemalloc.start()
             table_name = args[args.index("table") + 1]
-            if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
+            if(not os.path.exists(os.path.join(os.getcwd(), "nosql_workspace", 'Data')) or not os.path.exists(os.path.join(os.getcwd(), "nosql_workspace", 'Data', table_name+"_DB"))):
                 print("Table with name '{}' does not exist".format(table_name))
                 return
             search_col = args[args.index("provided") + 1]
@@ -1062,7 +1062,7 @@ def nosql_process_user_command(command):
             return
         
     # Modularity - Allow multiple operations in the same query
-    elif action == "find" and "cluster" not in args:
+    elif action == "find" and "cluster" not in args:    
         # Example: find all from solar_system
         # Example: find all from solar_system provided star = sun
         # Example: find ["star", "galaxy"] from solar_system provided planets = 9
@@ -1077,7 +1077,7 @@ def nosql_process_user_command(command):
             start_time = time.time()
             tracemalloc.start()
             table_name = args[args.index("from") + 1]      
-            if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
+            if(not os.path.exists(os.path.join(os.getcwd(), "nosql_workspace", 'Data')) or not os.path.exists(os.path.join(os.getcwd(), "nosql_workspace", 'Data', table_name+"_DB"))):
                 print("Table with name '{}' does not exist".format(table_name))
                 return 
             if args[0] == "all":
@@ -1133,7 +1133,7 @@ def nosql_process_user_command(command):
             start_time = time.time()
             tracemalloc.start()
             table_name = args[args.index("from") + 1]
-            if(not os.path.exists(os.path.join(os.getcwd(), 'Data')) or not os.path.exists(os.path.join(os.getcwd(), 'Data', table_name+"_DB"))):
+            if(not os.path.exists(os.path.join(os.getcwd(), "nosql_workspace", 'Data')) or not os.path.exists(os.path.join(os.getcwd(), "nosql_workspace", 'Data', table_name+"_DB"))):
                 print("Table with name '{}' does not exist".format(table_name))
                 return
             projection_list = json.loads(re.findall(r'\[.*?\]', command)[0])
