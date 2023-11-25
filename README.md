@@ -2,10 +2,11 @@
 Implemented a Relational Database System (using files and folder structure) and NoSQL database (using dynamic hashing and linear probing) from scratch, along with a CLI and a natural language for a user to interact and retrieve results to their queries.
 
 ## Key Features of the project:
-1. Loads and processes huge datasets (where number of rows >>> number of columns) in optimal memory allocations.
-   For instance: Consider a file of size 750kB, and the table having 20 columns and about 10k rows. If we consider there are 50 rows in every chunk, and every value of has size of 8Bytes, so two input files, and one output file would in all take 3 * 20 * 50 * 8 Bytes = 24000 Bytes = 23kB. Thus, (23/750) kB would be about 3%. This means that for a file as huge as 750 kB, only 3% data would be taken into main memory at the same time. 
+1. Loads and processes huge datasets (where number of rows >>> number of columns) in optimal memory allocations. \
+   For instance: Consider a file of size 750kB, and the table having 20 columns and about 10k rows. If we consider there are 50 rows in every chunk, and every value of has size of 8Bytes, so two input files, and one output file would in all take 3 * 20 * 50 * 8 Bytes = 24000 Bytes = 23kB. Thus, (23/750) kB would be about 3%. This means that for a file as huge as 750 kB, only 3% data would be loaded into main memory at the same time for processing. 
 2. Enables CLI support for relational as well as nosql database. Type ```chdb``` in the terminal to change the database type from sql to nosql and viceversa.
 3. Allows cross-platform working on Mac, Linux as well as Windows systems.
+4. Uses BTree for Relational Database Structure, enabling faster query retrieval (search). Uses external merge sort algorithm to order huge amounts of data in limited memory allocations. In case of NoSQL database, we use dyanmic hashing with linear probing and chaining to make query search faster and more efficient.
 
 ## How to run this project?
 
@@ -234,3 +235,19 @@ Please make sure to have the resources folder downloaded before running the foll
   ```
   find ["CNT(country)", "SUM(population)"] from country-by-continent cluster on continent sorting SUM(population) desc;
   ```
+
+## Future Scope: 
+#### SQL:
+1. Use pointers in BTree representation, to include NULL values.
+2. Implement functionality for the where clauses such as: IN, LIKE, AND, OR, Nested Queries.
+3. Use Hash Partitioning or Sort-Merge Join algorithm for Joining two or more tables.
+
+#### NoSQL:
+1. Implement resizing of the hash when entries are deleted.
+2. Implement functionalities for the where clauses such as: LIKE, AND, OR, Range Queries(<,>,<=,>=) and Nested Queries.
+3. Prettify the JSON Output that is printed on the terminal.
+
+#### CLI:
+1. Add auto-complete functionality on hitting tab on the Keyboard.
+2. Enable nested queries execution.
+3. Create "Views" and save the intermediate table result.
