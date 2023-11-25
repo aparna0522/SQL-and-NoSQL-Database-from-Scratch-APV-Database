@@ -1,18 +1,31 @@
 # APV-Database
-Implemented a Relational Database System (using files and folder structure) and NoSQL database (using dynamic hashing and linear probing) from scratch, along with a CLI and a natural language for a user to interact and retrieve answers to their queries.
+Implemented a Relational Database System (using files and folder structure) and NoSQL database (using dynamic hashing and linear probing) from scratch, along with a CLI and a natural language for a user to interact and retrieve results to their queries.
+
+## USP of the project:
+1. Loads and processes huge datasets (where number of rows >>> number of columns) in optimal memory allocations.
+2. Enables CLI support for relational as well as nosql database. Type ```chdb``` in the terminal to change the database type from sql to nosql and viceversa.
+3. Allows cross-platform working on Mac, Linux as well as Windows systems.
 
 ## How to run this project?
+
 MacOS (Linux): 
 ```
-brew install rlwrap 
+brew install rlwrap
+./init.sh
 rlwrap python3 cli.py
 ```
-Note: rlwrap is a 'readline wrapper', a small utility that uses the GNU Readline library to allow the editing of keyboard input for any command.
+Note: rlwrap is a 'readline wrapper', a small utility that uses the GNU Readline library to allow the editing of keyboard input for any command. rlwrap is an optional utility. 
 
-Windows: ```cli.py```
+Windows: ```python cli.py```
 
 ## Project Demo
-Project Demo Link: <a href = "https://player.vimeo.com/video/888146630?badge=0&amp;autopause=0&amp;quality_selector=1&amp;player_id=0&amp;app_id=58479%22%20frameborder=%220%22%20allow=%22autoplay;%20fullscreen;%20picture-in-picture"> Link </a>
+Relational Database Demonstration: 
+
+https://github.com/aparna0522/APV-Database/assets/36110304/289063c6-0025-459b-b363-0d4274d6c4a0
+
+NoSQL Database Demonstration:
+
+https://github.com/aparna0522/APV-Database/assets/36110304/1e745283-b1c2-40a4-85bc-333efde81075
 
 ## Folder/File Descriptions
 - cli.py: 
