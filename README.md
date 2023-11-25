@@ -126,8 +126,8 @@ Please make sure to have the resources folder downloaded before running the foll
 #### Merge Operation
 - Merge two tables 
   ```
-  merge (find ["team", "team_name"] from standings) as t with (find ["team", "wins", "loss"] from standings) as s on s.team = t.team;
-  merge (find ["team", "wins", "loss"] from standings) as s with (find ["away_team_name", "tie"] from games) as t on s.team_name = t.away_team_name;  
+  merge (find ["team", "team_name"] from standings) as t with (find ["team", "wins", "loss"] from standings) as s on s.team = t.team; // Self join on same table...
+  merge (find ["team", "wins", "loss"] from standings) as s with (find ["away_team_name", "tie"] from games) as t on s.team_name = t.away_team_name;  // two different tables being used having team name (s) = away_team_name (t) as common attributes; Both tables have a lot of data, initial processing for join takes couple extra seconds. 
   ```
 
 #### Database Modularity: Mixing various operations (Group By, and Ordering by using where Clause and projecting specific columns)
@@ -162,9 +162,6 @@ Please make sure to have the resources folder downloaded before running the foll
 - Project particular entries in the database using "provided" (where) clause:
   ```
   find ["continent", "country"] from country-by-continent provided continent in ["Asia", "Africa"] sorting continent asc;
-  find ["CNT(country)", "SUM(population)"] from country-by-continent cluster on continent sorting continent desc;
-  find ["CNT(country)", "SUM(population)"] from country-by-continent cluster on continent sorting CNT(country) desc;
-  find ["CNT(country)", "SUM(population)"] from country-by-continent cluster on continent sorting SUM(population) desc;
   ```
 
 #### Fill Operation
@@ -191,19 +188,25 @@ Please make sure to have the resources folder downloaded before running the foll
 #### Cluster On and aggregation Operation 
 - Group By And Aggregation Operation:
   ```
+  find ["CNT(country)", "SUM(population)"] from country-by-continent cluster on continent sorting continent asc;
   ```
 
 #### Sorting Operation 
 - Group By And Aggregation Operation:
   ```
+  find ["CNT(country)", "SUM(population)"] from country-by-continent cluster on continent sorting CNT(country) desc;
+  find ["CNT(country)", "SUM(population)"] from country-by-continent cluster on continent sorting continent desc;
   ```
 
 #### Merge Operation
 - Merge two tables 
   ```
+  merge (find all from country-by-currency-code) with (find all from country-by-currency-name) on country = country;
+  merge (find ["country", "continent"] from country-by-continent provided continent = Asia) with (find ["country", "abbreviation"] from country-by-abbreviation) on country = country sorting s.continent asc;
   ```
 
 #### Database Modularity: Mixing various operations (Group By, and Ordering by using where Clause and projecting specific columns)
 - Mixing cluster, ordering projection operations
   ```
+  find ["CNT(country)", "SUM(population)"] from country-by-continent cluster on continent sorting SUM(population) desc;
   ```
