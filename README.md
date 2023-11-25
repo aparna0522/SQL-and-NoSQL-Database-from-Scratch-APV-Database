@@ -5,6 +5,9 @@ Implemented a Relational Database System (using files and folder structure) and 
 MacOS (Linux): ```rlwrap python3 cli.py``` \
 Windows: ```cli.py```
 
+## Project Demo:
+Project Demo Link: <a href = "https://player.vimeo.com/video/888146630?badge=0&amp;autopause=0&amp;quality_selector=1&amp;player_id=0&amp;app_id=58479%22%20frameborder=%220%22%20allow=%22autoplay;%20fullscreen;%20picture-in-picture"> Link </a>
+
 ## Folder/File Descriptions
 - cli.py: 
     Python file to run the SQL and NoSQL Commands of our query language and get the output. 
