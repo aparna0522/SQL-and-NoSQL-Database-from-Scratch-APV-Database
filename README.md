@@ -21,8 +21,7 @@ Windows: ```python cli.py```
 ## Project Demo
 Relational Database Demonstration: 
 
-https://github.com/aparna0522/APV-Database/assets/36110304/2e38a0bf-afe7-47ec-b5b9-7a96734a9bf8
-
+https://github.com/aparna0522/APV-Database/assets/36110304/75e9b181-8589-4bce-9029-4d843b0bd6de
 
 NoSQL Database Demonstration:
 
