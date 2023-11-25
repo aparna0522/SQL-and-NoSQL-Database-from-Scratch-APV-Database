@@ -21,11 +21,13 @@ Windows: ```python cli.py```
 ## Project Demo
 Relational Database Demonstration: 
 
-https://github.com/aparna0522/APV-Database/assets/36110304/289063c6-0025-459b-b363-0d4274d6c4a0
+https://github.com/aparna0522/APV-Database/assets/36110304/2e38a0bf-afe7-47ec-b5b9-7a96734a9bf8
+
 
 NoSQL Database Demonstration:
 
-https://github.com/aparna0522/APV-Database/assets/36110304/1e745283-b1c2-40a4-85bc-333efde81075
+https://github.com/aparna0522/APV-Database/assets/36110304/9b90895d-2afe-4213-b85c-f45277492cab
+
 
 ## Folder/File Descriptions
 - cli.py: 
