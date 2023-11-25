@@ -1,8 +1,9 @@
 # APV-Database
 Implemented a Relational Database System (using files and folder structure) and NoSQL database (using dynamic hashing and linear probing) from scratch, along with a CLI and a natural language for a user to interact and retrieve results to their queries.
 
-## USP of the project:
+## Key Features of the project:
 1. Loads and processes huge datasets (where number of rows >>> number of columns) in optimal memory allocations.
+   For instance: Consider a file of size 750kB, and the table having 20 columns and about 10k rows. If we consider there are 50 rows in every chunk, and every value of has size of 8Bytes, so two input files, and one output file would in all take 3 * 20 * 50 * 8 Bytes = 24000 Bytes = 23kB. Thus, (23/750) kB would be about 3%. This means that for a file as huge as 750 kB, only 3% data would be taken into main memory at the same time. 
 2. Enables CLI support for relational as well as nosql database. Type ```chdb``` in the terminal to change the database type from sql to nosql and viceversa.
 3. Allows cross-platform working on Mac, Linux as well as Windows systems.
 
