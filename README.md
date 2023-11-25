@@ -2,10 +2,16 @@
 Implemented a Relational Database System (using files and folder structure) and NoSQL database (using dynamic hashing and linear probing) from scratch, along with a CLI and a natural language for a user to interact and retrieve answers to their queries.
 
 ## How to run this project?
-MacOS (Linux): ```rlwrap python3 cli.py``` \
+MacOS (Linux): 
+```
+brew install rlwrap 
+rlwrap python3 cli.py
+```
+Note: rlwrap is a 'readline wrapper', a small utility that uses the GNU Readline library to allow the editing of keyboard input for any command.
+
 Windows: ```cli.py```
 
-## Project Demo:
+## Project Demo
 Project Demo Link: <a href = "https://player.vimeo.com/video/888146630?badge=0&amp;autopause=0&amp;quality_selector=1&amp;player_id=0&amp;app_id=58479%22%20frameborder=%220%22%20allow=%22autoplay;%20fullscreen;%20picture-in-picture"> Link </a>
 
 ## Folder/File Descriptions
