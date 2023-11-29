@@ -1,5 +1,5 @@
 # APV-Database
-Implemented a Relational Database System (using files and folder structure) and NoSQL database (using dynamic hashing and linear probing) from scratch, along with a CLI and a natural language for a user to interact and retrieve results to their queries.
+Architected and implemented a SQL and NoSQL database, while providing a CLI to run queries using a newly devised query language to interact and retrieve results.
 
 ## Key Features of the project:
 1. Loads and processes huge datasets (where number of rows >>> number of columns) in optimal memory allocations. \
