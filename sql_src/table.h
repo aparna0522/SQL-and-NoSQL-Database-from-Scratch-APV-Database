@@ -359,6 +359,8 @@ bool insert_entry_in_table(string table_name, vector<void*> values) {
                         valueInOther += *(string*)values[attrib_index_map[data[i]].first];
                     else if (attrib_index_map[data[i]].second == "float")
                         valueInOther += to_string(*(float*)values[attrib_index_map[data[i]].first]);
+                    else if (attrib_index_map[data[i]].second == "double")
+                        valueInOther += to_string(*(double*)values[attrib_index_map[data[i]].first]);
                 }
             }
             else
@@ -381,6 +383,8 @@ bool insert_entry_in_table(string table_name, vector<void*> values) {
                     valueInPK += *(string*)values[idx];
                 else if (data[1] == "float")
                     valueInPK += to_string(*(float*)values[idx]);
+                else if (data[1] == "double")
+                    valueInPK += to_string(*(double*)values[idx]);
                 idx++;
             }
         }
@@ -404,6 +408,8 @@ bool insert_entry_in_table(string table_name, vector<void*> values) {
                     search_for_field<int>(table_name + "/" + e.first, "=", *(int*)values[e.second.first], "temp/temporary");
                 else if (e.second.second == "float")
                     search_for_field<float>(table_name + "/" + e.first, "=", *(float*)values[e.second.first], "temp/temporary");
+                else if (e.second.second == "double")
+                    search_for_field<double>(table_name + "/" + e.first, "=", *(double*)values[e.second.first], "temp/temporary");
 
                 break;
             }
@@ -423,7 +429,7 @@ bool insert_entry_in_table(string table_name, vector<void*> values) {
 
     if (primaryKeyIsPresent)
     {
-        std::cout << "Primary key with this value is already present in database!\n";
+        std::cout << "Primary key with this value is already present in database!"<<valueInOther<<endl;
         return false;
     }
 
@@ -454,6 +460,8 @@ bool insert_entry_in_table(string table_name, vector<void*> values) {
                 insert_value_for_field<string>(table_name + "/" + data[0], *(string*)values[idx], additionalData);
             else if (data[1] == "float")
                 insert_value_for_field<float>(table_name + "/" + data[0], *(float*)values[idx], additionalData);
+            else if (data[1] == "double")
+                insert_value_for_field<double>(table_name + "/" + data[0], *(double*)values[idx], additionalData);
 
             idx++;
         }
@@ -515,6 +523,7 @@ bool insert_entry_in_table(string table_name, string csvFileLocation, bool hasPK
 
             vector<int> data_int(50);
             vector<float> data_float(50);
+            vector<double> data_double(50);
             vector<string> data_string(50);
 
             stringstream ss(line);
@@ -524,6 +533,18 @@ bool insert_entry_in_table(string table_name, string csvFileLocation, bool hasPK
                 col_idx++;
             while (getline(ss, word, ','))
             {
+                if (!word.empty() && word[0] == '"') {
+                    if (word[word.size()-1] != '"') {
+                        std::string temp = word;
+                        while (std::getline(ss, word, ',')) {
+                            temp += "," + word;
+                            if (!word.empty() && word.back() == '"') {
+                                break;
+                            }
+                        }
+                    }
+                    word = word.substr(1, word.size() - 2);
+                }
                 if(attrib_types[col_idx] == "integer")
                 {
                     data_int[col_idx] = stoi(word);
@@ -538,6 +559,11 @@ bool insert_entry_in_table(string table_name, string csvFileLocation, bool hasPK
                 {
                     data_float[col_idx] = stof(word);
                     inputData.push_back((void*)&data_float[col_idx]);
+                }
+                else if (attrib_types[col_idx] == "double")
+                {
+                    data_double[col_idx] = stod(word);
+                    inputData.push_back((void*)&data_double[col_idx]);
                 }
                 col_idx++;
             }
@@ -632,6 +658,8 @@ bool search_in_table(string table_name, vector<void*> attribValToSearch, vector<
             entryPages = search_for_field<int>(table_name + "/" + fieldName, operation, *(int*)attribValToSearch[2], outputFolder);
         else if (attrib_index_map[fieldName].second == "float")
             entryPages = search_for_field<float>(table_name + "/" + fieldName, operation, *(float*)attribValToSearch[2], outputFolder);
+        else if (attrib_index_map[fieldName].second == "double")
+            entryPages = search_for_field<double>(table_name + "/" + fieldName, operation, *(double*)attribValToSearch[2], outputFolder);
     }
     else
     {
@@ -648,6 +676,8 @@ bool search_in_table(string table_name, vector<void*> attribValToSearch, vector<
             numPages = search_for_field<int>(table_name + "/" + fieldName, operation, *(int*)attribValToSearch[2], outputFolder1);
         else if (attrib_index_map[fieldName].second == "float")
             numPages = search_for_field<float>(table_name + "/" + fieldName, operation, *(float*)attribValToSearch[2], outputFolder1);
+        else if (attrib_index_map[fieldName].second == "double")
+            numPages = search_for_field<double>(table_name + "/" + fieldName, operation, *(double*)attribValToSearch[2], outputFolder1);
         numPages++;
 
         int writeTo = 0;
@@ -663,6 +693,8 @@ bool search_in_table(string table_name, vector<void*> attribValToSearch, vector<
                             writeTo = search_for_field<int>(table_name + "/" + primaryKeyName, "=", stoi(line), outputFolder, writeTo);
                         else if (attrib_index_map[primaryKeyName].second == "float")
                             writeTo = search_for_field<float>(table_name + "/" + primaryKeyName, "=", stof(line), outputFolder, writeTo);
+                        else if (attrib_index_map[primaryKeyName].second == "double")
+                            writeTo = search_for_field<double>(table_name + "/" + primaryKeyName, "=", stod(line), outputFolder, writeTo);
                     }
                     else
                         writeTo = search_for_field<string>(table_name + "/" + primaryKeyName, "=", line, outputFolder, writeTo);
@@ -760,7 +792,8 @@ bool delete_entry_in_table(string table_name, vector<void*> whereClause) {
                         delete_for_field<int>("databases/" + table_name + "/" + attrib_index_map[i].first, stoi(data[i]), additionalInfo);
                     else if (attrib_index_map[i].second == "float")
                         delete_for_field<float>("databases/" + table_name + "/" + attrib_index_map[i].first, stof(data[i]), additionalInfo);
-
+                    else if (attrib_index_map[i].second == "double")
+                        delete_for_field<double>("databases/" + table_name + "/" + attrib_index_map[i].first, stod(data[i]), additionalInfo);
                 }
 
                 if (!deletedPrimaryKey) {
@@ -870,6 +903,8 @@ bool update_entry_in_table(string table_name, vector<void*> whereClause, vector<
                         delete_for_field<int>("databases/" + table_name + "/" + attrib_index_map[i].first, stoi(data[i]), additionalInfo);
                     else if (attrib_index_map[i].second == "float")
                         delete_for_field<float>("databases/" + table_name + "/" + attrib_index_map[i].first, stof(data[i]), additionalInfo);
+                    else if (attrib_index_map[i].second == "double")
+                        delete_for_field<double>("databases/" + table_name + "/" + attrib_index_map[i].first, stod(data[i]), additionalInfo);
                 }
 
                 if (!deletedPrimaryKey) {
@@ -894,6 +929,7 @@ bool update_entry_in_table(string table_name, vector<void*> whereClause, vector<
                 vector<void*> insertData;
                 vector<int> integerInsertData(data.size(), 0);
                 vector<float> floatInsertData(data.size(), 0);
+                vector<double> doubleInsertData(data.size(), 0);
                 vector<string> stringInsertData(data.size(), "");
 
                 for (int i = 0; i < data.size(); i++) {
@@ -916,6 +952,11 @@ bool update_entry_in_table(string table_name, vector<void*> whereClause, vector<
                                 floatInsertData[i] = val;
                                 insertData.push_back((void*)&floatInsertData[i]);
                             }
+                            else if (attrib_index_map[i].second == "double") {
+                                double val = *(double*)setClause[j + 1];
+                                doubleInsertData[i] = val;
+                                insertData.push_back((void*)&doubleInsertData[i]);
+                            }
                             foundInSetClause = true;
                             break;
                         }
@@ -935,6 +976,11 @@ bool update_entry_in_table(string table_name, vector<void*> whereClause, vector<
                             float val = stof(data[i]);
                             floatInsertData[i] = val;
                             insertData.push_back((void*)&floatInsertData[i]);
+                        }
+                        else if (attrib_index_map[i].second == "double") {
+                            double val = stod(data[i]);
+                            doubleInsertData[i] = val;
+                            insertData.push_back((void*)&doubleInsertData[i]);
                         }
                     }
                 }

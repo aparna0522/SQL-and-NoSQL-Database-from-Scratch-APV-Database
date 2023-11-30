@@ -41,7 +41,7 @@ sql_actions = {
     "define": ["define table <table_name> with [[<column_name>, <column_type>, <primary_key>], ...]",
              "\t- <table_name> is the table name you want create",
              "\t- <column_name> is the name of a column in table",
-             "\t- <column_type> is the type of a entries the column will have (integer, string or float)",
+             "\t- <column_type> is the type of a entries the column will have (integer, string, float or double)",
              "\t- <primary_key> mention 'PrimaryKey' if <column_name> is a primary key",
              "\t- repeat [<column_name>, <column_type>, <primary_key>] to define more tables"
              ],
@@ -504,14 +504,14 @@ def sql_process_user_command(command):
                     for ea in atr[:-1]:
                         atr_present_list.append(ea)
                     atr_present_list.append("PK")
-                    if(atr[1] not in ["string", "integer", "float"]):
+                    if(atr[1] not in ["string", "integer", "float", "double"]):
                         print("Invalid column type for the '{}' column".format(atr[0]))
                         return
                 elif len(atr) == 2:
                     for ea in atr:
                         atr_present_list.append(ea)
                     atr_present_list.append("")
-                    if(atr[1] not in ["string", "integer", "float"]):
+                    if(atr[1] not in ["string", "integer", "float", "double"]):
                         print("Invalid column type for the '{}' column".format(atr[0]))
                         return
                 else:

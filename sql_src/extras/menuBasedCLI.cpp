@@ -81,6 +81,7 @@ bool performInsertions(string& TableName) {
 
  vector<int> values_int(attrib_index_map.size(), 0);
  vector<float> values_float(attrib_index_map.size(), 0);
+ vector<double> values_double(attrib_index_map.size(), 0);
  vector<string> values_string(attrib_index_map.size(), "");
  vector<void*> input(attrib_index_map.size(), nullptr);
 
@@ -100,6 +101,9 @@ bool performInsertions(string& TableName) {
    } else if (attrib.second.second == "float") {
      cin >> values_float[index];
      input[index] = (void*)&values_float[index];
+   } else if (attrib.second.second == "double") {
+     cin >> values_double[index];
+     input[index] = (void*)&values_double[index];
    }
  }
 
@@ -122,6 +126,7 @@ bool performDeletions(string& table_name) {
  string where_attrib;
  int where_value_i;
  float where_value_f;
+ double where_value_d;
  string where_value_s;
  string operation = "";
 
@@ -158,6 +163,12 @@ bool performDeletions(string& table_name) {
      where_value = (void*)&where_value_f;
      where_clause.push_back(where_value);
    }
+   else if (attrib_index_map[where_attrib].second == "double") {
+     cin >> where_value_d;
+     cin.ignore();
+     where_value = (void*)&where_value_d;
+     where_clause.push_back(where_value);
+   }
  }
  delete_entry_in_table(table_name, where_clause);
 
@@ -183,6 +194,7 @@ bool performUpdations(string& table_name) {
  string set_attrib;
  int set_value_i;
  float where_value_f;
+ double where_value_d;
  string set_value_s;
  vector<void*> where_clause;
 
@@ -215,6 +227,11 @@ bool performUpdations(string& table_name) {
      cin >> where_value_f;
      cin.ignore();
      where_value = (void*)&where_value_f;
+     where_clause.push_back(where_value);
+   } else if (attrib_index_map[where_attrib].second == "double") {
+     cin >> where_value_d;
+     cin.ignore();
+     where_value = (void*)&where_value_d;
      where_clause.push_back(where_value);
    }
  }
@@ -254,6 +271,7 @@ bool performSearch(string& table_name) {
  string where_attrib;
  int where_value_i;
  float where_value_f;
+ double where_value_d;
  string where_value_s;
  string operation = "";
 
@@ -289,6 +307,12 @@ bool performSearch(string& table_name) {
      where_value = (void*)&where_value_f;
      where_clause.push_back(where_value);
    }
+   else if (attrib_index_map[where_attrib].second == "double") {
+     cin >> where_value_d;
+     cin.ignore();
+     where_value = (void*)&where_value_d;
+     where_clause.push_back(where_value);
+   }
  }
  // Projection Fields
  vector<string> projectFileds;
@@ -317,6 +341,7 @@ bool performOrderedSearch(string& table_name) {
  string where_attrib;
  int where_value_i;
  float where_value_f;
+ double where_value_d;
  string where_value_s;
  string operation = "";
 
@@ -352,6 +377,12 @@ bool performOrderedSearch(string& table_name) {
      cin >> where_value_f;
      cin.ignore();
      where_value = (void*)&where_value_f;
+     where_clause.push_back(where_value);
+   }
+   else if (attrib_index_map[where_attrib].second == "double") {
+     cin >> where_value_d;
+     cin.ignore();
+     where_value = (void*)&where_value_d;
      where_clause.push_back(where_value);
    }
  }
@@ -393,6 +424,7 @@ bool performJoin() {
  string where_attrib[2];
  int where_value_i[2];
  float where_value_f[2];
+ double where_value_d[2];
  string where_value_s[2];
  string operation[2] = {"", ""};
 
@@ -426,6 +458,12 @@ bool performJoin() {
      cin >> where_value_f[0];
      cin.ignore();
      where_value = (void*)&where_value_f[0];
+     where_clause[0].push_back(where_value);
+   }
+   else if (attrib_index_map[0][where_attrib[0]].second == "double") {
+     cin >> where_value_d[0];
+     cin.ignore();
+     where_value = (void*)&where_value_d[0];
      where_clause[0].push_back(where_value);
    }
  }
@@ -477,6 +515,12 @@ bool performJoin() {
      where_value = (void*)&where_value_f[1];
      where_clause[1].push_back(where_value);
    }
+   else if (attrib_index_map[1][where_attrib[1]].second == "double") {
+     cin >> where_value_d[1];
+     cin.ignore();
+     where_value = (void*)&where_value_d[1];
+     where_clause[1].push_back(where_value);
+   }
  }
 
  while (true) {
@@ -520,6 +564,7 @@ bool performGroupingAggregation(string& table_name) {
  string where_attrib;
  int where_value_i;
  float where_value_f;
+ double where_value_d;
  string where_value_s;
  string operation = "";
 
@@ -553,6 +598,12 @@ bool performGroupingAggregation(string& table_name) {
      cin >> where_value_f;
      cin.ignore();
      where_value = (void*)&where_value_f;
+     where_clause.push_back(where_value);
+   }
+   else if (attrib_index_map[where_attrib].second == "double") {
+     cin >> where_value_d;
+     cin.ignore();
+     where_value = (void*)&where_value_d;
      where_clause.push_back(where_value);
    }
  }

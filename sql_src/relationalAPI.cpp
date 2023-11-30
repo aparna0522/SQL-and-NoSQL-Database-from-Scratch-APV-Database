@@ -77,6 +77,7 @@ int main(int argc, const char **argv) {
 
         vector<int> values_int(attrib_index_map.size(), 0);
         vector<float> values_float(attrib_index_map.size(), 0);
+        vector<double> values_double(attrib_index_map.size(), 0);
         vector<string> values_string(attrib_index_map.size(), "");
         vector<void*> input(attrib_index_map.size(), nullptr);
 
@@ -91,6 +92,11 @@ int main(int argc, const char **argv) {
             {
                 values_float[i-3] = stof(string(argv[i]));
                 input[i-3] = (void*)&values_float[i-3];
+            }
+            else if(index_type_map[i-3] == "double")
+            {
+                values_double[i-3] = stod(string(argv[i]));
+                input[i-3] = (void*)&values_double[i-3];
             }
             else if(index_type_map[i-3] == "integer")
             {
@@ -124,6 +130,7 @@ int main(int argc, const char **argv) {
         vector<string> set_val_string(setCount, "");
         vector<int> set_val_int(setCount, 0);
         vector<float> set_val_float(setCount, 0);
+        vector<double> set_val_double(setCount, 0);
 
         int j = 4;
         for(int i=0; i<setCount; i++)
@@ -146,6 +153,11 @@ int main(int argc, const char **argv) {
                 set_val_float[i] = stof(string(argv[j+1]));
                 setClause.push_back((void*)&set_val_float[i]);
             }
+            else if(attrib_index_map[col_name].second == "double")
+            {
+                set_val_double[i] = stod(string(argv[j+1]));
+                setClause.push_back((void*)&set_val_double[i]);
+            }
             else
             {
                 cout << "Invalid edit column name: "<< col_name << endl;
@@ -163,6 +175,7 @@ int main(int argc, const char **argv) {
 
         int where_val_int;
         float where_val_float;
+        double where_val_double;
         string where_val_str;
 
         if(attrib_index_map[where_col].second == "integer")
@@ -179,6 +192,11 @@ int main(int argc, const char **argv) {
         {
             where_val_float = stof(string(argv[j+2]));
             whereClause.push_back((void*)&where_val_float);
+        }
+        else if(attrib_index_map[where_col].second == "double")
+        {
+            where_val_double = stod(string(argv[j+2]));
+            whereClause.push_back((void*)&where_val_double);
         }
         else
         {
@@ -211,6 +229,7 @@ int main(int argc, const char **argv) {
 
         int where_val_int;
         float where_val_float;
+        double where_val_double;
         string where_val_str;
 
         if(attrib_index_map[where_col].second == "integer")
@@ -227,6 +246,11 @@ int main(int argc, const char **argv) {
         {
             where_val_float = stof(string(argv[5]));
             whereClause.push_back((void*)&where_val_float);
+        }
+        else if(attrib_index_map[where_col].second == "double")
+        {
+            where_val_double = stod(string(argv[5]));
+            whereClause.push_back((void*)&where_val_double);
         }
         else
         {
@@ -260,6 +284,7 @@ int main(int argc, const char **argv) {
         string whereVal_str = string(argv[idx++]);
         int whereVal_int;
         float whereVal_float;
+        double whereVal_double;
 
         string sortCol = string(argv[idx++]);
         string sortOrder = string(argv[idx++]);
@@ -286,6 +311,11 @@ int main(int argc, const char **argv) {
             {
                 whereVal_float = stof(whereVal_str);
                 whereClause.push_back((void*)&whereVal_float);
+            }
+            else if (attrib_index_map[whereCol].second == "double")
+            {
+                whereVal_double = stod(whereVal_str);
+                whereClause.push_back((void*)&whereVal_double);
             }
             else
             {
@@ -322,6 +352,7 @@ int main(int argc, const char **argv) {
         string whereVal_str1 = string(argv[idx++]);
         int whereVal_int1;
         float whereVal_float1;
+        double whereVal_double1;
 
         string sortCol1 = string(argv[idx++]);
         string sortOrder1 = string(argv[idx++]);
@@ -348,6 +379,11 @@ int main(int argc, const char **argv) {
             {
                 whereVal_float1 = stof(whereVal_str1);
                 whereClause1.push_back((void*)&whereVal_float1);
+            }
+            else if (attrib_index_map1[whereCol1].second == "double")
+            {
+                whereVal_double1 = stod(whereVal_str1);
+                whereClause1.push_back((void*)&whereVal_double1);
             }
             else
             {
@@ -378,6 +414,7 @@ int main(int argc, const char **argv) {
         string whereVal_str2 = string(argv[idx++]);
         int whereVal_int2;
         float whereVal_float2;
+        double whereVal_double2;
 
         string sortCol2 = string(argv[idx++]);
         string sortOrder2 = string(argv[idx++]);
@@ -404,6 +441,11 @@ int main(int argc, const char **argv) {
             {
                 whereVal_float2 = stof(whereVal_str2);
                 whereClause2.push_back((void*)&whereVal_float2);
+            }
+            else if (attrib_index_map2[whereCol2].second == "double")
+            {
+                whereVal_double2 = stod(whereVal_str2);
+                whereClause2.push_back((void*)&whereVal_double2);
             }
             else
             {

@@ -88,33 +88,41 @@ Please make sure to have the resources folder downloaded before running the foll
   ```
   define table games with [["idx", "integer","primaryKey"], ["year","integer"], ["week","string"], ["home_team","string"],["away_team","string"], ["winner","string"], ["tie","string"], ["day","string"], ["date","string"], ["time", "string"], ["pts_win","integer"],["pts_loss","integer"], ["yds_win","integer"], ["turnover_win","integer"], ["yds_loss","integer"], ["turnover_loss","integer"], ["home_team_name","string"],["home_team_city","string"], ["away_team_name","string"], ["away_team_city","string"]];
   ```
-  
+- Define Table spotify_songs; 
+  ```
+  define table spotify_songs with [["id","integer","primaryKey"],["track_id","string"],["track_name","string"], ["track_artist","string"], ["track_popularity","double"], ["track_album_id","string"],["track_album_name","string"], ["track_album_release_date","string"],["playlist_name","string"], ["playlist_id","string"],["playlist_genre","string"],["playlist_subgenre","string"],["danceability","double"],["energy","double"],["key","double"],["loudness","double"],["mode","integer"],["speechiness","double"],["accousticness","double"],["instrumentalness","double"],["liveness","double"],["valence","double"],["tempo","double"],["duration_ms","double"]];
+  ```
+
 #### Insert Bulk CSV
 - Load all the data from the CSVs to the table:
   ```
   load data in standings with "../resources/SQL/standings.csv" generate primaryKeyValues provided headers;
   load data in attendance with "../resources/SQL/attendance.csv" generate primaryKeyValues provided headers;
   load data in games with "../resources/SQL/games.csv" generate primaryKeyValues provided headers;
+  load data in spotify_songs with "../resources/SQL/spotify_songs.csv" generate primaryKeyValues provided headers;
   ```
 
 #### Find Operation
 - Search for all the entries in the database:
   ```
-  find all from standings;
-  find all from attendance;
-  find all from games;
+  find all from standings; // <1MB file
+  find all from attendance; // <1MB file
+  find all from games; // <1MB file
+  find all from spotify_songs; //About 8MB file.
   ```
   
 - Search for particular entries in the database using "provided" (where) clause:
   ```
   find all from games provided idx > 300;
   find all from attendance provided team_name = "Vikings";
+  find all from spotify_songs provided track_artist = "Ed Sheeran";
   ```
   
 - Project particular entries in the database using "provided" (where) clause:
   ```
   find ["team", "team_name", "wins", "year"] from standings provided sb_winner = "Won Superbowl";
   find ["home_team", "tie", "pts_win", "pts_loss"] from games provided day = "Sat";
+  find ["track_id", "track_name", "danceability"] from spotify_songs provided track_artist = "Ed Sheeran";
   ```
 
 #### Fill Operation
@@ -140,12 +148,14 @@ Please make sure to have the resources folder downloaded before running the foll
 - Group By And Aggregation Operation:
   ```
   find ["CNT(team_name)", "SUM(wins)", "SUM(loss)"] from standings cluster on team;
+  find ["SUM(dancability)", "CNT(track_name)", "AVG(dancability)", "MIN(dancability)", "MAX(dancability)", "MIN(energy)", "MAX(energy)"] from spotify_songs provided track_artist = "Ed Sheeran" cluster by track_name;
   ```
 
 #### Sorting Operation 
 - Group By And Aggregation Operation:
   ```
   find ["team_name", "team"] from standings sorting team_name DESC;
+  find ["track_id", "track_name", "track_artist"] from spotify_songs provided track_artist = "Ed Sheeran" sorting track_name ASC;
   ```
 
 #### Merge Operation

@@ -50,19 +50,20 @@ string readFile(const string file_name) {
 template <typename T>
 T convertValue(string value);
 
-template <>
-int convertValue<int>(string value) {
+template <> int convertValue<int>(string value) {
   return stoi(value);
 }
 
-template <>
-string convertValue<string>(string value) {
+template <> string convertValue<string>(string value) {
   return value;
 }
 
-template <>
-float convertValue<float>(string value) {
+template <> float convertValue<float>(string value) {
   return stof(value);
+}
+
+template <> double convertValue<double>(string value) {
+  return stod(value);
 }
 
 void writeToPage(vector<string>& data, int& currIndex, string& outputLoc) {
@@ -131,6 +132,8 @@ struct BTreeNode {
           else if (type == "string")
             data.push_back({convertValue<T>(content[0]), content[1]});
           else if (type == "float")
+            data.push_back({convertValue<T>(content[0]), content[1]});
+          else if (type == "double")
             data.push_back({convertValue<T>(content[0]), content[1]});
         }
       } else {
@@ -643,8 +646,7 @@ bool insert_value_for_field(string field_name, T value, string additionalData) {
 }
 
 template <typename T>
-int search_for_field(string field_name, string operation, T value,
-                     string output_folder_path, int current_output_index = 0) {
+int search_for_field(string field_name, string operation, T value, string output_folder_path, int current_output_index = 0) {
   fieldname = field_name;
   string fileContent = readFile("/meta.txt");
 

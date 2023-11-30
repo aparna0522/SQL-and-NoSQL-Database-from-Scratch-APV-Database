@@ -204,17 +204,13 @@ bool join_page(string table1FolderName, string table2FolderName,
 
               } else if (attrib_index_map1[onClause[0]].second == "float") {
                 if (onClause[1] == "=") {
-                  if (stof(table1PageData[i][onClauseAttrib1]) ==
-                      stof(table2PageData[j][onClauseAttrib2]))
+                  if (stof(table1PageData[i][onClauseAttrib1]) == stof(table2PageData[j][onClauseAttrib2]))
                     combineEntries(table1PageData[i], table2PageData[j],
                                    onClauseAttrib1, output, output_page_index,
                                    outputFolderName);
                 } else if (onClause[1] == "<") {
-                  if (stof(table1PageData[i][onClauseAttrib1]) <
-                      stof(table2PageData[j][onClauseAttrib2]))
-                    combineEntries(table1PageData[i], table2PageData[j],
-                                   onClauseAttrib1, output, output_page_index,
-                                   outputFolderName);
+                  if (stof(table1PageData[i][onClauseAttrib1]) < stof(table2PageData[j][onClauseAttrib2]))
+                    combineEntries(table1PageData[i], table2PageData[j], onClauseAttrib1, output, output_page_index, outputFolderName);
                 } else if (onClause[1] == ">") {
                   if (stof(table1PageData[i][onClauseAttrib1]) >
                       stof(table2PageData[j][onClauseAttrib2]))
@@ -234,7 +230,40 @@ bool join_page(string table1FolderName, string table2FolderName,
                                    onClauseAttrib1, output, output_page_index,
                                    outputFolderName);
                 }
+              } else if (attrib_index_map1[onClause[0]].second == "double") {
+                if (onClause[1] == "=") {
+                  if (stod(table1PageData[i][onClauseAttrib1]) ==
+                      stod(table2PageData[j][onClauseAttrib2]))
+                    combineEntries(table1PageData[i], table2PageData[j],
+                                   onClauseAttrib1, output, output_page_index,
+                                   outputFolderName);
+                } else if (onClause[1] == "<") {
+                  if (stod(table1PageData[i][onClauseAttrib1]) <
+                      stod(table2PageData[j][onClauseAttrib2]))
+                    combineEntries(table1PageData[i], table2PageData[j],
+                                   onClauseAttrib1, output, output_page_index,
+                                   outputFolderName);
+                } else if (onClause[1] == ">") {
+                  if (stod(table1PageData[i][onClauseAttrib1]) >
+                      stod(table2PageData[j][onClauseAttrib2]))
+                    combineEntries(table1PageData[i], table2PageData[j],
+                                   onClauseAttrib1, output, output_page_index,
+                                   outputFolderName);
+                } else if (onClause[1] == "<=") {
+                  if (stod(table1PageData[i][onClauseAttrib1]) <=
+                      stod(table2PageData[j][onClauseAttrib2]))
+                    combineEntries(table1PageData[i], table2PageData[j],
+                                   onClauseAttrib1, output, output_page_index,
+                                   outputFolderName);
+                } else if (onClause[1] == ">=") {
+                  if (stod(table1PageData[i][onClauseAttrib1]) >=
+                      stod(table2PageData[j][onClauseAttrib2]))
+                    combineEntries(table1PageData[i], table2PageData[j],
+                                   onClauseAttrib1, output, output_page_index,
+                                   outputFolderName);
+                }
               }
+
             }
           }
 
@@ -352,8 +381,7 @@ bool order_page(string tempFolder_Name, pair<string, string> attribToOrderBy) {
   int elements = 0;
 
   while (true) {
-    ifstream readPagesInFolder(tempFolder_Name + "/pages_" + to_string(i) +
-                               ".txt");
+    ifstream readPagesInFolder(tempFolder_Name + "/pages_" + to_string(i) +".txt");
     if (readPagesInFolder.is_open()) {
       vector<vector<string> > page;
       string line;
@@ -393,6 +421,13 @@ bool order_page(string tempFolder_Name, pair<string, string> attribToOrderBy) {
                  stof(page[k][sortIndex]) > stof(page[k + 1][sortIndex])) ||
                 (attribToOrderBy.second == "DESC" &&
                  stof(page[k][sortIndex]) < stof(page[k + 1][sortIndex]))) {
+              swap(page[k], page[k + 1]);
+              swapped = true;
+            }
+          }
+          else if (typeOfSortIndex == "double") {
+            if ((attribToOrderBy.second == "ASC" && stod(page[k][sortIndex]) > stod(page[k + 1][sortIndex])) ||
+                (attribToOrderBy.second == "DESC" && stod(page[k][sortIndex]) < stod(page[k + 1][sortIndex]))) {
               swap(page[k], page[k + 1]);
               swapped = true;
             }
@@ -585,12 +620,8 @@ bool order_page(string tempFolder_Name, pair<string, string> attribToOrderBy) {
             t++;
           }
         } else if (typeOfSortIndex == "float") {
-          if ((attribToOrderBy.second == "ASC" &&
-               stof(firstHalfData[s][sortIndex]) <=
-                   stof(secondHalfData[t][sortIndex])) ||
-              (attribToOrderBy.second == "DESC" &&
-               stof(firstHalfData[s][sortIndex]) >
-                   stof(secondHalfData[t][sortIndex]))) {
+          if ((attribToOrderBy.second == "ASC" && stof(firstHalfData[s][sortIndex]) <= stof(secondHalfData[t][sortIndex])) ||
+              (attribToOrderBy.second == "DESC" && stof(firstHalfData[s][sortIndex]) > stof(secondHalfData[t][sortIndex]))) {
             sortedList.push_back(firstHalfData[s]);
             if (sortedList.size() >= page_chunk_size) {
               ofstream sortedNextPass(pageDirectory +
@@ -613,12 +644,58 @@ bool order_page(string tempFolder_Name, pair<string, string> attribToOrderBy) {
             }
             i++;
             s++;
-          } else if ((attribToOrderBy.second == "ASC" &&
-                      stof(firstHalfData[s][sortIndex]) >
-                          stof(secondHalfData[t][sortIndex])) ||
-                     (attribToOrderBy.second == "DESC" &&
-                      stof(firstHalfData[s][sortIndex]) <=
-                          stof(secondHalfData[t][sortIndex]))) {
+          } else if ((attribToOrderBy.second == "ASC" && stof(firstHalfData[s][sortIndex]) > stof(secondHalfData[t][sortIndex])) ||
+                     (attribToOrderBy.second == "DESC" && stof(firstHalfData[s][sortIndex]) <= stof(secondHalfData[t][sortIndex]))) {
+            sortedList.push_back(secondHalfData[t]);
+            if (sortedList.size() >= page_chunk_size) {
+              ofstream sortedNextPass(pageDirectory +
+                                      to_string(output_index++) + "_" +
+                                      to_string(pass + 1) + ".txt");
+              if (sortedNextPass.is_open()) {
+                for (auto& data : sortedList) {
+                  sortedNextPass << "{";
+                  for (int m = 0; m < data.size(); m++) {
+                    sortedNextPass << data[m];
+                    if (m + 1 < data.size())
+                      sortedNextPass << char(170);
+                    else
+                      sortedNextPass << "}" << endl;
+                  }
+                }
+                sortedNextPass.close();
+              }
+              sortedList.clear();
+            }
+            j++;
+            t++;
+          }
+        } else if (typeOfSortIndex == "double") {
+          if ((attribToOrderBy.second == "ASC" && stod(firstHalfData[s][sortIndex]) <= stod(secondHalfData[t][sortIndex])) ||
+              (attribToOrderBy.second == "DESC" && stod(firstHalfData[s][sortIndex]) > stod(secondHalfData[t][sortIndex]))) {
+            sortedList.push_back(firstHalfData[s]);
+            if (sortedList.size() >= page_chunk_size) {
+              ofstream sortedNextPass(pageDirectory +
+                                      to_string(output_index++) + "_" +
+                                      to_string(pass + 1) + ".txt");
+              if (sortedNextPass.is_open()) {
+                for (auto& data : sortedList) {
+                  sortedNextPass << "{";
+                  for (int m = 0; m < data.size(); m++) {
+                    sortedNextPass << data[m];
+                    if (m + 1 < data.size())
+                      sortedNextPass << char(170);
+                    else
+                      sortedNextPass << "}" << endl;
+                  }
+                }
+                sortedNextPass.close();
+              }
+              sortedList.clear();
+            }
+            i++;
+            s++;
+          } else if ((attribToOrderBy.second == "ASC" && stod(firstHalfData[s][sortIndex]) > stod(secondHalfData[t][sortIndex])) ||
+                     (attribToOrderBy.second == "DESC" && stod(firstHalfData[s][sortIndex]) <= stod(secondHalfData[t][sortIndex]))) {
             sortedList.push_back(secondHalfData[t]);
             if (sortedList.size() >= page_chunk_size) {
               ofstream sortedNextPass(pageDirectory +
@@ -773,9 +850,9 @@ bool group_aggregate_page(string tempFolder_Name, string groupOnAttribName,
 
   string prev_groupOn = "";
   int prev_count = 0;
-  vector<float> prev_sum(aggregateSize, 0);
-  vector<float> prev_max(aggregateSize, INT_MIN);
-  vector<float> prev_min(aggregateSize, INT_MAX);
+  vector<double> prev_sum(aggregateSize, 0);
+  vector<double> prev_max(aggregateSize, INT_MIN);
+  vector<double> prev_min(aggregateSize, INT_MAX);
 
   int groupOnIndex = attrib_index_map[groupOnAttribName].first;
   vector<int> aggregateIndex;
@@ -797,36 +874,39 @@ bool group_aggregate_page(string tempFolder_Name, string groupOnAttribName,
           // Write these data in locations
           for (int i = 0; i < aggregateSize; i++) {
             if (aggregateOnAttribName[i].second == "MAX") {
-              if (attrib_index_map[aggregateOnAttribName[i].first].second ==
-                  "integer")
+              if (attrib_index_map[aggregateOnAttribName[i].first].second =="integer")
                 outData.push_back(to_string((int)prev_max[i]));
-              else if (attrib_index_map[aggregateOnAttribName[i].first]
-                           .second == "float")
+              else if (attrib_index_map[aggregateOnAttribName[i].first].second == "float")
+                outData.push_back(to_string((float)prev_max[i]));
+              else if (attrib_index_map[aggregateOnAttribName[i].first].second == "double")
                 outData.push_back(to_string(prev_max[i]));
-            } else if (aggregateOnAttribName[i].second == "MIN") {
-              if (attrib_index_map[aggregateOnAttribName[i].first].second ==
-                  "integer")
+            } 
+            else if (aggregateOnAttribName[i].second == "MIN") {
+              if (attrib_index_map[aggregateOnAttribName[i].first].second =="integer")
                 outData.push_back(to_string((int)prev_min[i]));
-              else if (attrib_index_map[aggregateOnAttribName[i].first]
-                           .second == "float")
+              else if (attrib_index_map[aggregateOnAttribName[i].first].second == "float")
+                outData.push_back(to_string((float)prev_min[i]));
+              else if (attrib_index_map[aggregateOnAttribName[i].first].second == "double")
                 outData.push_back(to_string(prev_min[i]));
-            } else if (aggregateOnAttribName[i].second == "CNT") {
+            } 
+            else if (aggregateOnAttribName[i].second == "CNT") {
               outData.push_back(to_string(prev_count));
-            } else if (aggregateOnAttribName[i].second == "SUM") {
-              if (attrib_index_map[aggregateOnAttribName[i].first].second ==
-                  "integer")
+            } 
+            else if (aggregateOnAttribName[i].second == "SUM") {
+              if (attrib_index_map[aggregateOnAttribName[i].first].second =="integer")
                 outData.push_back(to_string((int)prev_sum[i]));
-              else if (attrib_index_map[aggregateOnAttribName[i].first]
-                           .second == "float")
+              else if (attrib_index_map[aggregateOnAttribName[i].first].second == "float")
+                outData.push_back(to_string((float)prev_sum[i]));
+              else if (attrib_index_map[aggregateOnAttribName[i].first].second == "double")
                 outData.push_back(to_string(prev_sum[i]));
-            } else if (aggregateOnAttribName[i].second == "AVG")
+            } 
+            else if (aggregateOnAttribName[i].second == "AVG")
               outData.push_back(to_string(prev_sum[i] / prev_count));
           }
 
           outputData.push_back(outData);
           if (outputData.size() >= page_chunk_size) {
-            ofstream pageWrite(tempFolder_Name + "/pages_" +
-                               to_string(outputPage++) + ".txt");
+            ofstream pageWrite(tempFolder_Name + "/pages_" + to_string(outputPage++) + ".txt");
             if (pageWrite.is_open()) {
               for (auto& e : outputData) {
                 pageWrite << "{";
@@ -856,20 +936,19 @@ bool group_aggregate_page(string tempFolder_Name, string groupOnAttribName,
         prev_min.clear();
         prev_min.resize(aggregateSize, INT_MAX);
         for (int i = 0; i < aggregateSize; i++) {
-          // has a decimal point, is float, else will always be integer
-
-          if (attrib_index_map[aggregateOnAttribName[i].first].second ==
-              "float")
-          // if (find(e[aggregateIndex[i]].begin(), e[aggregateIndex[i]].end(),
-          // '.') != e[aggregateIndex[i]].end())
+          if (attrib_index_map[aggregateOnAttribName[i].first].second =="float")
           {
             prev_sum[i] += stof(e[aggregateIndex[i]]);
-            prev_max[i] = max(prev_max[i], stof(e[aggregateIndex[i]]));
-            prev_min[i] = min(prev_max[i], stof(e[aggregateIndex[i]]));
-          } else if (attrib_index_map[aggregateOnAttribName[i].first].second ==
-                     "integer")
-          // else if (e[aggregateIndex[i]][0] <= '9' && e[aggregateIndex[i]][0]
-          // >= '0')
+            prev_max[i] = max((float)prev_max[i], stof(e[aggregateIndex[i]]));
+            prev_min[i] = min((float)prev_max[i], stof(e[aggregateIndex[i]]));
+          } 
+          else if (attrib_index_map[aggregateOnAttribName[i].first].second =="double")
+          {
+            prev_sum[i] += stod(e[aggregateIndex[i]]);
+            prev_max[i] = max(prev_max[i], stod(e[aggregateIndex[i]]));
+            prev_min[i] = min(prev_max[i], stod(e[aggregateIndex[i]]));
+          } 
+          else if (attrib_index_map[aggregateOnAttribName[i].first].second =="integer")
           {
             prev_sum[i] += stoi(e[aggregateIndex[i]]);
             prev_max[i] = max((int)prev_max[i], stoi(e[aggregateIndex[i]]));
@@ -879,19 +958,19 @@ bool group_aggregate_page(string tempFolder_Name, string groupOnAttribName,
       } else {
         prev_count++;
         for (int i = 0; i < aggregateSize; i++) {
-          // has a decimal point, is float, else will always be integer
-          if (attrib_index_map[aggregateOnAttribName[i].first].second ==
-              "float")
-          // if (find(e[aggregateIndex[i]].begin(), e[aggregateIndex[i]].end(),
-          // '.') != e[aggregateIndex[i]].end())
+          if (attrib_index_map[aggregateOnAttribName[i].first].second =="float")
           {
             prev_sum[i] += stof(e[aggregateIndex[i]]);
-            prev_max[i] = max(prev_max[i], stof(e[aggregateIndex[i]]));
-            prev_min[i] = min(prev_min[i], stof(e[aggregateIndex[i]]));
-          } else if (attrib_index_map[aggregateOnAttribName[i].first].second ==
-                     "integer")
-          // else if (e[aggregateIndex[i]][0] <= '9' && e[aggregateIndex[i]][0]
-          // >= '0')
+            prev_max[i] = max((float)prev_max[i], stof(e[aggregateIndex[i]]));
+            prev_min[i] = min((float)prev_min[i], stof(e[aggregateIndex[i]]));
+          } 
+          else if (attrib_index_map[aggregateOnAttribName[i].first].second =="double")
+          {
+            prev_sum[i] += stod(e[aggregateIndex[i]]);
+            prev_max[i] = max(prev_max[i], stod(e[aggregateIndex[i]]));
+            prev_min[i] = min(prev_min[i], stod(e[aggregateIndex[i]]));
+          } 
+          else if (attrib_index_map[aggregateOnAttribName[i].first].second == "integer")
           {
             prev_sum[i] += stoi(e[aggregateIndex[i]]);
             prev_max[i] = max((int)prev_max[i], stoi(e[aggregateIndex[i]]));
@@ -910,27 +989,27 @@ bool group_aggregate_page(string tempFolder_Name, string groupOnAttribName,
     // Write these data in locations
     for (int i = 0; i < aggregateSize; i++) {
       if (aggregateOnAttribName[i].second == "MAX") {
-        if (attrib_index_map[aggregateOnAttribName[i].first].second ==
-            "integer")
+        if (attrib_index_map[aggregateOnAttribName[i].first].second == "integer")
           outData.push_back(to_string((int)prev_max[i]));
-        else if (attrib_index_map[aggregateOnAttribName[i].first].second ==
-                 "float")
+        else if (attrib_index_map[aggregateOnAttribName[i].first].second == "float")
+          outData.push_back(to_string((float)prev_max[i]));
+        else if (attrib_index_map[aggregateOnAttribName[i].first].second == "double")
           outData.push_back(to_string(prev_max[i]));
       } else if (aggregateOnAttribName[i].second == "MIN") {
-        if (attrib_index_map[aggregateOnAttribName[i].first].second ==
-            "integer")
+        if (attrib_index_map[aggregateOnAttribName[i].first].second == "integer")
           outData.push_back(to_string((int)prev_min[i]));
-        else if (attrib_index_map[aggregateOnAttribName[i].first].second ==
-                 "float")
+        else if (attrib_index_map[aggregateOnAttribName[i].first].second =="float")
+          outData.push_back(to_string((float)prev_min[i]));
+        else if (attrib_index_map[aggregateOnAttribName[i].first].second =="double")
           outData.push_back(to_string(prev_min[i]));
       } else if (aggregateOnAttribName[i].second == "CNT") {
         outData.push_back(to_string(prev_count));
       } else if (aggregateOnAttribName[i].second == "SUM") {
-        if (attrib_index_map[aggregateOnAttribName[i].first].second ==
-            "integer")
+        if (attrib_index_map[aggregateOnAttribName[i].first].second == "integer")
           outData.push_back(to_string((int)prev_sum[i]));
-        else if (attrib_index_map[aggregateOnAttribName[i].first].second ==
-                 "float")
+        else if (attrib_index_map[aggregateOnAttribName[i].first].second =="float")
+          outData.push_back(to_string((float)prev_sum[i]));
+        else if (attrib_index_map[aggregateOnAttribName[i].first].second =="double")
           outData.push_back(to_string(prev_sum[i]));
       } else if (aggregateOnAttribName[i].second == "AVG")
         outData.push_back(to_string(prev_sum[i] / prev_count));
@@ -980,16 +1059,13 @@ bool group_aggregate_page(string tempFolder_Name, string groupOnAttribName,
     groupAggregateMeta << 0 << char(170) << groupOnAttribName << char(170)
                        << attrib_index_map[groupOnAttribName].second << endl;
     for (int i = 0; i < aggregateSize; i++) {
-      groupAggregateMeta << i + 1 << char(170)
-                         << aggregateOnAttribName[i].second << "("
-                         << aggregateOnAttribName[i].first << ")" << char(170);
+      groupAggregateMeta << i + 1 << char(170) << aggregateOnAttribName[i].second << "(" << aggregateOnAttribName[i].first << ")" << char(170);
       if (aggregateOnAttribName[i].second == "CNT")
         groupAggregateMeta << "integer" << endl;
       else if (aggregateOnAttribName[i].second == "AVG")
-        groupAggregateMeta << "float" << endl;
+        groupAggregateMeta << "double" << endl;
       else
-        groupAggregateMeta
-            << attrib_index_map[aggregateOnAttribName[i].first].second << endl;
+        groupAggregateMeta<< attrib_index_map[aggregateOnAttribName[i].first].second << endl;
     }
   }
 
