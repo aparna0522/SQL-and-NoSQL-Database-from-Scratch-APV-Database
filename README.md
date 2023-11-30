@@ -88,7 +88,7 @@ Please make sure to have the resources folder downloaded before running the foll
   ```
   define table games with [["idx", "integer","primaryKey"], ["year","integer"], ["week","string"], ["home_team","string"],["away_team","string"], ["winner","string"], ["tie","string"], ["day","string"], ["date","string"], ["time", "string"], ["pts_win","integer"],["pts_loss","integer"], ["yds_win","integer"], ["turnover_win","integer"], ["yds_loss","integer"], ["turnover_loss","integer"], ["home_team_name","string"],["home_team_city","string"], ["away_team_name","string"], ["away_team_city","string"]];
   ```
-- Define Table spotify_songs; 
+- Define Table spotify_songs: 
   ```
   define table spotify_songs with [["id","integer","primaryKey"],["track_id","string"],["track_name","string"], ["track_artist","string"], ["track_popularity","double"], ["track_album_id","string"],["track_album_name","string"], ["track_album_release_date","string"],["playlist_name","string"], ["playlist_id","string"],["playlist_genre","string"],["playlist_subgenre","string"],["danceability","double"],["energy","double"],["key","double"],["loudness","double"],["mode","integer"],["speechiness","double"],["accousticness","double"],["instrumentalness","double"],["liveness","double"],["valence","double"],["tempo","double"],["duration_ms","double"]];
   ```
