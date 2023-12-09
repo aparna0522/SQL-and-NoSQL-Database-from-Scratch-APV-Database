@@ -146,7 +146,7 @@ load data in students with "../resources/SQL/students.csv" provided headers;
 
 - Load data in instructors tables 
 ```
-load data in instructors with "../resources/SQL/instructors.csv" generate primaryKeyValues provided headers;
+load data in instructors with "../resources/SQL/instructors.csv" provided headers;
 ```
 
 - Remove entries from students 
