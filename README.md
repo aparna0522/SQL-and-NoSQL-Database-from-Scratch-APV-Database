@@ -276,12 +276,12 @@ find ["name", "numberOfCourses"] from students provided school = "Viterbi School
 
 - Remove entries from students 
 ```
-remove from table students provided sid >= 11;
+remove from table students provided sid in [11,12,13,14,15,16,17,18,19,20];
 ```
 
 - Remove entries from instructors
 ```
-remove from table instructors provided iid >= 17;
+remove from table instructors provided iid in [101,102,103,104,105,106,107,108,109,110];
 ```
 
 - Show instructors name, their monthlyIncome, their school from students table
