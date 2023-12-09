@@ -1,0 +1,12 @@
+[
+  {"iid": 101, "name": "Prof. James Brown", "monthlyIncome": 6000, "department": "Computer Science", "school": "Engineering School"},
+  {"iid": 102, "name": "Dr. Sarah Johnson", "monthlyIncome": 7000, "department": "Electrical Engineering", "school": "Engineering School"},
+  {"iid": 103, "name": "Prof. Robert Smith", "monthlyIncome": 7500, "department": "Mathematics", "school": "Science School"},
+  {"iid": 104, "name": "Dr. Emily Davis", "monthlyIncome": 8000, "department": "Physics", "school": "Science School"},
+  {"iid": 105, "name": "Prof. Michael White", "monthlyIncome": 6500, "department": "Chemistry", "school": "Science School"},
+  {"iid": 106, "name": "Dr. Laura Taylor", "monthlyIncome": 7000, "department": "History", "school": "Arts and Humanities School"},
+  {"iid": 107, "name": "Prof. David Miller", "monthlyIncome": 8000, "department": "Business Administration", "school": "Business School"},
+  {"iid": 108, "name": "Dr. Susan Wilson", "monthlyIncome": 7500, "department": "Psychology", "school": "Social Sciences School"},
+  {"iid": 109, "name": "Prof. John Taylor", "monthlyIncome": 7000, "department": "English", "school": "Arts and Humanities School"},
+  {"iid": 110, "name": "Dr. Mary Brown", "monthlyIncome": 7500, "department": "Environmental Science", "school": "Science School"}
+]

@@ -191,6 +191,8 @@ merge (find ["sid", "name", "department"] from students) as s with (find ["name"
 merge (find ["name","department","numberOfCourses"] from students) as s with (find ["name","department","monthlyIncome","school"] from instructors) as t on s.school = t.school;
 ```
 
+##### To change the database from SQL to NOSQL or vice versa use the command ```chdb```
+
 ### NoSQL Operations:
 - List Tables
 ```
@@ -210,6 +212,16 @@ define table instructors;
 - List Tables
 ```
 list tables; 
+```
+
+- Load data in students tables 
+```
+load data resources/NoSQL/students.json;
+```
+
+- Load data in instructors tables 
+```
+load data resources/NoSQL/instructors.json;
 ```
 
 - Entries for the "students" table
@@ -260,16 +272,6 @@ find all from instructors;
 ```
 find ["name", "numberOfCourses", "school"] from students;
 find ["name", "numberOfCourses"] from students provided school = "Viterbi School of Engineering";
-```
-
-- Load data in students tables 
-```
-load data in students with "../resources/NoSQL/students.csv" generate primaryKeyValues provided headers;
-```
-
-- Load data in instructors tables 
-```
-load data in instructors with "../resources/NoSQL/instructors.csv" generate primaryKeyValues provided headers;
 ```
 
 - Remove entries from students 

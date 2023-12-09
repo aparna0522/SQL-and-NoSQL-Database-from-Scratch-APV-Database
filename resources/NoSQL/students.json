@@ -1,0 +1,12 @@
+[
+  {"sid": 11, "name": "John Doe", "numberOfCourses": 4, "department": "Computer Science", "school": "Engineering School"},
+  {"sid": 12, "name": "Jane Smith", "numberOfCourses": 3, "department": "Electrical Engineering", "school": "Engineering School"},
+  {"sid": 13, "name": "Alice Johnson", "numberOfCourses": 5, "department": "Mathematics", "school": "Science School"},
+  {"sid": 14, "name": "Bob Williams", "numberOfCourses": 2, "department": "Physics", "school": "Science School"},
+  {"sid": 15, "name": "Emily Brown", "numberOfCourses": 4, "department": "Chemistry", "school": "Science School"},
+  {"sid": 16, "name": "Michael Davis", "numberOfCourses": 3, "department": "History", "school": "Arts and Humanities School"},
+  {"sid": 17, "name": "Susan Miller", "numberOfCourses": 4, "department": "Business Administration", "school": "Business School"},
+  {"sid": 18, "name": "David Taylor", "numberOfCourses": 3, "department": "Psychology", "school": "Social Sciences School"},
+  {"sid": 19, "name": "Laura White", "numberOfCourses": 2, "department": "English", "school": "Arts and Humanities School"},
+  {"sid": 20, "name": "Mark Wilson", "numberOfCourses": 5, "department": "Environmental Science", "school": "Science School"}
+]
