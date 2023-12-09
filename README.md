@@ -72,23 +72,218 @@ https://github.com/aparna0522/APV-Database/assets/36110304/9b90895d-2afe-4213-b8
     - country-by-currency-name.json
     - country-by-currency-code.json
 
+## SQL and NoSQL on Students database (Small database for grading purposes) 
+
+### SQL commands
+- List Tables
+```
+list tables; 
+```
+- Define table for "students"
+```
+define table students with [["sid", "integer", "primaryKey"], ["name", "string"], ["numberOfCourses", "integer"], ["department", "string"], ["school", "string"]];
+```
+- Define table for "instructors"
+```
+define table instructors with [["iid", "integer", "primaryKey"], ["name","string"], ["monthlyIncome", "integer"], ["department","string"],["school", "string"]];
+```
+- List Tables
+```
+list tables; 
+```
+- Describe tables;
+```
+list table students;
+```
+- Entries for the "students" table
+```
+fill table students with values [1, "John Smith", 3, "Computer Science", "Viterbi School of Engineering"];
+fill table students with values [2, "Emily Johnson", 2, "Electrical Engineering", "Viterbi School of Engineering"];
+fill table students with values [3, "Michael Davis", 2, "Mechanical Engineering", "Viterbi School of Engineering"];
+fill table students with values [4, "Sophia Miller", 5, "Modern World Arts and Design", "Roski School of Art and Design"];
+fill table students with values [5, "Daniel White", 5, "Urban Planning", "Sol Price School of Public Policy"];
+fill table students with values [6, "Olivia Brown", 4, "Elements of Music", "Thornton School of Music"];
+fill table students with values [7, "Ethan Wilson", 7, "Biomedical Engineering", "Keck School of Medicine"];
+fill table students with values [8, "Ava Martinez", 3, "Sociology", "Dornsife College of Letters, Arts and Sciences"];
+fill table students with values [9, "Matthew Lee", 1, "Business Analytics", "Marshall School of Business"];
+fill table students with values [10, "Emma Taylor", 5, "Environmental Engineering", "Viterbi School of Engineering"];
+```
+
+- Entries for the "instructors" table
+```
+fill table instructors with values [1, "Professor Anderson", 43000,"Computer Science", "Viterbi School of Engineering"];
+fill table instructors with values [2, "Professor Rodriguez", 43000, "Electrical Engineering", "Viterbi School of Engineering"];
+fill table instrufctors with values [3, "Professor Turner", 41000, "Mechanical Engineering", "Viterbi School of Engineering"];
+fill table instructors with values [4, "Professor Carter", 23000, "Chemical Engineering", "Viterbi School of Engineering"];
+fill table instructors with values [5, "Professor Bennett", 53000, "Civil Engineering", "Viterbi School of Engineering"];
+fill table instructors with values [6, "Professor Davis", 25000, "Biomedical Engineering", "Keck School of Medicine"];
+fill table instructors with values [7, "Professor Smith", 10000, "Computer Science", "Viterbi School of Engineering"];
+fill table instructors with values [8, "Professor Johnson", 25000, "Business Analytics", "Marshall School of Business"];
+fill table instructors with values [9, "Professor White",25000, "Industrial and Systems Engineering", "Viterbi School of Engineering"];
+fill table instructors with values [10, "Professor Miller",25000, "Environmental Studies", "Viterbi School of Engineering"];
+fill table instructors with values [11, "Professor Sarah", 45000, "Elements of Music", "Thornton School of Music"];
+fill table instructors with values [12, "Professor Taylor", 85000, "Business Analytics", "Marshall School of Business"];
+fill table instructors with values [13, "Professor Andrew", 55000, "Psychology", "Dornsife College of Letters, Arts and Sciences"];
+fill table instructors with values [14, "Professor Johnathan", 22000, "Sociology", "Dornsife College of Letters, Arts and Sciences"];
+fill table instructors with values [15, "Professor Suruchi", 89000, "Computer Science", "Viterbi School of Engineering"];
+fill table instructors with values [16, "Professor Rahila", 22000, "Urban Planning", "Sol Price School of Public Policy"];
+```
+
+- Show all the entries in "students" table
+```
+find all from students;
+```
+
+- Show all entries in "instructors" table
+```
+find all from instructors;
+```
+
+- Show student name, numberOfCourses they are taking, their school from students table
+```
+find ["name", "numberOfCourses", "school"] from students;
+find ["name", "numberOfCourses"] from students provided school = "Viterbi School of Engineering";
+```
+
+- Show instructors name, their monthlyIncome, their school from students table
+```
+find ["name", "monthlyIncome", "school"] from instructors;
+find ["name", "monthlyIncome"] from instructors provided department = "Computer Science";
+```
+
+- Order by 
+```
+find all from students sorting name ASC;
+find all from students sorting name DESC; 
+```
+
+- Group By and aggregation
+```
+find ["SUM(numberOfCourses)"] from students cluster by school;
+find ["MAX(numberOfCourses)"] from students cluster by school sorting MAX(numberOfCourses) ASC;
+find ["SUM(monthlyIncome)"] from instructors cluster by school;
+find ["MIN(monthlyIncome)", "AVG(monthlyIncome)"] from instructors cluster by department sorting department ASC;
+```
+
+- Join
+```
+merge (find ["sid", "name", "department"] from students) as s with (find ["name"] from instructors) as t on s.department = t.department;
+merge (find ["name","department","numberOfCourses"] from students) as s with (find ["name","department","monthlyIncome","school"] from instructors) as t on s.school = t.school;
+```
+
+### NoSQL Operations:
+- List Tables
+```
+list tables; 
+```
+
+- Define table for "students"
+```
+define table students;
+```
+
+- Define table for "instructors"
+```
+define table instructors;
+```
+
+- List Tables
+```
+list tables; 
+```
+
+- Entries for the "students" table
+```
+fill table students with values {"sid":1, "name":"John Smith", "numberOfCourses":3, "department":"Computer Science", "school":"Viterbi School of Engineering"};
+fill table students with values {"sid":2, "name":"Emily Johnson", "numberOfCourses":2, "department":"Electrical Engineering", "school":"Viterbi School of Engineering"};
+fill table students with values {"sid":3, "name":"Michael Davis", "numberOfCourses":2, "department":"Mechanical Engineering", "school":"Viterbi School of Engineering"};
+fill table students with values {"sid":4, "name":"Sophia Miller", "numberOfCourses":5, "department":"Modern World Arts and Design", "school":"Roski School of Art and Design"};
+fill table students with values {"sid":5, "name":"Daniel White", "numberOfCourses":5, "department":"Urban Planning", "school":"Sol Price School of Public Policy"};
+fill table students with values {"sid":6, "name":"Olivia Brown", "numberOfCourses":4, "department":"Elements of Music", "school":"Thornton School of Music"};
+fill table students with values {"sid":7, "name":"Ethan Wilson", "numberOfCourses":7, "department":"Biomedical Engineering", "school":"Keck School of Medicine"};
+fill table students with values {"sid":8, "name":"Ava Martinez", "numberOfCourses":3, "department":"Sociology", "school":"Dornsife College of Letters, Arts and Sciences"};
+fill table students with values {"sid":9, "name":"Matthew Lee", "numberOfCourses":1, "department":"Business Analytics", "school":"Marshall School of Business"};
+fill table students with values {"sid":10, "name":"Emma Taylor", "numberOfCourses":5, "department":"Environmental Engineering", "school":"Viterbi School of Engineering"};
+```
+
+- Entries for the "instructors" table
+```
+fill table instructors with values {"iid":1, "name":"Professor Anderson", "monthlyIncome":43000,"department":"Computer Science", "school":"Viterbi School of Engineering"};
+fill table instructors with values {"iid":2, "name":"Professor Rodriguez", "monthlyIncome":43000, "department":"Electrical Engineering", "school":"Viterbi School of Engineering"};
+fill table instrufctors with values {"iid":3, "name":"Professor Turner", "monthlyIncome":41000,"department": "Mechanical Engineering", "school":"Viterbi School of Engineering"};
+fill table instructors with values {"iid":4, "name":"Professor Carter", "monthlyIncome":23000, "department":"Chemical Engineering", "school":"Viterbi School of Engineering"};
+fill table instructors with values {"iid":5, "name":"Professor Bennett", "monthlyIncome":53000, "department":"Civil Engineering", "school":"Viterbi School of Engineering"};
+fill table instructors with values {"iid":6, "name":"Professor Davis", "monthlyIncome":25000, "department":"Biomedical Engineering", "school":"Keck School of Medicine"};
+fill table instructors with values {"iid":7, "name":"Professor Smith", "monthlyIncome":10000, "department":"Computer Science", "school":"Viterbi School of Engineering"};
+fill table instructors with values {"iid":8, "name":"Professor Johnson", "monthlyIncome":25000, "department":"Business Analytics", "school":"Marshall School of Business"};
+fill table instructors with values {"iid":9, "name":"Professor White","monthlyIncome":25000, "department":"Industrial and Systems Engineering", "school":"Viterbi School of Engineering"};
+fill table instructors with values {"iid":10, "name":"Professor Miller","monthlyIncome":25000, "department":"Environmental Studies", "school":"Viterbi School of Engineering"};
+fill table instructors with values {"iid":11, "name":"Professor Sarah", "monthlyIncome":45000, "department":"Elements of Music", "school":"Thornton School of Music"};
+fill table instructors with values {"iid":12, "name":"Professor Taylor", "monthlyIncome":85000, "department":"Business Analytics", "school":"Marshall School of Business"};
+fill table instructors with values {"iid":13, "name":"Professor Andrew", "monthlyIncome":55000, "department":"Psychology","school": "Dornsife College of Letters, Arts and Sciences"};
+fill table instructors with values {"iid":14, "name":"Professor Johnathan", "monthlyIncome":22000,"department": "Sociology", "school":"Dornsife College of Letters, Arts and Sciences"};
+fill table instructors with values {"iid":15, "name":"Professor Suruchi", "monthlyIncome":89000, "department":"Computer Science", "school":"Viterbi School of Engineering"};
+fill table instructors with values {"iid":16, "name":"Professor Rahila", "monthlyIncome":22000, "department":"Urban Planning","school": "Sol Price School of Public Policy"};
+```
+
+- Show all the entries in "students" table
+```
+find all from students;
+```
+
+- Show all entries in "instructors" table
+```
+find all from instructors;
+```
+
+- Show student name, numberOfCourses they are taking, their school from students table
+```
+find ["name", "numberOfCourses", "school"] from students;
+find ["name", "numberOfCourses"] from students provided school = "Viterbi School of Engineering";
+```
+- Show instructors name, their monthlyIncome, their school from students table
+```
+find ["name", "monthlyIncome", "school"] from instructors;
+find ["name", "monthlyIncome"] from instructors provided department = "Computer Science";
+```
+
+- Order by 
+```
+find all from students sorting name ASC;
+find all from students sorting name DESC; 
+```
+
+- Group By and aggregation
+```
+find ["SUM(numberOfCourses)"] from students cluster by school;
+find ["MAX(numberOfCourses)"] from students cluster by school sorting MAX(numberOfCourses) ASC;
+find ["SUM(monthlyIncome)"] from instructors cluster by school;
+find ["MIN(monthlyIncome)", "AVG(monthlyIncome)"] from instructors cluster by department sorting department ASC;
+```
+
+- Join
+```
+merge (find ["sid", "name", "department"] from students) with (find ["name", "department"] from instructors) on department = department;
+merge (find ["name","department","numberOfCourses", "school"] from students) with (find ["name","department","monthlyIncome","school"] from instructors) on school = school;
+```
+
 ## SQL Commands
 Please make sure to have the resources folder downloaded before running the following commands: 
 
 #### Define Table Operation
-- Define Table standings:
+- Define Table standings: (Use this table since this has 639 entries with 16 columns)
   ```
   define table standings with [["idx","integer","primaryKey"],["team", "string"], ["team_name", "string"], ["year", "integer"],["wins", "integer"],["loss", "integer"],["points_for", "integer"],["points_against", "integer"],["points_differential", "integer"],["margin_of_victory", "float"],["strength_of_schedule", "float"],["simple_rating", "float"],["offensive_ranking", "float"],["defensive_ranking", "float"], ["playoffs", "string"],["sb_winner", "string"]];
   ```
-- Define Table attendance:
+- Define Table attendance: (Contains 10000+ entries with 8 columns): If you are using this table, kindly wait for some time, depending on the OS, the IO operations would take longer
   ```
   define table attendance with [["idx","integer","primaryKey"], ["team", "string"], ["team_name", "string"], ["year", "integer"], ["total", "string"], ["home", "string"], ["away", "string"], ["week", "string"], ["weekly_attendance", "string"]];
   ```
-- Define Table games:
+- Define Table games: (Contains 5000+ entries with 20+ columns): If you are using this table, kindly wait for some time, depending on the OS, the IO operations would take longer
   ```
   define table games with [["idx", "integer","primaryKey"], ["year","integer"], ["week","string"], ["home_team","string"],["away_team","string"], ["winner","string"], ["tie","string"], ["day","string"], ["date","string"], ["time", "string"], ["pts_win","integer"],["pts_loss","integer"], ["yds_win","integer"], ["turnover_win","integer"], ["yds_loss","integer"], ["turnover_loss","integer"], ["home_team_name","string"],["home_team_city","string"], ["away_team_name","string"], ["away_team_city","string"]];
   ```
-- Define Table spotify_songs; 
+- Define Table spotify_songs; (Contains 30000+ entries with 24+ columns): If you are using this table, kindly wait for some time, depending on the OS, the IO operations would take longer
   ```
   define table spotify_songs with [["id","integer","primaryKey"],["track_id","string"],["track_name","string"], ["track_artist","string"], ["track_popularity","double"], ["track_album_id","string"],["track_album_name","string"], ["track_album_release_date","string"],["playlist_name","string"], ["playlist_id","string"],["playlist_genre","string"],["playlist_subgenre","string"],["danceability","double"],["energy","double"],["key","double"],["loudness","double"],["mode","integer"],["speechiness","double"],["accousticness","double"],["instrumentalness","double"],["liveness","double"],["valence","double"],["tempo","double"],["duration_ms","double"]];
   ```
@@ -113,6 +308,7 @@ Please make sure to have the resources folder downloaded before running the foll
   
 - Search for particular entries in the database using "provided" (where) clause:
   ```
+  find all from standings provided idx >= 30;
   find all from games provided idx > 300;
   find all from attendance provided team_name = "Vikings";
   find all from spotify_songs provided track_artist = "Ed Sheeran";
@@ -123,13 +319,13 @@ Please make sure to have the resources folder downloaded before running the foll
   find ["team", "team_name", "wins", "year"] from standings provided sb_winner = "Won Superbowl";
   find ["home_team", "tie", "pts_win", "pts_loss"] from games provided day = "Sat";
   find ["track_id", "track_name", "danceability"] from spotify_songs provided track_artist = "Ed Sheeran";
+  find ["team", "wins", "loss"] from standings provided team = "India";
   ```
 
 #### Fill Operation
 - Fill (insert) data into the tables
   ```
   fill table standings with values [5000, "India", "CSK", 2022, 56, 12, 31, 52, 12, 6.3, 5.2, 5.9, 5.1, 7.3, 8.1, "MII"];
-  find ["team", "wins", "loss"] from standings provided team = "India";
   ```
 
 #### Edit Operation
@@ -141,7 +337,7 @@ Please make sure to have the resources folder downloaded before running the foll
 #### Remove Operation
 - remove (delete) existing entry in the table
   ```
-  remove from table standings provided idx = 5000
+  remove from table standings provided idx = 5000;
   ```
 
 #### Cluster On and aggregation Operation 

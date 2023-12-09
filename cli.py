@@ -27,18 +27,18 @@ sql_workspace = os.path.join(os.getcwd(), "sql_workspace")
 
 # Brief usage and explanation of commands (for help command) in Relational SQL.
 sql_actions = {
-    "load": ["load data in <table_name> with <path> generate PrimaryKeyValues provided headers", 
+    "load": ["load data in <table_name> with <path> generate PrimaryKeyValues provided headers;", 
              "\t- <table_name> is the table name you want to load data in", 
              "\t- <path> is the absolute path to the csv file you wish to load",
              "\t- 'generate PrimaryKeyValues' add this if you wish to append row number at start of each entry",
              "\t- 'provided headers' enter this if the .csv file contains headers as the first row"],
     
-    "list": ["list tables / list table <table_name>",
+    "list": ["list tables; / list table <table_name>",
              "\t- list tables: list all tables present in the database",
              "\t- list table <table_name>: will list all columns of the table, and give thier types and if it is primary key"
             ],
     
-    "define": ["define table <table_name> with [[<column_name>, <column_type>, <primary_key>], ...]",
+    "define": ["define table <table_name> with [[<column_name>, <column_type>, <primary_key>], ...];",
              "\t- <table_name> is the table name you want create",
              "\t- <column_name> is the name of a column in table",
              "\t- <column_type> is the type of a entries the column will have (integer, string, float or double)",
@@ -46,12 +46,12 @@ sql_actions = {
              "\t- repeat [<column_name>, <column_type>, <primary_key>] to define more tables"
              ],
     
-    "fill": ["fill table <table_name> with values [<val_1>, <val_2>, ...]",
+    "fill": ["fill table <table_name> with values [<val_1>, <val_2>, ...];",
              "\t- <table_name> is the table name you want create",
-             "\t- <val_x> are the values to be inserted in table, if string wrap value with ''\n\t these values are needed to be in same order as defined while creating table"
+             "\t- <val_x> are the values to be inserted in table, if string wrap value with \"\" \n\t these values are needed to be in same order as defined while creating table"
             ],
     
-    "edit": ["edit table <table_name> with values <set_column_name> = <set_attribute_value>, ... provided <search_col> <operator> <search_val>",
+    "edit": ["edit table <table_name> with values <set_column_name> = <set_attribute_value>, ... provided <search_col> <operator> <search_val>;",
              "\t- <table_name> is the table name you want edit the entries of",
              "\t- <set_column_name> column name of which the entries you want edit",
              "\t- <set_column_value> value of the given <set column name>",
@@ -60,14 +60,14 @@ sql_actions = {
              "\t- <search_value> value the search column needs to compare with\n\n\t you can update many columns at once using ',' sepearator.\n\t provided section is optional"
             ],
     
-    "remove": ["remove from table <table_name> provided <search_col> <operator> <search_val>",
+    "remove": ["remove from table <table_name> provided <search_col> <operator> <search_val>;",
              "\t- <table_name> is the table name you want remove the entries of",
              "\t- <search_col> remove the entries in table if some conditions are true for this column",
              "\t- <operator> condition on the search_col",
              "\t- <search_value> value the search column needs to compare with\n\n\t provided section is optional"
             ],
     
-    "find": ["find all from <table_name> provided <search_col> <operator> <search_val> sorting <sort_col> <sort_order>",
+    "find": ["find all from <table_name> provided <search_col> <operator> <search_val> sorting <sort_col> <sort_order>;",
              "find [<projected_col>, <projected_col>, ...] from <table_name> provided <search_col> <operator> <search_val> sorting <sort_col> <sort_order>",
              "find [<aggregation_type>(<col_name>), ...] from <table_name> provided <search_col> <operator> <search_val> sorting <sort_col> <sort_order> cluster on <cluster_col>",
              "\t- <table_name> is the table you wish to query the entries from",
@@ -81,7 +81,7 @@ sql_actions = {
              "\t- <cluster_col> column name you want to cluster your results with\n\t provided, sorting, cluster on clauses are optional"
             ],
     
-    "merge" : ["merge (<find_clause>) as <identifier> with (<find_clause>) as <identifier> on <identifier>.<col_name> <operator> <identifier>.<col_name> sorting <sort_col> <sort_order>",
+    "merge" : ["merge (<find_clause>) as <identifier> with (<find_clause>) as <identifier> on <identifier>.<col_name> <operator> <identifier>.<col_name> sorting <sort_col> <sort_order>;",
                "\t- <find_clause> see find for detailed explaination\n\t find [<projected_col>, <projected_col>, ...] from <table_name> provided <search_col> <operator> <search_val> sorting <sort_col> <sort_order>",
                "\t- <identifier> name give to output returned from <find_clause>",
                "\t- <identifier>.<col_name> column name from <identifier> table you wish to perform merge on"
@@ -92,21 +92,21 @@ sql_actions = {
 
 # Brief usage and explanation of commands (for help command) in NoSQL.
 no_sql_actions = {
-    "load": ["load data <json_file>",
+    "load": ["load data <json_file>;",
              "\t- <json_file> absolute path to json file, will generate table with file name and load all data"],
     
-    "list": ["list tables",
+    "list": ["list tables;",
              "\t- will list all tables present in the database"],
     
-    "define": ["define table <table_name>",
+    "define": ["define table <table_name>;",
              "\t- creates a table with the name <table_name> with empty entries"],
     
-    "fill": ["fill table <table_name> with values {<dictionary>}",
+    "fill": ["fill table <table_name> with values {<dictionary>};",
              "\t- <table_name> is the table you want to insert the entry in",
              "\t- <dictionary> is the value in json format (kay, value) to be inserted in the table"
              ],
     
-    "edit": ["edit table <table_name> with values <set_key> = <set_val> provided <serach_key> = <search_val>",
+    "edit": ["edit table <table_name> with values <set_key> = <set_val> provided <serach_key> = <search_val>;",
              "\t- <table_name> is the table you want to update the entries of",
              "\t- <set_key> name of the key in table you want to update",
              "\t- <set_value> value of the key after edit operation is done",
@@ -114,13 +114,13 @@ no_sql_actions = {
              "\t- <search_val> value the search key needs to be equal with"
              ],
     
-    "remove": ["remove from table <table_name> provided <serach_key> = <search_val>",
+    "remove": ["remove from table <table_name> provided <serach_key> = <search_val>;",
              "\t- <table_name> is the table you want to remove the entries from",
              "\t- <serach_key> remove the entries in table if some conditions are true for this key",
              "\t- <search_val> value the search key needs to be equal with"
              ],
     
-    "find": ["find all from <table_name> provided <serach_key> <operator> <search_val> sorting <sorting_key> <sorting_order>",
+    "find": ["find all from <table_name> provided <serach_key> <operator> <search_val> sorting <sorting_key> <sorting_order>;",
              "find [projected_keys] from <table_name> provided <serach_key> <operator> <search_val> sorting <sorting_key> <sorting_order>"
              "find [<aggregation_type>(key)] from <table_name> provided <serach_key> <operator> <search_val> sorting <sorting_key> <sorting_order> cluster on <cluster_key>"
              "\t- <table_name> is the table you wish to query the entries from",
@@ -134,7 +134,7 @@ no_sql_actions = {
              "\t- <cluster_key> key name you want to cluster your results with\n\t provided, sorting, cluster on clauses are optional"
              ],
     
-    "merge": ["merge (<find_clause>) with (<find_clause>) on <keyA> = <keyB> sorting <sorting_key> <sorting_order>",
+    "merge": ["merge (<find_clause>) with (<find_clause>) on <keyA> = <keyB> sorting <sorting_key> <sorting_order>;",
               "\t- <find_clause> see find for detailed explaination\n\t find [projected_keys] from <table_name> provided <serach_key> <operator> <search_val> sorting <sorting_key> <sorting_order>",
               "\t- <keyA> = <keyB> key A from first table and key B from second table you wish to perform merge on",
               "\t- <sorting_key> key you wish to finally perform sorting on",
