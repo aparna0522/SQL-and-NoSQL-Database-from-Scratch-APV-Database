@@ -91,7 +91,7 @@ define table instructors with [["iid", "integer", "primaryKey"], ["name","string
 ```
 list tables; 
 ```
-- Describe tables;
+- Describe tables
 ```
 list table students;
 ```
