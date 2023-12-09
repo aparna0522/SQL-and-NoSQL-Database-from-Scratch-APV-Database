@@ -175,7 +175,7 @@ Please make sure to have the resources folder downloaded before running the foll
 ## NoSQL Commands 
 
 #### Insert Bulk CSV
-- Load all the data from the CSVs to the table:
+- Load all the data from the JSONs to the table:
   ```
   load data resources/NoSQL/country-by-continent.json;
   load data resources/NoSQL/country-by-abbreviation.json;
