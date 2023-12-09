@@ -21,7 +21,7 @@ def open_load_json(file_name):
     directory = os.path.join(os.getcwd(), "nosql_workspace", "Data", (file_name.split("/")[-1].split("\\")[-1] + "_DB"))
     # Load the JSON file.
     if isinstance(json_file, str):
-        with open(json_file, encoding='utf-8') as f:
+        with open(json_file, encoding='ISO-8859-1') as f:
             data = json.load(f)
     else:
         data = json_file
@@ -87,7 +87,7 @@ def get_column_names(directory):
 # Function to hash the key and return index.
 def hash_function(key, array_size):
     if isinstance(key, str):
-        # A basic hash function using the sum of ASCII values of characters in the key.
+        # A basic hash function using the sum of ISO-8859-1 values of characters in the key.
         hash_value = sum(ord(char) for char in str(key))
     elif isinstance(key, int):
         hash_value = key
@@ -334,22 +334,22 @@ def pages_for_search(i_ea, ea, new_temp, del_temp, cnk_size=temp_page_cnk_size):
             dtv = "integer"
         #meta_list.append("{0}{1}{2}{1}{3}\n".format(i, chr(170), col, dtv))
         meta_list.append(str(i) + chr(170) + str(col) + chr(170) + dtv + "\n")
-    with open(os.path.join(tempi_path, "meta.txt"), "w") as mfw:
+    with open(os.path.join(tempi_path, "meta.txt"), "w", encoding='ISO-8859-1') as mfw:
         mfw.writelines(meta_list)
 
     file_index = i_ea//cnk_size
-    with open(os.path.join(tempi_path, "pages_{}.txt".format(file_index)), "a+") as pfile:
+    with open(os.path.join(tempi_path, "pages_{}.txt".format(file_index)), "a+", encoding='ISO-8859-1') as pfile:
         pfile.write(chr(170).join(map(str, ea.values())) + "\n")
     return tempi_path
 ################################################################################
 # Function to format search pages files into desirable syntax.
 def include_brackets_to_pages(tempi_path):
     for page_file in [pf for pf in os.listdir(tempi_path) if os.path.isfile(os.path.join(tempi_path, pf)) and pf.split(".")[0] != "meta"]:
-        with open(os.path.join(tempi_path, page_file), "r") as pfr:
+        with open(os.path.join(tempi_path, page_file), "r", encoding='ISO-8859-1') as pfr:
             lines = pfr.readlines()
         for li, line in enumerate(lines):
             lines[li] = "{" + line.strip() + "}\n"
-        with open(os.path.join(tempi_path, page_file), "w") as pfw:
+        with open(os.path.join(tempi_path, page_file), "w", encoding='ISO-8859-1') as pfw:
            pfw.writelines(lines)
 ################################################################################
 # Function to search in DB.
@@ -504,12 +504,12 @@ def projection_from_db(table_name, projection_cols, search_col, operator, search
         #print("\nEmpty set.\n")
         return None
     if isinstance(projection_cols, str):    # ALL columns.
-        with open(os.path.join(tempi_path, "meta.txt"), "r") as mfr:
+        with open(os.path.join(tempi_path, "meta.txt"), "r", encoding='ISO-8859-1') as mfr:
              mlines = mfr.readlines()
         headers = [ml.split(chr(170))[1] for ml in mlines]
 
         for page_file in [pf for pf in os.listdir(tempi_path) if os.path.isfile(os.path.join(tempi_path, pf)) and pf.split(".")[0] != "meta"]:
-            with open(os.path.join(tempi_path, page_file)) as pfr:
+            with open(os.path.join(tempi_path, page_file), encoding='ISO-8859-1') as pfr:
                 pflines = pfr.readlines()          
             for line in pflines:
                 ea = {}
@@ -523,7 +523,7 @@ def projection_from_db(table_name, projection_cols, search_col, operator, search
     elif isinstance(projection_cols, list): # List of column or columns.
         mtemp = []
         pindex = []
-        with open(os.path.join(tempi_path, "meta.txt"), "r") as mfr:
+        with open(os.path.join(tempi_path, "meta.txt"), "r", encoding='ISO-8859-1') as mfr:
              mlines = mfr.readlines()
         headers = [ml.split(chr(170))[1] for ml in mlines]
         for pc in projection_cols:
@@ -531,11 +531,11 @@ def projection_from_db(table_name, projection_cols, search_col, operator, search
                 if pc == header:
                     mtemp.append(mlines[li])
                     pindex.append(li)
-        with open(os.path.join(tempi_path, "meta.txt"), "w") as mfw:
+        with open(os.path.join(tempi_path, "meta.txt"), "w", encoding='ISO-8859-1') as mfw:
            mfw.writelines(mtemp)
 
         for page_file in [pf for pf in os.listdir(tempi_path) if os.path.isfile(os.path.join(tempi_path, pf)) and pf.split(".")[0] != "meta"]:
-            with open(os.path.join(tempi_path, page_file)) as pfr:
+            with open(os.path.join(tempi_path, page_file), encoding='ISO-8859-1') as pfr:
                 pflines = pfr.readlines()          
             for line in pflines:
                 ea = {}
@@ -570,7 +570,7 @@ def order_by(table_name, projection_cols, search_col, operator, search_val, orde
                 os.system('./PageManager.o "order" "{}" "{}" "DESC" "{}"'.format("nosql_workspace/temp/"+tempi_folder, order_by_col, temp_page_cnk_size))
             #print("\n========== Descending Order-by Result ==========\n")
 
-    with open(os.path.join(tempi_path, "meta.txt"), "r") as mfr:
+    with open(os.path.join(tempi_path, "meta.txt"), "r", encoding='ISO-8859-1') as mfr:
         mlines = mfr.readlines()
     headers = [ml.split(chr(170))[1] for ml in mlines]
     pindex = [int(ml.split(chr(170))[0]) for ml in mlines]
@@ -578,7 +578,7 @@ def order_by(table_name, projection_cols, search_col, operator, search_val, orde
     if oprint == 1:
         print("")
         for page_file_num in sorted([int(pf.split(".")[0].split("_")[-1]) for pf in os.listdir(tempi_path) if os.path.isfile(os.path.join(tempi_path, pf)) and pf.split(".")[0] != "meta"]):
-            with open(os.path.join(tempi_path, "pages_{}.txt".format(page_file_num))) as pfr:
+            with open(os.path.join(tempi_path, "pages_{}.txt".format(page_file_num)), encoding='ISO-8859-1') as pfr:
                 pflines = pfr.readlines()          
             for line in pflines:
                 ea = {}
@@ -624,7 +624,7 @@ def join_a_b(a_params, b_params, sort_after_join_col, sort_after_join=0, desc=0,
     #shutil.rmtree(a_tempi_path)
     #shutil.rmtree(b_tempi_path)
 
-    with open(os.path.join(o_tempi_path, "meta.txt"), "r") as mfr:
+    with open(os.path.join(o_tempi_path, "meta.txt"), "r", encoding='ISO-8859-1') as mfr:
         mlines = mfr.readlines()
     headers = [ml.split(chr(170))[1] for ml in mlines]
     pindex = [int(ml.split(chr(170))[0]) for ml in mlines]
@@ -649,7 +649,7 @@ def join_a_b(a_params, b_params, sort_after_join_col, sort_after_join=0, desc=0,
         pass
 
     for page_file_num in sorted([int(pf.split(".")[0].split("_")[-1]) for pf in os.listdir(o_tempi_path) if os.path.isfile(os.path.join(o_tempi_path, pf)) and pf.split(".")[0] != "meta"]):
-        with open(os.path.join(o_tempi_path, "pages_{}.txt".format(page_file_num))) as pfr:
+        with open(os.path.join(o_tempi_path, "pages_{}.txt".format(page_file_num)), encoding='ISO-8859-1') as pfr:
             pflines = pfr.readlines()
         for line in pflines:
             ea = {}
@@ -675,7 +675,7 @@ def group_by(table_name, projection_cols, search_col, operator, search_val, sort
         os.system('./PageManager.o "grp_agg" "{}" "{}" "{}" "{}"'.format("nosql_workspace/temp/"+tempi_folder, grby_col, '" "'.join(agg_present_list), temp_page_cnk_size))
 
 
-    with open(os.path.join(tempi_path, "meta.txt"), "r") as mfr:
+    with open(os.path.join(tempi_path, "meta.txt"), "r", encoding='ISO-8859-1') as mfr:
         mlines = mfr.readlines()
     headers = [ml.split(chr(170))[1] for ml in mlines]
     pindex = [int(ml.split(chr(170))[0]) for ml in mlines]
@@ -701,7 +701,7 @@ def group_by(table_name, projection_cols, search_col, operator, search_val, sort
         pass
 
     for page_file_num in sorted([int(pf.split(".")[0].split("_")[-1]) for pf in os.listdir(tempi_path) if os.path.isfile(os.path.join(tempi_path, pf)) and pf.split(".")[0] != "meta"]):
-        with open(os.path.join(tempi_path, "pages_{}.txt".format(page_file_num))) as pfr:
+        with open(os.path.join(tempi_path, "pages_{}.txt".format(page_file_num)), encoding='ISO-8859-1') as pfr:
             pflines = pfr.readlines()
         for line in pflines:
             ea = {}
