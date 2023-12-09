@@ -139,6 +139,26 @@ find all from students;
 find all from instructors;
 ```
 
+- Load data in students tables 
+```
+load data in students with "../resources/SQL/students.csv" generate primaryKeyValues provided headers;
+```
+
+- Load data in instructors tables 
+```
+load data in instructors with "../resources/SQL/instructors.csv" generate primaryKeyValues provided headers;
+```
+
+- Remove entries from students 
+```
+remove from table students provided sid >= 11;
+```
+
+- Remove entries from instructors
+```
+remove from table instructors provided iid >= 17;
+```
+
 - Show student name, numberOfCourses they are taking, their school from students table
 ```
 find ["name", "numberOfCourses", "school"] from students;
@@ -241,6 +261,27 @@ find all from instructors;
 find ["name", "numberOfCourses", "school"] from students;
 find ["name", "numberOfCourses"] from students provided school = "Viterbi School of Engineering";
 ```
+
+- Load data in students tables 
+```
+load data in students with "../resources/NoSQL/students.csv" generate primaryKeyValues provided headers;
+```
+
+- Load data in instructors tables 
+```
+load data in instructors with "../resources/NoSQL/instructors.csv" generate primaryKeyValues provided headers;
+```
+
+- Remove entries from students 
+```
+remove from table students provided sid >= 11;
+```
+
+- Remove entries from instructors
+```
+remove from table instructors provided iid >= 17;
+```
+
 - Show instructors name, their monthlyIncome, their school from students table
 ```
 find ["name", "monthlyIncome", "school"] from instructors;
