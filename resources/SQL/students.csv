@@ -1,7 +1,11 @@
-Sid,Name,Address
-33,Olivia,"898 Pine Street, City30"
-34,Ethan,"010 Cedar Avenue, City31"
-35,Sophia,"121 Elm Lane, City32"
-36,Jackson,"232 Maple Street, City33"
-37,Isabella,"343 Birch Avenue, City34"
-38,Liam,"454 Cedar Lane, City35"
+﻿sid,name,numberOfCourses,department,school
+11,John Doe,4,Computer Science,Engineering School
+12,Jane Smith,3,Electrical Engineering,Engineering School
+13,Alice Johnson,5,Mathematics,Science School
+14,Bob Williams,2,Physics,Science School
+15,Emily Brown,4,Chemistry,Science School
+16,Michael Davis,3,History,Arts and Humanities School
+17,Susan Miller,4,Business Administration,Business School
+18,David Taylor,3,Psychology,Social Sciences School
+19,Laura White,2,English,Arts and Humanities School
+20,Mark Wilson,5,Environmental Science,Science School

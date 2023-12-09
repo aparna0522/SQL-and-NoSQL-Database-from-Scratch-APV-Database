@@ -141,7 +141,7 @@ find all from instructors;
 
 - Load data in students tables 
 ```
-load data in students with "../resources/SQL/students.csv" generate primaryKeyValues provided headers;
+load data in students with "../resources/SQL/students.csv" provided headers;
 ```
 
 - Load data in instructors tables 
