@@ -453,7 +453,7 @@ Please make sure to have the resources folder downloaded before running the foll
   ```
 
 #### Remove Operation
-- remove (delete) existing entry in the table
+- remove (delete) an existing entry in the table
   ```
   remove from table country-by-abbreviation provided id in [246, 247];
   remove from table country-by-abbreviation provided id = 248;
@@ -488,15 +488,15 @@ Please make sure to have the resources folder downloaded before running the foll
 ## Future Scope: 
 #### SQL:
 1. Use pointers in BTree representation, to include NULL values.
-2. Implement functionality for the where clauses such as: IN, LIKE, AND, OR, Nested Queries.
-3. Use Hash Partitioning or Sort-Merge Join algorithm for Joining two or more tables.
+2. Implement functionality for the where clauses such as: IN, LIKE, AND, OR, and Nested Queries.
+3. Use the Hash Partitioning or Sort-Merge Join algorithm for Joining two or more tables.
 
 #### NoSQL:
 1. Implement resizing of the hash when entries are deleted.
-2. Implement functionalities for the where clauses such as: LIKE, AND, OR, Range Queries(<,>,<=,>=) and Nested Queries.
+2. Implement functionalities for the where clauses such as LIKE, AND, OR, Range Queries(<,>,<=,>=) and Nested Queries.
 3. Prettify the JSON Output that is printed on the terminal.
 
 #### CLI:
-1. Add auto-complete functionality on hitting tab on the Keyboard.
-2. Enable nested queries execution.
+1. Add auto-complete functionality on hitting the tab on the Keyboard.
+2. Enable nested query execution.
 3. Create "Views" and save the intermediate table result.
