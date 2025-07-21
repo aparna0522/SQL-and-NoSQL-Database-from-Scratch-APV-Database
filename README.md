@@ -490,6 +490,8 @@ Please make sure to have the resources folder downloaded before running the foll
 1. Use pointers in BTree representation, to include NULL values.
 2. Implement functionality for the where clauses such as: IN, LIKE, AND, OR, and Nested Queries.
 3. Use the Hash Partitioning or Sort-Merge Join algorithm for Joining two or more tables.
+4. Chunk based processing using SIMD operations for all the operations.
+5. Using templates to reduce the code duplication - Refactoring. 
 
 #### NoSQL:
 1. Implement resizing of the hash when entries are deleted.
